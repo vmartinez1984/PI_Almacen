@@ -1,0 +1,61 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "028a95d0-4486-4551-9467-5723ff56df05": {
+      "ProjectGuid": "028a95d0-4486-4551-9467-5723ff56df05",
+      "DisplayName": "PruebaDeConcepto.Api",
+      "ColorIndex": 0
+    },
+    "61ef908a-6e24-44ef-a1f6-206ce862c6c0": {
+      "ProjectGuid": "61ef908a-6e24-44ef-a1f6-206ce862c6c0",
+      "DisplayName": "ConsoleApp1",
+      "ColorIndex": 1
+    },
+    "90a65de8-5353-4325-be2b-e8fdbd481ee5": {
+      "ProjectGuid": "90a65de8-5353-4325-be2b-e8fdbd481ee5",
+      "DisplayName": "ServicioDummy.Api",
+      "ColorIndex": 2
+    },
+    "5828a428-9270-4bc0-885b-88e489201ff0": {
+      "ProjectGuid": "5828a428-9270-4bc0-885b-88e489201ff0",
+      "DisplayName": "Dapper.Core",
+      "ColorIndex": 3
+    },
+    "b6db995f-8fbd-4570-bd1c-5f740b6b0f3f": {
+      "ProjectGuid": "b6db995f-8fbd-4570-bd1c-5f740b6b0f3f",
+      "DisplayName": "Dapper.WebApi",
+      "ColorIndex": 4
+    },
+    "7f3357d3-1038-4064-b7ba-8b67ca36f968": {
+      "ProjectGuid": "7f3357d3-1038-4064-b7ba-8b67ca36f968",
+      "DisplayName": "Dapper.Infrastructure",
+      "ColorIndex": 5
+    },
+    "b1de7a26-2790-41ff-ac94-3f09bd3f37ff": {
+      "ProjectGuid": "b1de7a26-2790-41ff-ac94-3f09bd3f37ff",
+      "DisplayName": "InyeccionDeDependenciaConDapper",
+      "ColorIndex": 6
+    },
+    "dab3a40f-b3f8-476e-8ad9-0323e1195f21": {
+      "ProjectGuid": "dab3a40f-b3f8-476e-8ad9-0323e1195f21",
+      "DisplayName": "ServicioDummy.Respository",
+      "ColorIndex": 7
+    },
+    "c7353f6b-6613-4980-995b-3c215e513725": {
+      "ProjectGuid": "c7353f6b-6613-4980-995b-3c215e513725",
+      "DisplayName": "WorkerService.Api",
+      "ColorIndex": 8
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    },
+    "a8b67590-d160-47b3-963a-6e801e8962af": {
+      "ProjectGuid": "a8b67590-d160-47b3-963a-6e801e8962af",
+      "DisplayName": "IHostedServiceDemo",
+      "ColorIndex": 9
+    }
+  },
+  "NextColorIndex": 10
+}

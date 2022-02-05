@@ -1,0 +1,54 @@
+13/01/2022 01:49:46 p. m.-> WriteToFileHostedService: Process Start
+13/01/2022 01:50:04 p. m.-> WriteToFileHostedService: Process Stoped
+13/01/2022 02:14:00 p. m.-> WriteToFileHostedService: Process Start
+13/01/2022 02:14:00 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:05 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:10 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:15 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:20 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:25 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:30 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:35 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:40 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:45 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:50 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:14:55 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:15:00 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 02:15:02 p. m.-> WriteToFileHostedService: Process Stoped
+13/01/2022 03:07:00 p. m.-> WriteToFileHostedService: Process Start
+13/01/2022 03:07:01 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:06 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:10 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:16 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:20 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:26 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:30 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:36 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:40 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:45 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:50 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:07:56 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:00 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:05 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:10 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:15 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:21 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:26 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:30 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:36 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:40 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:45 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:51 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:08:55 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:01 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:05 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:11 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:15 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:20 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:25 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:30 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:36 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:41 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:45 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:50 p. m.-> WriteToFileHostedService: Doing some work
+13/01/2022 03:09:55 p. m.-> WriteToFileHostedService: Doing some work

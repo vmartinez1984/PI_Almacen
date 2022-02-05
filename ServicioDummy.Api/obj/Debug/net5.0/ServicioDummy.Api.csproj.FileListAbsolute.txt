@@ -1,0 +1,7 @@
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.csproj.AssemblyReference.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.AssemblyInfoInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.AssemblyInfo.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.csproj.CoreCompileInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Api\obj\Debug\net5.0\ServicioDummy.Api.MvcApplicationPartsAssemblyInfo.cache

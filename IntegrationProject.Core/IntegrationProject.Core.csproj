@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\IRepositories\" />
+    <Folder Include="Dtos\Input\" />
+    <Folder Include="Dtos\Output\" />
+    <Folder Include="Mappers\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\HolaMundo.exe
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\HolaMundo.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\HolaMundo.deps.json
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\HolaMundo.runtimeconfig.json
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\HolaMundo.pdb
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\HolaMundo\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

@@ -1,0 +1,1 @@
+2022-01-10T18:40:01.3990573Z MSSqlServer sink configured value ConexionComunes is not found in ConnectionStrings settings and does not appear to be a raw connection string.

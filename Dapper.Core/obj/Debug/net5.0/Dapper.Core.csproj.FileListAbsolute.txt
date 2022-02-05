@@ -1,0 +1,12 @@
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\bin\Debug\net5.0\Dapper.Core.deps.json
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\bin\Debug\net5.0\Dapper.Core.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\bin\Debug\net5.0\ref\Dapper.Core.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\bin\Debug\net5.0\Dapper.Core.pdb
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.csproj.AssemblyReference.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.AssemblyInfoInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.AssemblyInfo.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.csproj.CoreCompileInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\ref\Dapper.Core.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.pdb
