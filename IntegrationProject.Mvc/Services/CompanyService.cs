@@ -28,10 +28,10 @@ namespace IntegrationProject.Mvc.Services
             List<CompanyDtoOut> list;
             List<Entities.CompanyEntity> entities;
 
-            entities = _unitOfWork.
-            list = _mapper.Map<List<CompanyDtoOut>>(entities);
+            //entities = _unitOfWork.
+            //list = _mapper.Map<List<CompanyDtoOut>>(entities);
 
-            return list;
+            return null;
         }
 
         public CompanyDtoOut Get(int id)

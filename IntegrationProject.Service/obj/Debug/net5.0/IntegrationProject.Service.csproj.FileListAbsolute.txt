@@ -1,0 +1,12 @@
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\bin\Debug\net5.0\IntegrationProject.Service.deps.json
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\bin\Debug\net5.0\IntegrationProject.Service.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\bin\Debug\net5.0\ref\IntegrationProject.Service.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\bin\Debug\net5.0\IntegrationProject.Service.pdb
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.csproj.AssemblyReference.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.AssemblyInfoInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.AssemblyInfo.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.csproj.CoreCompileInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\ref\IntegrationProject.Service.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.pdb

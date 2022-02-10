@@ -1,0 +1,15 @@
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\bin\Debug\net5.0\ServicioDummy.Respository.deps.json
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\bin\Debug\net5.0\ServicioDummy.Respository.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\bin\Debug\net5.0\ref\ServicioDummy.Respository.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\bin\Debug\net5.0\ServicioDummy.Respository.pdb
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\bin\Debug\net5.0\ServicioDummy.Core.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\bin\Debug\net5.0\ServicioDummy.Core.pdb
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.csproj.AssemblyReference.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.AssemblyInfoInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.AssemblyInfo.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.csproj.CoreCompileInputs.cache
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.csproj.CopyComplete
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ref\ServicioDummy.Respository.dll
+C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Respository\obj\Debug\net5.0\ServicioDummy.Respository.pdb

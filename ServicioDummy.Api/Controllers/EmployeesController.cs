@@ -9,29 +9,29 @@ namespace ServicioDummy.Api.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private IEmployeeRepository _employeeRepository;
+        //private IEmployeeRepository _employeeRepository;
 
-        public EmployeeController(IEmployeeRepository employeeRepository)
-        {
-            _employeeRepository = employeeRepository;
-        }
+        //public EmployeeController(IEmployeeRepository employeeRepository)
+        //{
+        //    _employeeRepository = employeeRepository;
+        //}
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            try
-            {
-                List<Employee> list;
+        //[HttpGet]
+        //public async Task<IActionResult> Get()
+        //{
+        //    try
+        //    {
+        //        List<Employee> list;
 
-                list = await _employeeRepository.Get();
+        //        list = await _employeeRepository.Get();
 
-                return Ok(list);
-            }
-            catch (System.Exception)
-            {
+        //        return Ok(list);
+        //    }
+        //    catch (System.Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
     }
 }

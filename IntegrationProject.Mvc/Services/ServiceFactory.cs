@@ -19,6 +19,6 @@ namespace IntegrationProject.Mvc.Services
         }
 
         public ICompanyService CompanyService =>
-            _companyService ?? (_companyService = new CompanyService(_mapper,_repositoryFactory));
+            _companyService ?? (_companyService = new CompanyService(_mapper,_unitOfWork));
     }
 }
