@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
+using System.Collections.Generic;
 
 namespace Activities.Models
 {
@@ -13,6 +14,7 @@ namespace Activities.Models
         [Required]
         [ForeignKey(nameof(UserEntity))]
         public int IdUser { get; set; }
+        public virtual UserEntity User { get; set; }
 
         [Required]
         [ForeignKey(nameof(RowStatusEntity))]
@@ -24,5 +26,7 @@ namespace Activities.Models
 
         [Display(Name = "Fecha de inicio")]
         public DateTime DateStart { get; set; }        
+
+        public virtual List<CommentEntity> ListComments { get; set; }
     }
 }

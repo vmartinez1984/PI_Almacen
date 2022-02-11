@@ -13,5 +13,6 @@ namespace Activities.Models
         [Required]
         [ForeignKey(nameof(RowEntity))]
         public int IdRow { get; set; }
+        public virtual RowEntity Row { get; set; }
     }
 }

@@ -75,9 +75,7 @@ namespace Activities.Models
                     IsActive = true
                 }
             );
-        }
-
-        public DbSet<Activities.Dtos.RowDto> RowDto { get; set; }
+        }        
 
     }//end class
 }

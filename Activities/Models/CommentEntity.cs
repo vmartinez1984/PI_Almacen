@@ -12,6 +12,7 @@ namespace Activities.Models
         [Required]
         [ForeignKey(nameof(UserEntity))]
         public int IdUser { get; set; }
+        public UserEntity User { get; set; }
 
         [Required]
         [StringLength(150)]

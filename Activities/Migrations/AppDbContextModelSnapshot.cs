@@ -19,56 +19,15 @@ namespace Activities.Migrations
                 .HasAnnotation("ProductVersion", "5.0.14")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Activities.Dtos.RowDto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateRegistration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStop")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RowDto");
-                });
-
-            modelBuilder.Entity("Activities.Dtos.UserDto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("RowDtoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RowDtoId");
-
-                    b.ToTable("UserDto");
-                });
-
             modelBuilder.Entity("Activities.Models.ActivityEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ActivityStatusId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("datetime2");
@@ -91,7 +50,14 @@ namespace Activities.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ActivityStatusId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Activity");
                 });
@@ -126,21 +92,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 651, DateTimeKind.Local).AddTicks(8194),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 901, DateTimeKind.Local).AddTicks(6962),
                             IsActive = true,
                             Name = "Por hacer"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 660, DateTimeKind.Local).AddTicks(6072),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 910, DateTimeKind.Local).AddTicks(2692),
                             IsActive = true,
                             Name = "Haciendo"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 660, DateTimeKind.Local).AddTicks(6130),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 910, DateTimeKind.Local).AddTicks(2747),
                             IsActive = true,
                             Name = "Hecho"
                         });
@@ -170,7 +136,17 @@ namespace Activities.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("RowEntityId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RowEntityId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comment");
                 });
@@ -203,11 +179,21 @@ namespace Activities.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("RowId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RowId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("File");
                 });
@@ -247,14 +233,14 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 662, DateTimeKind.Local).AddTicks(4708),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(4866),
                             IsActive = true,
                             Name = "Operador"
                         },
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 662, DateTimeKind.Local).AddTicks(4732),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(4892),
                             IsActive = true,
                             Name = "Administrador"
                         });
@@ -266,6 +252,9 @@ namespace Activities.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ActivityEntityId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("datetime2");
@@ -300,9 +289,16 @@ namespace Activities.Migrations
                     b.Property<int?>("RowStatusId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("ActivityEntityId");
+
                     b.HasIndex("RowStatusId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Row");
                 });
@@ -337,21 +333,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 662, DateTimeKind.Local).AddTicks(3204),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3286),
                             IsActive = true,
                             Name = "Listo"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 662, DateTimeKind.Local).AddTicks(3240),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3329),
                             IsActive = true,
                             Name = "En proceso"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 662, DateTimeKind.Local).AddTicks(3245),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3334),
                             IsActive = true,
                             Name = "Estancado"
                         });
@@ -410,7 +406,7 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 10, 17, 17, 49, 662, DateTimeKind.Local).AddTicks(7756),
+                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(8123),
                             IdRol = 1,
                             IsActive = true,
                             LastName = "",
@@ -449,11 +445,47 @@ namespace Activities.Migrations
                     b.ToTable("UsersInRow");
                 });
 
-            modelBuilder.Entity("Activities.Dtos.UserDto", b =>
+            modelBuilder.Entity("Activities.Models.ActivityEntity", b =>
                 {
-                    b.HasOne("Activities.Dtos.RowDto", null)
-                        .WithMany("ListUsers")
-                        .HasForeignKey("RowDtoId");
+                    b.HasOne("Activities.Models.ActivityStatusEntity", "ActivityStatus")
+                        .WithMany()
+                        .HasForeignKey("ActivityStatusId");
+
+                    b.HasOne("Activities.Models.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ActivityStatus");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Activities.Models.CommentEntity", b =>
+                {
+                    b.HasOne("Activities.Models.RowEntity", null)
+                        .WithMany("ListComments")
+                        .HasForeignKey("RowEntityId");
+
+                    b.HasOne("Activities.Models.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Activities.Models.FileEntity", b =>
+                {
+                    b.HasOne("Activities.Models.RowEntity", "Row")
+                        .WithMany()
+                        .HasForeignKey("RowId");
+
+                    b.HasOne("Activities.Models.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Row");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Activities.Models.RoleEntity", b =>
@@ -465,11 +497,21 @@ namespace Activities.Migrations
 
             modelBuilder.Entity("Activities.Models.RowEntity", b =>
                 {
+                    b.HasOne("Activities.Models.ActivityEntity", null)
+                        .WithMany("ListRows")
+                        .HasForeignKey("ActivityEntityId");
+
                     b.HasOne("Activities.Models.RowStatusEntity", "RowStatus")
                         .WithMany()
                         .HasForeignKey("RowStatusId");
 
+                    b.HasOne("Activities.Models.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("RowStatus");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Activities.Models.UsersInRowEntity", b =>
@@ -481,9 +523,14 @@ namespace Activities.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Activities.Dtos.RowDto", b =>
+            modelBuilder.Entity("Activities.Models.ActivityEntity", b =>
                 {
-                    b.Navigation("ListUsers");
+                    b.Navigation("ListRows");
+                });
+
+            modelBuilder.Entity("Activities.Models.RowEntity", b =>
+                {
+                    b.Navigation("ListComments");
                 });
 
             modelBuilder.Entity("Activities.Models.UserEntity", b =>
