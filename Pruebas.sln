@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationProject.Mvc2", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk", "HelpDesk\HelpDesk.csproj", "{17F47CE4-20BE-4012-A967-1AF242CF7471}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activities", "Activities\Activities.csproj", "{42C283B5-CED4-451D-A179-C0A17B239D08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,10 @@ Global
 		{17F47CE4-20BE-4012-A967-1AF242CF7471}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17F47CE4-20BE-4012-A967-1AF242CF7471}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17F47CE4-20BE-4012-A967-1AF242CF7471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C283B5-CED4-451D-A179-C0A17B239D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C283B5-CED4-451D-A179-C0A17B239D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C283B5-CED4-451D-A179-C0A17B239D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C283B5-CED4-451D-A179-C0A17B239D08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +165,7 @@ Global
 		{EE21357C-F122-436D-9411-B705AEDC55A2} = {6A000F9A-C36E-4F62-8415-4348063CEBFD}
 		{36737D45-89BD-4DE2-8205-B44ADDC24535} = {6A000F9A-C36E-4F62-8415-4348063CEBFD}
 		{17F47CE4-20BE-4012-A967-1AF242CF7471} = {6A000F9A-C36E-4F62-8415-4348063CEBFD}
+		{42C283B5-CED4-451D-A179-C0A17B239D08} = {6A000F9A-C36E-4F62-8415-4348063CEBFD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C29B81B-54D2-4737-9C0F-2F62CAB8C32B}

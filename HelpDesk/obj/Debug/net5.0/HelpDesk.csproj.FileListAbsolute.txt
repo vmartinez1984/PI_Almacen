@@ -444,3 +444,8 @@ C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Branchs\Details.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Branchs\Edit.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Branchs\Index.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Persons\Create.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Persons\Delete.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Persons\Details.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Persons\Edit.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Persons\Index.cshtml.g.cs

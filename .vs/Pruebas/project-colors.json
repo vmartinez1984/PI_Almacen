@@ -55,7 +55,62 @@
       "ProjectGuid": "a8b67590-d160-47b3-963a-6e801e8962af",
       "DisplayName": "IHostedServiceDemo",
       "ColorIndex": 9
+    },
+    "b60856cb-9d4f-485f-8fbd-7af21bf2c8ac": {
+      "ProjectGuid": "b60856cb-9d4f-485f-8fbd-7af21bf2c8ac",
+      "DisplayName": "VMtz.Repository",
+      "ColorIndex": 10
+    },
+    "3cddb7c0-eecd-4da3-b20e-4d66fb829aef": {
+      "ProjectGuid": "3cddb7c0-eecd-4da3-b20e-4d66fb829aef",
+      "DisplayName": "VMtz.Api",
+      "ColorIndex": 11
+    },
+    "e61de595-d8b1-485f-9581-907eb8446b31": {
+      "ProjectGuid": "e61de595-d8b1-485f-9581-907eb8446b31",
+      "DisplayName": "ServicioDummy.Core",
+      "ColorIndex": 12
+    },
+    "70a1e12d-5af9-41bc-9a1b-256c94984e83": {
+      "ProjectGuid": "70a1e12d-5af9-41bc-9a1b-256c94984e83",
+      "DisplayName": "HolaMundo",
+      "ColorIndex": 13
+    },
+    "522a70f0-e4ac-45d4-9e64-93554c4b3f71": {
+      "ProjectGuid": "522a70f0-e4ac-45d4-9e64-93554c4b3f71",
+      "DisplayName": "IntegrationProject.Repository",
+      "ColorIndex": 14
+    },
+    "9b041d26-835d-43f9-87d6-9d1261de00a2": {
+      "ProjectGuid": "9b041d26-835d-43f9-87d6-9d1261de00a2",
+      "DisplayName": "IntegrationProject.Service",
+      "ColorIndex": 15
+    },
+    "487412f9-4fb3-4c8a-93b3-19ac41fa42b9": {
+      "ProjectGuid": "487412f9-4fb3-4c8a-93b3-19ac41fa42b9",
+      "DisplayName": "IntegrationProject.Core",
+      "ColorIndex": 0
+    },
+    "ee21357c-f122-436d-9411-b705aedc55a2": {
+      "ProjectGuid": "ee21357c-f122-436d-9411-b705aedc55a2",
+      "DisplayName": "IntegrationProject.Mvc",
+      "ColorIndex": 1
+    },
+    "36737d45-89bd-4de2-8205-b44addc24535": {
+      "ProjectGuid": "36737d45-89bd-4de2-8205-b44addc24535",
+      "DisplayName": "IntegrationProject.Mvc2",
+      "ColorIndex": 2
+    },
+    "17f47ce4-20be-4012-a967-1af242cf7471": {
+      "ProjectGuid": "17f47ce4-20be-4012-a967-1af242cf7471",
+      "DisplayName": "HelpDesk",
+      "ColorIndex": 3
+    },
+    "42c283b5-ced4-451d-a179-c0a17b239d08": {
+      "ProjectGuid": "42c283b5-ced4-451d-a179-c0a17b239d08",
+      "DisplayName": "Activities",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 10
+  "NextColorIndex": 5
 }
