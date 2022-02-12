@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
@@ -13,13 +14,16 @@ namespace HelpDesk.Models
         [StringLength(12)]
         public string Password { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Phone()]
+        [NotMapped]
+        [StringLength(12)]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
         public string ConfirmPassword { get; set;}
 
-        [System.ComponentModel.DataAnnotations.Schema.ForeignKey(nameof(RoleEntity))]
-        public int IdRol { get; set; }
+        [ForeignKey(nameof(RoleEntity))]
+        public int RolId { get; set; }
 
-        public List<RoleEntity> Role { get; set; }
+        public virtual List<RoleEntity> Role { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }

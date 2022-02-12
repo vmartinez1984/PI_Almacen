@@ -21,8 +21,16 @@ namespace HelpDesk.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Product.Include(p => p.Category).Include(p => p.ProductStatus);
-            return View(await appDbContext.ToListAsync());
+            var list = await _context.Product
+                .Include(p => p.Category)
+                .Include(p => p.ProductStatus)
+                .ToListAsync();
+            list.ForEach(p =>
+            {
+                p.ProductStatus = _context.ProductStatus.FirstOrDefault(x=> x.Id == p.ProductStatusId);
+                p.Category = _context.Category.FirstOrDefault(x=> x.Id == p.CategoryId);
+            });
+            return View(list);
         }
 
         // GET: Products/Details/5

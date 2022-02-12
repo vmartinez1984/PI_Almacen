@@ -80,8 +80,7 @@ namespace HelpDesk.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
-                    ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IdRol = table.Column<int>(type: "int", nullable: false),
+                    RolId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -104,9 +103,8 @@ namespace HelpDesk.Migrations
                     Phone = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Note = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
-                    IdCompany = table.Column<int>(type: "int", nullable: false),
-                    CompanyId = table.Column<int>(type: "int", nullable: true),
-                    IdTypeBranch = table.Column<int>(type: "int", nullable: false),
+                    CompanyId = table.Column<int>(type: "int", nullable: false),
+                    BranchTypeId = table.Column<int>(type: "int", nullable: false),
                     TypeBranchId = table.Column<int>(type: "int", nullable: true),
                     DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -126,7 +124,7 @@ namespace HelpDesk.Migrations
                         column: x => x.CompanyId,
                         principalTable: "Company",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -195,8 +193,7 @@ namespace HelpDesk.Migrations
                     LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    IdBranch = table.Column<int>(type: "int", nullable: false),
-                    BranchId = table.Column<int>(type: "int", nullable: true),
+                    BranchId = table.Column<int>(type: "int", nullable: false),
                     DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -208,7 +205,7 @@ namespace HelpDesk.Migrations
                         column: x => x.BranchId,
                         principalTable: "Branch",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -252,8 +249,8 @@ namespace HelpDesk.Migrations
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(6982), null, true, "Matriz" },
-                    { 2, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(7002), null, true, "Sucursal" }
+                    { 1, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(1031), null, true, "Matriz" },
+                    { 2, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(1053), null, true, "Sucursal" }
                 });
 
             migrationBuilder.InsertData(
@@ -261,21 +258,26 @@ namespace HelpDesk.Migrations
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(5924), null, true, "Software" },
-                    { 2, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(5990), null, true, "Hardware" },
-                    { 3, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(5997), null, true, "Comunicación" }
+                    { 1, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(112), null, true, "Software" },
+                    { 2, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(146), null, true, "Hardware" },
+                    { 3, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(154), null, true, "Comunicación" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Company",
+                columns: new[] { "Id", "DateRegistration", "IsActive", "Name", "Note", "Street" },
+                values: new object[] { 1, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(7774), true, "Compañia A", "Prueba", "Domicilio conocido" });
 
             migrationBuilder.InsertData(
                 table: "ProductStatus",
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 2, 11, 16, 59, 35, 216, DateTimeKind.Local).AddTicks(4360), null, true, "Activo" },
-                    { 2, new DateTime(2022, 2, 11, 16, 59, 35, 224, DateTimeKind.Local).AddTicks(4281), null, true, "Asignado" },
-                    { 3, new DateTime(2022, 2, 11, 16, 59, 35, 224, DateTimeKind.Local).AddTicks(4348), null, true, "Merma" },
-                    { 4, new DateTime(2022, 2, 11, 16, 59, 35, 224, DateTimeKind.Local).AddTicks(4356), null, true, "Baja por daño" },
-                    { 5, new DateTime(2022, 2, 11, 16, 59, 35, 224, DateTimeKind.Local).AddTicks(4361), null, true, "Recuperado" }
+                    { 1, new DateTime(2022, 2, 11, 21, 37, 33, 989, DateTimeKind.Local).AddTicks(8385), null, true, "Activo" },
+                    { 2, new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1805), null, true, "Asignado" },
+                    { 3, new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1863), null, true, "Merma" },
+                    { 4, new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1871), null, true, "Baja por daño" },
+                    { 5, new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1877), null, true, "Recuperado" }
                 });
 
             migrationBuilder.InsertData(
@@ -283,14 +285,35 @@ namespace HelpDesk.Migrations
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name", "UserEntityId" },
                 values: new object[,]
                 {
-                    { 2, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(8454), null, true, "Operador", null },
-                    { 1, new DateTime(2022, 2, 11, 16, 59, 35, 228, DateTimeKind.Local).AddTicks(8479), null, true, "Administrador", null }
+                    { 2, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(2880), null, true, "Operador", null },
+                    { 1, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(2907), null, true, "Administrador", null }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "ConfirmPassword", "DateRegistration", "Email", "IdRol", "IsActive", "LastName", "Name", "Password", "Phone", "UserName" },
-                values: new object[] { 1, null, new DateTime(2022, 2, 11, 16, 59, 35, 229, DateTimeKind.Local).AddTicks(1671), null, 1, true, "", "Administrador", "123456", null, "administrador" });
+                columns: new[] { "Id", "DateRegistration", "Email", "IsActive", "LastName", "Name", "Password", "Phone", "RolId", "UserName" },
+                values: new object[] { 1, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(5872), null, true, "", "Administrador", "123456", null, 1, "administrador" });
+
+            migrationBuilder.InsertData(
+                table: "Branch",
+                columns: new[] { "Id", "BranchTypeId", "CompanyId", "DateRegistration", "Email", "IsActive", "Name", "Note", "Phone", "Street", "TypeBranchId" },
+                values: new object[] { 1, 1, 1, new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(9868), "correo@dominio.com", true, "Sucursal", "Sin observaciones", "55 5658 1111", "Domicilio conocido", null });
+
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "Id", "CategoryId", "DateRegistration", "DateStart", "DateStop", "Description", "IsActive", "Name", "ProductStatusId", "SerieNumber" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(7463), new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(5631), new DateTime(2023, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(6854), "Posicion 1/3", true, "Oficce 360", 1, "148318" },
+                    { 2, 1, new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9737), new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9701), new DateTime(2023, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9722), "Posicion 2/3", true, "Oficce 360", 1, "148318" },
+                    { 3, 1, new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9754), new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9744), new DateTime(2023, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9749), "Posicion 3/3", true, "Oficce 360", 1, "148318" },
+                    { 4, 3, new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9760), null, null, "Camara axis 1020", true, "Camara IP", 1, "148318" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Person",
+                columns: new[] { "Id", "BranchId", "DateRegistration", "Email", "IsActive", "LastName", "Name", "Phone" },
+                values: new object[] { 1, 1, new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(2771), "ahal_tocob@hotmail.com", true, "Mtz", "Víctor", "55 3273 7357" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Branch_CompanyId",

@@ -37,9 +37,9 @@ namespace HelpDesk.Controllers
                 .Include(x=> x.Company)
                 .Include(x=> x.TypeBranch)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            branchEntity.Company = _context.Company.Where(x => x.Id == branchEntity.IdCompany).FirstOrDefault();
+            branchEntity.Company = _context.Company.Where(x => x.Id == branchEntity.CompanyId).FirstOrDefault();
             branchEntity.TypeBranch = _context.BranchType.Where(x => x.Id == id).FirstOrDefault();
-            branchEntity.ListPerson = await _context.Person.Where(x => x.IdBranch == id)
+            branchEntity.ListPerson = await _context.Person.Where(x => x.BranchId == id)
                 .ToListAsync();
             if (branchEntity == null)
             {
@@ -72,9 +72,9 @@ namespace HelpDesk.Controllers
             {
                 _context.Add(branchEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Companies", new { Id = branchEntity.IdCompany });
+                return RedirectToAction("Details", "Companies", new { Id = branchEntity.CompanyId });
             }
-            ViewBag.IdCompany = branchEntity.IdCompany;
+            ViewBag.IdCompany = branchEntity.CompanyId;
             ViewBag.ListTypeBranchs = new SelectList(_context.BranchType.Where(x => x.IsActive).ToList(), "Id", "Name");
             return View(branchEntity);
         }

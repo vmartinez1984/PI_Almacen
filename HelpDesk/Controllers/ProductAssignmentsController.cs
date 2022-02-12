@@ -12,6 +12,8 @@ namespace HelpDesk.Controllers
     public class ProductAssignmentsController : Controller
     {
         private readonly AppDbContext _context;
+        const int Activo = 1;
+        const int Asignado = 2;
 
         public ProductAssignmentsController(AppDbContext context)
         {
@@ -23,15 +25,13 @@ namespace HelpDesk.Controllers
         {
             var list = await _context.ProductAssignment
                 .Include(p => p.Person)                    
+                    .ThenInclude(x=> x.Branch)
+                        .ThenInclude(x=> x.Company)
                 .Include(p => p.Product)
                     .ThenInclude(x=> x.Category)
                 .Include(p => p.User)
                 .ToListAsync();
-            list.ForEach(item =>
-            {
-                item.Person.Branch = _context.Branch.Include(x => x.Company).Where(x => x.Id == item.Person.IdBranch).FirstOrDefault();
-                item.Person.Branch.Company = _context.Company.Where(y => y.Id == item.Person.Branch.IdCompany).FirstOrDefault();
-            });
+         
             return View(list);
         }
 
@@ -58,9 +58,9 @@ namespace HelpDesk.Controllers
 
         // GET: ProductAssignments/Create
         public IActionResult Create()
-        {
-            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "LastName");
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name");
+        {           
+            ViewData["PersonId"] = new SelectList(_context.Person.Where(x=> x.IsActive).ToList(), "Id", "Name");
+            ViewData["ProductId"] = new SelectList(_context.Product.Where(x=> x.ProductStatusId == Activo).ToList(), "Id", "Name");
             
             return View();
         }
@@ -74,15 +74,17 @@ namespace HelpDesk.Controllers
         {
             productAssignmentEntity.IsActive = true;
             productAssignmentEntity.DateRegistration = DateTime.Now;
+            productAssignmentEntity.UserId = 1;
             if (ModelState.IsValid)
             {
                 _context.Add(productAssignmentEntity);
+                var producto = _context.Product.Where(x=> x.Id == productAssignmentEntity.ProductId).FirstOrDefault();
+                producto.ProductStatusId = Asignado;
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PersonId"] = new SelectList(_context.Person, "Id", "LastName", productAssignmentEntity.PersonId);
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productAssignmentEntity.ProductId);
-            ViewData["UserId"] = new SelectList(_context.User, "Id", "Password", productAssignmentEntity.UserId);
+            ViewData["PersonId"] = new SelectList(_context.Person.Where(x => x.IsActive).ToList(), "Id", "Name");
+            ViewData["ProductId"] = new SelectList(_context.Product.Where(x => x.ProductStatusId == Activo).ToList(), "Id", "Name");
             return View(productAssignmentEntity);
         }
 

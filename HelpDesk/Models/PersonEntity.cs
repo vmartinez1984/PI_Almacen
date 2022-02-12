@@ -24,7 +24,7 @@ namespace HelpDesk.Models
         public string Email { get; set; }
 
         [ForeignKey(nameof(BranchEntity))]
-        public int IdBranch { get; set; }
+        public int BranchId { get; set; }
 
         [Display(Name= "Dependencia")]
         public virtual BranchEntity Branch { get; set; }

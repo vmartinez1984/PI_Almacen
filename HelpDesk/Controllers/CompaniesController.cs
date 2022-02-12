@@ -38,10 +38,10 @@ namespace HelpDesk.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
             companyEntity.ListBranches = _context.Branch.Include(x=> x.TypeBranch)
                 .Include(x=>x.ListPerson)
-                .Where(x=> x.IdCompany == id).ToList();
+                .Where(x=> x.CompanyId == id).ToList();
             companyEntity.ListBranches.ForEach(branch =>
             {
-                branch.CountPersons = _context.Person.Count(x => x.IdBranch == branch.Id);
+                branch.CountPersons = _context.Person.Count(x => x.BranchId == branch.Id);
             });
             if (companyEntity == null)
             {

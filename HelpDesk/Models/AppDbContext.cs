@@ -56,10 +56,10 @@ namespace HelpDesk.Models
                 },
                 new ProductStatusEntity
                 {
-                     Id = 3,
-                     Name = "Merma",
-                     IsActive = true,
-                     DateRegistration = DateTime.Now
+                    Id = 3,
+                    Name = "Merma",
+                    IsActive = true,
+                    DateRegistration = DateTime.Now
                 },
                 new ProductStatusEntity
                 {
@@ -78,14 +78,14 @@ namespace HelpDesk.Models
             );
 
             modelBuilder.Entity<CategoryEntity>().HasData(
-                new CategoryEntity { Id = 1, Name = "Software", DateRegistration = DateTime.Now, IsActive= true },
-                new CategoryEntity { Id = 2, Name = "Hardware", DateRegistration = DateTime.Now, IsActive= true },
-                new CategoryEntity { Id = 3, Name = "Comunicación", DateRegistration = DateTime.Now, IsActive= true }
+                new CategoryEntity { Id = 1, Name = "Software", DateRegistration = DateTime.Now, IsActive = true },
+                new CategoryEntity { Id = 2, Name = "Hardware", DateRegistration = DateTime.Now, IsActive = true },
+                new CategoryEntity { Id = 3, Name = "Comunicación", DateRegistration = DateTime.Now, IsActive = true }
             );
 
             modelBuilder.Entity<BranchTypeEntity>().HasData(
-                 new BranchTypeEntity { Id = 1, Name = "Matriz", DateRegistration= DateTime.Now, IsActive= true },
-                 new BranchTypeEntity { Id = 2, Name = "Sucursal", DateRegistration= DateTime.Now, IsActive= true }                 
+                 new BranchTypeEntity { Id = 1, Name = "Matriz", DateRegistration = DateTime.Now, IsActive = true },
+                 new BranchTypeEntity { Id = 2, Name = "Sucursal", DateRegistration = DateTime.Now, IsActive = true }
             );
 
             modelBuilder.Entity<RoleEntity>().HasData(
@@ -100,11 +100,98 @@ namespace HelpDesk.Models
                     Name = "Administrador",
                     LastName = string.Empty,
                     Password = "123456",
-                    IdRol = 1,
+                    RolId = 1,
                     UserName = "administrador",
                     DateRegistration = DateTime.Now,
                     IsActive = true
                 }
+            );
+
+            modelBuilder.Entity<CompanyEntity>().HasData(
+                new CompanyEntity { Id = 1, Name = "Compañia A", IsActive = true, DateRegistration = DateTime.Now, Note = "Prueba", Street = "Domicilio conocido" }
+            );
+
+            modelBuilder.Entity<BranchEntity>().HasData(
+                new BranchEntity
+                {
+                    Id = 1,
+                    Street = "Domicilio conocido",
+                    Note = "Sin observaciones",
+                    DateRegistration = DateTime.Now,
+                    IsActive = true,
+                    CompanyId = 1,
+                    Email = "correo@dominio.com",
+                    BranchTypeId = 1,
+                    Name = "Sucursal",
+                    Phone = "55 5658 1111"
+                }
+            );
+
+            modelBuilder.Entity<PersonEntity>().HasData(
+                new PersonEntity
+                {
+                    Id = 1,
+                    DateRegistration = DateTime.Now,
+                    Email = "ahal_tocob@hotmail.com",
+                    BranchId = 1,
+                    IsActive = true,
+                    Name = "Víctor",
+                    LastName = "Mtz",
+                    Phone = "55 3273 7357"
+                }
+            );
+
+            modelBuilder.Entity<ProductEntity>().HasData(
+                new ProductEntity
+                {
+                    Id = 1,
+                    DateStart = DateTime.Now,
+                    DateStop = DateTime.Now.AddYears(1),
+                    DateRegistration = DateTime.Now,
+                    Description = "Posicion 1/3",
+                    CategoryId = 1,
+                    ProductStatusId = 1,
+                    IsActive = true,
+                    Name = "Oficce 360",
+                    SerieNumber = "148318"
+                },
+                 new ProductEntity
+                 {
+                     Id = 2,
+                     DateStart = DateTime.Now,
+                     DateStop = DateTime.Now.AddYears(1),
+                     DateRegistration = DateTime.Now,
+                     Description = "Posicion 2/3",
+                     CategoryId = 1,
+                     ProductStatusId = 1,
+                     IsActive = true,
+                     Name = "Oficce 360",
+                     SerieNumber = "148318"
+                 },
+                  new ProductEntity
+                  {
+                      Id = 3,
+                      DateStart = DateTime.Now,
+                      DateStop = DateTime.Now.AddYears(1),
+                      DateRegistration = DateTime.Now,
+                      Description = "Posicion 3/3",
+                      CategoryId = 1,
+                      ProductStatusId = 1,
+                      IsActive = true,
+                      Name = "Oficce 360",
+                      SerieNumber = "148318"
+                  },
+                   new ProductEntity
+                   {
+                       Id = 4,                       
+                       DateRegistration = DateTime.Now,
+                       Description = "Camara axis 1020",
+                       CategoryId = 3,
+                       ProductStatusId = 1,
+                       IsActive = true,
+                       Name = "Camara IP",
+                       SerieNumber = "148318"
+                   }
             );
         }
     }

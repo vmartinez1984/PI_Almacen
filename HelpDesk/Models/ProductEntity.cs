@@ -32,12 +32,15 @@ namespace HelpDesk.Models
         [ForeignKey(nameof(CategoryEntity))]
         [Display(Name = "Categoria")]
         public int CategoryId { get; set; }
+        [Display(Name = "Categoria")]
         public CategoryEntity Category { get; set; }    
 
         [Required]
         [ForeignKey(nameof(ProductStatusEntity))]
         [Display(Name = "Estatus")]
         public int ProductStatusId { get; set; }
+
+        [Display(Name = "Estatus")]
         public ProductStatusEntity ProductStatus { get; set;}
     }
 }

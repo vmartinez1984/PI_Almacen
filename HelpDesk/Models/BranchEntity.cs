@@ -28,7 +28,7 @@ namespace HelpDesk.Models
         [ForeignKey(nameof(CompanyEntity))]
         [Range(1, 10)]
         [Display(Name = "Compañia")]
-        public int IdCompany { get; set; }
+        public int CompanyId { get; set; }
         public virtual CompanyEntity Company { get; set; }
 
 
@@ -36,7 +36,7 @@ namespace HelpDesk.Models
         [ForeignKey(nameof(BranchTypeEntity))]
         [Range(1,10)]
         [Display(Name = "Tipo")]
-        public int IdTypeBranch { get; set; }
+        public int BranchTypeId { get; set; }
 
         public virtual BranchTypeEntity TypeBranch { get; set; }
 
