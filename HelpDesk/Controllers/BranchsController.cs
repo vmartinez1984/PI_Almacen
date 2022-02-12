@@ -19,9 +19,11 @@ namespace HelpDesk.Controllers
         }
 
         // GET: Branchs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? idCompany)
         {
-            return View(await _context.Branch.ToListAsync());
+            ViewBag.CompanyName = await _context.Company.Where(x => x.Id == idCompany).Select(x => x.Name).FirstOrDefaultAsync();
+
+            return View(await _context.Branch.Where(x => x.CompanyId == idCompany).ToListAsync());
         }
 
         // GET: Branchs/Details/5
@@ -34,8 +36,8 @@ namespace HelpDesk.Controllers
 
             var branchEntity = await _context.Branch
                 .Include(x => x.ListPerson)
-                .Include(x=> x.Company)
-                .Include(x=> x.TypeBranch)
+                .Include(x => x.Company)
+                .Include(x => x.TypeBranch)
                 .FirstOrDefaultAsync(m => m.Id == id);
             branchEntity.Company = _context.Company.Where(x => x.Id == branchEntity.CompanyId).FirstOrDefault();
             branchEntity.TypeBranch = _context.BranchType.Where(x => x.Id == id).FirstOrDefault();

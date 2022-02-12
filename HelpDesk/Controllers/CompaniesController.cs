@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Models;
 
@@ -21,7 +20,26 @@ namespace HelpDesk.Controllers
         // GET: Companies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Company.Where(x => x.IsActive).ToListAsync());
+            List<CompanyEntity> list;            
+
+            list = await _context.Company
+                .Include(x => x.ListBranches)
+                .Where(x => x.IsActive).Select(x =>
+                    new CompanyEntity
+                    {
+                        Id = x.Id,
+                        CountDependencys = _context.Branch.Count(x => x.CompanyId == x.Id),
+                        //CountPersons= _context.Person.Count(x => x.br)
+                        Name = x.Name,
+                        DateRegistration = x.DateRegistration,
+                        IsActive = x.IsActive,
+                        ListBranches = x.ListBranches,
+                        Note = x.Note,
+                        Street = x.Street
+                    }
+                ).ToListAsync();
+
+            return View(list);
         }
 
         // GET: Companies/Details/5
@@ -31,14 +49,14 @@ namespace HelpDesk.Controllers
             {
                 return NotFound();
             }
-                        
+
             var companyEntity = await _context.Company
                 .Include(x => x.ListBranches)
-                    .ThenInclude(x=>x.TypeBranch)
+                    .ThenInclude(x => x.TypeBranch)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            companyEntity.ListBranches = _context.Branch.Include(x=> x.TypeBranch)
-                .Include(x=>x.ListPerson)
-                .Where(x=> x.CompanyId == id).ToList();
+            companyEntity.ListBranches = _context.Branch.Include(x => x.TypeBranch)
+                .Include(x => x.ListPerson)
+                .Where(x => x.CompanyId == id).ToList();
             companyEntity.ListBranches.ForEach(branch =>
             {
                 branch.CountPersons = _context.Person.Count(x => x.BranchId == branch.Id);

@@ -68,7 +68,7 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUser,IdRow,Id,DateRegistration,IsActive")] UsersInRowEntity usersInRowEntity)
+        public async Task<IActionResult> Create([Bind("UserId,RowId,Id,DateRegistration,IsActive")] UsersInRowEntity usersInRowEntity)
         {
             usersInRowEntity.IsActive = true;
             usersInRowEntity.DateRegistration = DateTime.Now;

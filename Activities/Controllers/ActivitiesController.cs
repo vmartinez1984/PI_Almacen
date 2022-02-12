@@ -163,7 +163,7 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUser,IdActivityStatus,Name,Description,Id,DateRegistration,IsActive")] ActivityEntity activityEntity)
+        public async Task<IActionResult> Create([Bind("UserId,ActivityStatusId,Name,Description,Id,DateRegistration,IsActive")] ActivityEntity activityEntity)
         {
             activityEntity.IsActive = true;
             activityEntity.DateRegistration = DateTime.Now;

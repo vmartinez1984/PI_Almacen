@@ -319,7 +319,6 @@ C:\Users\vhmartinezb\source\repos\Pruebas\Activities\bin\Debug\net5.0\ru\Microso
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Activities.csproj.AssemblyReference.cache
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Activities.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Activities.AssemblyInfoInputs.cache
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Activities.AssemblyInfo.cs

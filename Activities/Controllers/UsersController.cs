@@ -53,7 +53,7 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserName,Password,ConfirmPassword,IdRol,Name,LastName,Phone,Email,Id,DateRegistration,IsActive")] UserEntity userEntity)
+        public async Task<IActionResult> Create([Bind("UserName,Password,ConfirmPassword,RolId,Name,LastName,Phone,Email,Id,DateRegistration,IsActive")] UserEntity userEntity)
         {
             if (ModelState.IsValid)
             {

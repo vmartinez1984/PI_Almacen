@@ -37,9 +37,9 @@ namespace Activities.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Demo03;Trusted_Connection=True;");
-                //optionsBuilder.UseSqlServer("workstation id=StorageAndQr.mssql.somee.com;packet size=4096;user id=vmartinez84_SQLLogin_3;pwd=bgcs8xmwrb;data source=StorageAndQr.mssql.somee.com;persist security info=False;initial catalog=StorageAndQr ");
-
+                //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Demo03;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("workstation id=ProyectoDeIntegracion.mssql.somee.com;packet size=4096;user id=erickudl_SQLLogin_1;pwd=575clhbt2z;data source=ProyectoDeIntegracion.mssql.somee.com;persist security info=False;initial catalog=ProyectoDeIntegracion");
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
             }
         }
 
