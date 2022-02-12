@@ -21,7 +21,7 @@ namespace HelpDesk.Controllers
         // GET: Companies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Company.ToListAsync());
+            return View(await _context.Company.Where(x => x.IsActive).ToListAsync());
         }
 
         // GET: Companies/Details/5
@@ -31,9 +31,18 @@ namespace HelpDesk.Controllers
             {
                 return NotFound();
             }
-
+                        
             var companyEntity = await _context.Company
+                .Include(x => x.ListBranches)
+                    .ThenInclude(x=>x.TypeBranch)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            companyEntity.ListBranches = _context.Branch.Include(x=> x.TypeBranch)
+                .Include(x=>x.ListPerson)
+                .Where(x=> x.IdCompany == id).ToList();
+            companyEntity.ListBranches.ForEach(branch =>
+            {
+                branch.CountPersons = _context.Person.Count(x => x.IdBranch == branch.Id);
+            });
             if (companyEntity == null)
             {
                 return NotFound();
@@ -55,6 +64,8 @@ namespace HelpDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Note,ZipCode,Street,Id,DateRegistration,IsActive")] CompanyEntity companyEntity)
         {
+            companyEntity.IsActive = true;
+            companyEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(companyEntity);

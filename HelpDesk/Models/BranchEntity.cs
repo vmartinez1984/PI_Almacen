@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
@@ -21,21 +22,29 @@ namespace HelpDesk.Models
         [StringLength(1000)]
         [Display(Name = "Notas")]
         public string Note { get; set; }
-
-        public virtual AddressEntity Address { get; set; }
+                
 
         [Required]
-        [System.ComponentModel.DataAnnotations.Schema.ForeignKey(nameof(CompanyEntity))]
+        [ForeignKey(nameof(CompanyEntity))]
         [Range(1, 10)]
+        [Display(Name = "Compañia")]
         public int IdCompany { get; set; }
-        public virtual List<CompanyEntity> ListCompanies { get; set; }
+        public virtual CompanyEntity Company { get; set; }
 
 
         [Required]
-        [System.ComponentModel.DataAnnotations.Schema.ForeignKey(nameof(TypeBranchEntity))]
+        [ForeignKey(nameof(BranchTypeEntity))]
         [Range(1,10)]
+        [Display(Name = "Tipo")]
         public int IdTypeBranch { get; set; }
 
-        public virtual List<TypeBranchEntity> ListTypeBranchs { get; set; }
+        public virtual BranchTypeEntity TypeBranch { get; set; }
+
+
+        [NotMapped]
+        [Display(Name= "Personas")]
+        public int CountPersons { get; internal set; }
+
+        public virtual List<PersonEntity> ListPerson { get; set; }
     }
 }

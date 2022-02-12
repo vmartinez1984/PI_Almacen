@@ -21,7 +21,7 @@ namespace HelpDesk.Controllers
         // GET: TypeBranchs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TypeBranch.ToListAsync());
+            return View(await _context.BranchType.ToListAsync());
         }
 
         // GET: TypeBranchs/Details/5
@@ -32,7 +32,7 @@ namespace HelpDesk.Controllers
                 return NotFound();
             }
 
-            var typeBranchEntity = await _context.TypeBranch
+            var typeBranchEntity = await _context.BranchType
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (typeBranchEntity == null)
             {
@@ -53,8 +53,10 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description,Id,DateRegistration,IsActive")] TypeBranchEntity typeBranchEntity)
+        public async Task<IActionResult> Create([Bind("Name,Description,Id,DateRegistration,IsActive")] BranchTypeEntity typeBranchEntity)
         {
+            typeBranchEntity.IsActive = true;
+            typeBranchEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(typeBranchEntity);
@@ -72,7 +74,7 @@ namespace HelpDesk.Controllers
                 return NotFound();
             }
 
-            var typeBranchEntity = await _context.TypeBranch.FindAsync(id);
+            var typeBranchEntity = await _context.BranchType.FindAsync(id);
             if (typeBranchEntity == null)
             {
                 return NotFound();
@@ -85,7 +87,7 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Id,DateRegistration,IsActive")] TypeBranchEntity typeBranchEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Id,DateRegistration,IsActive")] BranchTypeEntity typeBranchEntity)
         {
             if (id != typeBranchEntity.Id)
             {
@@ -123,7 +125,7 @@ namespace HelpDesk.Controllers
                 return NotFound();
             }
 
-            var typeBranchEntity = await _context.TypeBranch
+            var typeBranchEntity = await _context.BranchType
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (typeBranchEntity == null)
             {
@@ -138,15 +140,15 @@ namespace HelpDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var typeBranchEntity = await _context.TypeBranch.FindAsync(id);
-            _context.TypeBranch.Remove(typeBranchEntity);
+            var typeBranchEntity = await _context.BranchType.FindAsync(id);
+            _context.BranchType.Remove(typeBranchEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TypeBranchEntityExists(int id)
         {
-            return _context.TypeBranch.Any(e => e.Id == id);
+            return _context.BranchType.Any(e => e.Id == id);
         }
     }
 }

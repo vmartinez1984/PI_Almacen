@@ -33,7 +33,14 @@ namespace HelpDesk.Controllers
             }
 
             var branchEntity = await _context.Branch
+                .Include(x => x.ListPerson)
+                .Include(x=> x.Company)
+                .Include(x=> x.TypeBranch)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            branchEntity.Company = _context.Company.Where(x => x.Id == branchEntity.IdCompany).FirstOrDefault();
+            branchEntity.TypeBranch = _context.BranchType.Where(x => x.Id == id).FirstOrDefault();
+            branchEntity.ListPerson = await _context.Person.Where(x => x.IdBranch == id)
+                .ToListAsync();
             if (branchEntity == null)
             {
                 return NotFound();
@@ -46,8 +53,8 @@ namespace HelpDesk.Controllers
         public IActionResult Create(int? idCompany)
         {
             ViewBag.IdCompany = idCompany;
-            ViewBag.ListTypeBranchs = new SelectList(_context.TypeBranch.Where(x => x.IsActive).ToList(), "Id", "Name");
-            ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
+            ViewBag.ListTypeBranchs = new SelectList(_context.BranchType.Where(x => x.IsActive).ToList(), "Id", "Name");
+            //ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
 
             return View();
         }
@@ -59,12 +66,16 @@ namespace HelpDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Phone,Email,Note,IdCompany,IdTypeBranch,ZipCode,Street,Id,DateRegistration,IsActive")] BranchEntity branchEntity)
         {
+            branchEntity.IsActive = true;
+            branchEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(branchEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Companies", new { Id = branchEntity.IdCompany });
             }
+            ViewBag.IdCompany = branchEntity.IdCompany;
+            ViewBag.ListTypeBranchs = new SelectList(_context.BranchType.Where(x => x.IsActive).ToList(), "Id", "Name");
             return View(branchEntity);
         }
 

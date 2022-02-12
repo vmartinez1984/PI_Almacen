@@ -9,6 +9,7 @@ namespace HelpDesk.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Fecha de registro")]
         public DateTime DateRegistration { get; set; }
 
         [Required]

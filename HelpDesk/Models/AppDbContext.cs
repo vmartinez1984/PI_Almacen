@@ -5,8 +5,9 @@ namespace HelpDesk.Models
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<AddressEntity> Address { get; set; }
+        //public DbSet<AddressEntity> Address { get; set; }
         public DbSet<BranchEntity> Branch { get; set; }
+        public DbSet<BranchTypeEntity> BranchType { get; set; }
         public DbSet<CategoryEntity> Category { get; set; }
         public DbSet<CompanyEntity> Company { get; set; }
         public DbSet<PersonEntity> Person { get; set; }
@@ -14,7 +15,6 @@ namespace HelpDesk.Models
         public DbSet<ProductEntity> Product { get; set; }
         public DbSet<ProductStatusEntity> ProductStatus { get; set; }
         public DbSet<RoleEntity> Role { get; set; }
-        public DbSet<TypeBranchEntity> TypeBranch { get; set; }
         public DbSet<UserEntity> User { get; set; }
 
         public AppDbContext()
@@ -75,6 +75,17 @@ namespace HelpDesk.Models
                     IsActive = true,
                     DateRegistration = DateTime.Now
                 }
+            );
+
+            modelBuilder.Entity<CategoryEntity>().HasData(
+                new CategoryEntity { Id = 1, Name = "Software", DateRegistration = DateTime.Now, IsActive= true },
+                new CategoryEntity { Id = 2, Name = "Hardware", DateRegistration = DateTime.Now, IsActive= true },
+                new CategoryEntity { Id = 3, Name = "Comunicación", DateRegistration = DateTime.Now, IsActive= true }
+            );
+
+            modelBuilder.Entity<BranchTypeEntity>().HasData(
+                 new BranchTypeEntity { Id = 1, Name = "Matriz", DateRegistration= DateTime.Now, IsActive= true },
+                 new BranchTypeEntity { Id = 2, Name = "Sucursal", DateRegistration= DateTime.Now, IsActive= true }                 
             );
 
             modelBuilder.Entity<RoleEntity>().HasData(

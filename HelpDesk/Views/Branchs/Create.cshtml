@@ -32,13 +32,7 @@
                 <input asp-for="Note" class="form-control" />
                 <span asp-validation-for="Note" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IdCompany" class="control-label"></label>
-               <select asp-for="IdCompany" asp-items="@ViewBag.ListCompanies" class="form-control">
-                    <option>Seleccione</option>
-                </select>
-                <span asp-validation-for="IdCompany" class="text-danger"></span>
-            </div>
+            <input asp-for="IdCompany" value="@ViewBag.IdCompany" type="hidden"/>           
             <div class="form-group">
                 <label asp-for="IdTypeBranch" class="control-label"></label>
                <select asp-for="IdTypeBranch" asp-items="@ViewBag.ListTypeBranchs" class="form-control">
@@ -46,26 +40,13 @@
                 </select>
                 <span asp-validation-for="IdTypeBranch" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ZipCode" class="control-label"></label>
-                <input asp-for="ZipCode" class="form-control" />
-                <span asp-validation-for="ZipCode" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Street" class="control-label"></label>
                 <input asp-for="Street" class="form-control" />
                 <span asp-validation-for="Street" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DateRegistration" class="control-label"></label>
-                <input asp-for="DateRegistration" class="form-control" />
-                <span asp-validation-for="DateRegistration" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-                </label>
-            </div>
+          
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

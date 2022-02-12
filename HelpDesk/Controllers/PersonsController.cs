@@ -43,8 +43,9 @@ namespace HelpDesk.Controllers
         }
 
         // GET: PersonEntities/Create
-        public IActionResult Create()
+        public IActionResult Create(int idBranch)
         {
+            ViewBag.IdBranch = idBranch;    
             return View();
         }
 
@@ -55,11 +56,13 @@ namespace HelpDesk.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,LastName,Phone,Email,IdBranch,Id,DateRegistration,IsActive")] PersonEntity personEntity)
         {
+            personEntity.IsActive = true;
+            personEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(personEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details","Branchs", new {Id = personEntity.IdBranch});
             }
             return View(personEntity);
         }

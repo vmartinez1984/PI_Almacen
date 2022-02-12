@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
@@ -22,7 +23,10 @@ namespace HelpDesk.Models
         [StringLength(255)]
         public string Email { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Schema.ForeignKey(nameof(BranchEntity))]
-        public int IdBranch { get; set; }        
+        [ForeignKey(nameof(BranchEntity))]
+        public int IdBranch { get; set; }
+
+        [Display(Name= "Dependencia")]
+        public virtual BranchEntity Branch { get; set; }
     }
 }

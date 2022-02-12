@@ -21,17 +21,23 @@ namespace HelpDesk.Models
         public string SerieNumber { get; set; }
 
         [Display(Name="Fecha de inicio")]
+        [DataType(DataType.Date)]
         public DateTime? DateStart { get; set; }
 
         [Display(Name = "Fecha fin")]
+        [DataType(DataType.Date)]
         public DateTime? DateStop { get; set; }
 
         [Required]
         [ForeignKey(nameof(CategoryEntity))]
+        [Display(Name = "Categoria")]
         public int CategoryId { get; set; }
+        public CategoryEntity Category { get; set; }    
 
         [Required]
         [ForeignKey(nameof(ProductStatusEntity))]
+        [Display(Name = "Estatus")]
         public int ProductStatusId { get; set; }
+        public ProductStatusEntity ProductStatus { get; set;}
     }
 }
