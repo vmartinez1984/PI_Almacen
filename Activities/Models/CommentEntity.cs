@@ -7,11 +7,11 @@ namespace Activities.Models
     {
         [Required]
         [ForeignKey(nameof(RowEntity))]
-        public int IdRow { get; set; }
+        public int RowId { get; set; }
 
         [Required]
         [ForeignKey(nameof(UserEntity))]
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
         public UserEntity User { get; set; }
 
         [Required]

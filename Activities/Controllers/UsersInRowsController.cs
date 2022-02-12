@@ -25,11 +25,11 @@ namespace Activities.Controllers
             List<UsersInRowEntity> list;
 
             list = await _context.UsersInRow
-                .Where(x => x.IdRow == idRow && x.IsActive)
+                .Where(x => x.RowId == idRow && x.IsActive)
                 .ToListAsync();
             list.ForEach(item =>
             {
-                item.User = _context.User.Where(x => x.Id == item.IdUser).FirstOrDefault();
+                item.User = _context.User.Where(x => x.Id == item.UserId).FirstOrDefault();
             });
 
             ViewBag.IdRow = idRow;
@@ -79,7 +79,7 @@ namespace Activities.Controllers
                 return RedirectToAction(nameof(Index), "Activities");
             }
             ViewData["ListUsers"] = new SelectList(_context.User.Where(x => x.IsActive).ToList(), SelectProperty.Id, SelectProperty.Name);
-            ViewData["IdRow"] = usersInRowEntity.IdRow;
+            ViewData["IdRow"] = usersInRowEntity.RowId;
 
             return View(usersInRowEntity);
         }

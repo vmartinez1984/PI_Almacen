@@ -22,7 +22,7 @@ namespace Activities.Controllers
         // GET: RowEntities
         public async Task<IActionResult> Index(int idActivity)
         {
-            return View(await _context.Row.Where(x => x.IdActivity == idActivity && x.IsActive == true).ToListAsync());
+            return View(await _context.Row.Where(x => x.ActivityId == idActivity && x.IsActive == true).ToListAsync());
         }
 
         // GET: RowEntities/Details/5
@@ -70,7 +70,7 @@ namespace Activities.Controllers
                 return RedirectToAction("Index", "Activities");
             }
             
-            ViewBag.IdActivity = rowEntity.IdActivity;
+            ViewBag.IdActivity = rowEntity.ActivityId;
             ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
 
             return View();

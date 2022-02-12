@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Activities.Migrations
 {
-    public partial class V1 : Migration
+    public partial class v1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,7 +48,7 @@ namespace Activities.Migrations
                     UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
                     ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IdRol = table.Column<int>(type: "int", nullable: false),
+                    RolId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -67,10 +67,8 @@ namespace Activities.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdUser = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true),
-                    IdActivityStatus = table.Column<int>(type: "int", nullable: false),
-                    ActivityStatusId = table.Column<int>(type: "int", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ActivityStatusId = table.Column<int>(type: "int", nullable: false),
                     DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -84,13 +82,13 @@ namespace Activities.Migrations
                         column: x => x.ActivityStatusId,
                         principalTable: "ActivityStatus",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Activity_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -117,39 +115,14 @@ namespace Activities.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsersInRow",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdUser = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true),
-                    IdRow = table.Column<int>(type: "int", nullable: false),
-                    DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UsersInRow", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UsersInRow_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Row",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdActivity = table.Column<int>(type: "int", nullable: false),
-                    IdUser = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true),
-                    IdRowStatus = table.Column<int>(type: "int", nullable: false),
-                    RowStatusId = table.Column<int>(type: "int", nullable: true),
+                    ActivityId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    RowStatusId = table.Column<int>(type: "int", nullable: false),
                     DateStop = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ActivityEntityId = table.Column<int>(type: "int", nullable: true),
@@ -172,13 +145,13 @@ namespace Activities.Migrations
                         column: x => x.RowStatusId,
                         principalTable: "RowStatus",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Row_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,9 +160,8 @@ namespace Activities.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdRow = table.Column<int>(type: "int", nullable: false),
-                    IdUser = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true),
+                    RowId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     RowEntityId = table.Column<int>(type: "int", nullable: true),
                     DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -209,7 +181,7 @@ namespace Activities.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -219,9 +191,7 @@ namespace Activities.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdRow = table.Column<int>(type: "int", nullable: false),
-                    RowId = table.Column<int>(type: "int", nullable: true),
-                    IdUser = table.Column<int>(type: "int", nullable: false),
+                    RowId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: true),
                     DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -236,7 +206,7 @@ namespace Activities.Migrations
                         column: x => x.RowId,
                         principalTable: "Row",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_File_User_UserId",
                         column: x => x.UserId,
@@ -245,14 +215,42 @@ namespace Activities.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UsersInRow",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    RowId = table.Column<int>(type: "int", nullable: false),
+                    DateRegistration = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsersInRow", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UsersInRow_Row_RowId",
+                        column: x => x.RowId,
+                        principalTable: "Row",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_UsersInRow_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "ActivityStatus",
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 2, 11, 8, 44, 37, 901, DateTimeKind.Local).AddTicks(6962), null, true, "Por hacer" },
-                    { 2, new DateTime(2022, 2, 11, 8, 44, 37, 910, DateTimeKind.Local).AddTicks(2692), null, true, "Haciendo" },
-                    { 3, new DateTime(2022, 2, 11, 8, 44, 37, 910, DateTimeKind.Local).AddTicks(2747), null, true, "Hecho" }
+                    { 1, new DateTime(2022, 2, 11, 22, 12, 42, 345, DateTimeKind.Local).AddTicks(4555), null, true, "Por hacer" },
+                    { 2, new DateTime(2022, 2, 11, 22, 12, 42, 357, DateTimeKind.Local).AddTicks(566), null, true, "Haciendo" },
+                    { 3, new DateTime(2022, 2, 11, 22, 12, 42, 357, DateTimeKind.Local).AddTicks(655), null, true, "Hecho" }
                 });
 
             migrationBuilder.InsertData(
@@ -260,8 +258,8 @@ namespace Activities.Migrations
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name", "UserEntityId" },
                 values: new object[,]
                 {
-                    { 2, new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(4866), null, true, "Operador", null },
-                    { 1, new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(4892), null, true, "Administrador", null }
+                    { 2, new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(3846), null, true, "Operador", null },
+                    { 1, new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(3873), null, true, "Administrador", null }
                 });
 
             migrationBuilder.InsertData(
@@ -269,15 +267,15 @@ namespace Activities.Migrations
                 columns: new[] { "Id", "DateRegistration", "Description", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3286), null, true, "Listo" },
-                    { 2, new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3329), null, true, "En proceso" },
-                    { 3, new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3334), null, true, "Estancado" }
+                    { 1, new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2185), null, true, "Listo" },
+                    { 2, new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2221), null, true, "En proceso" },
+                    { 3, new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2226), null, true, "Estancado" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "ConfirmPassword", "DateRegistration", "Email", "IdRol", "IsActive", "LastName", "Name", "Password", "Phone", "UserName" },
-                values: new object[] { 1, null, new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(8123), null, 1, true, "", "Administrador", "123456", null, "administrador" });
+                columns: new[] { "Id", "ConfirmPassword", "DateRegistration", "Email", "IsActive", "LastName", "Name", "Password", "Phone", "RolId", "UserName" },
+                values: new object[] { 1, null, new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(7432), null, true, "", "Administrador", "123456", null, 1, "administrador" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Activity_ActivityStatusId",
@@ -328,6 +326,11 @@ namespace Activities.Migrations
                 name: "IX_Row_UserId",
                 table: "Row",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersInRow_RowId",
+                table: "UsersInRow",
+                column: "RowId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsersInRow_UserId",

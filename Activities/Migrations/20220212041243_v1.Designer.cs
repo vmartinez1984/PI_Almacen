@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Activities.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220211144438_V1")]
-    partial class V1
+    [Migration("20220212041243_v1")]
+    partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace Activities.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ActivityStatusId")
+                    b.Property<int>("ActivityStatusId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateRegistration")
@@ -38,12 +38,6 @@ namespace Activities.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("IdActivityStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -52,7 +46,7 @@ namespace Activities.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -94,21 +88,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 901, DateTimeKind.Local).AddTicks(6962),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 345, DateTimeKind.Local).AddTicks(4555),
                             IsActive = true,
                             Name = "Por hacer"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 910, DateTimeKind.Local).AddTicks(2692),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 357, DateTimeKind.Local).AddTicks(566),
                             IsActive = true,
                             Name = "Haciendo"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 910, DateTimeKind.Local).AddTicks(2747),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 357, DateTimeKind.Local).AddTicks(655),
                             IsActive = true,
                             Name = "Hecho"
                         });
@@ -129,19 +123,16 @@ namespace Activities.Migrations
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdRow")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<int?>("RowEntityId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("RowId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -167,12 +158,6 @@ namespace Activities.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("IdRow")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -181,7 +166,7 @@ namespace Activities.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("RowId")
+                    b.Property<int>("RowId")
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
@@ -235,14 +220,14 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(4866),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(3846),
                             IsActive = true,
                             Name = "Operador"
                         },
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(4892),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(3873),
                             IsActive = true,
                             Name = "Administrador"
                         });
@@ -258,6 +243,9 @@ namespace Activities.Migrations
                     b.Property<int?>("ActivityEntityId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ActivityId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("datetime2");
 
@@ -271,15 +259,6 @@ namespace Activities.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("IdActivity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdRowStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -288,10 +267,10 @@ namespace Activities.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("RowStatusId")
+                    b.Property<int>("RowStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -335,21 +314,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3286),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2185),
                             IsActive = true,
                             Name = "Listo"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3329),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2221),
                             IsActive = true,
                             Name = "En proceso"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(3334),
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2226),
                             IsActive = true,
                             Name = "Estancado"
                         });
@@ -372,9 +351,6 @@ namespace Activities.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("IdRol")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -395,6 +371,9 @@ namespace Activities.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<int>("RolId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -408,12 +387,12 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 8, 44, 37, 912, DateTimeKind.Local).AddTicks(8123),
-                            IdRol = 1,
+                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(7432),
                             IsActive = true,
                             LastName = "",
                             Name = "Administrador",
                             Password = "123456",
+                            RolId = 1,
                             UserName = "administrador"
                         });
                 });
@@ -428,19 +407,18 @@ namespace Activities.Migrations
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdRow")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("RowId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RowId");
 
                     b.HasIndex("UserId");
 
@@ -451,11 +429,15 @@ namespace Activities.Migrations
                 {
                     b.HasOne("Activities.Models.ActivityStatusEntity", "ActivityStatus")
                         .WithMany()
-                        .HasForeignKey("ActivityStatusId");
+                        .HasForeignKey("ActivityStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Activities.Models.UserEntity", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ActivityStatus");
 
@@ -470,7 +452,9 @@ namespace Activities.Migrations
 
                     b.HasOne("Activities.Models.UserEntity", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -479,7 +463,9 @@ namespace Activities.Migrations
                 {
                     b.HasOne("Activities.Models.RowEntity", "Row")
                         .WithMany()
-                        .HasForeignKey("RowId");
+                        .HasForeignKey("RowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Activities.Models.UserEntity", "User")
                         .WithMany()
@@ -505,11 +491,15 @@ namespace Activities.Migrations
 
                     b.HasOne("Activities.Models.RowStatusEntity", "RowStatus")
                         .WithMany()
-                        .HasForeignKey("RowStatusId");
+                        .HasForeignKey("RowStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Activities.Models.UserEntity", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("RowStatus");
 
@@ -518,9 +508,19 @@ namespace Activities.Migrations
 
             modelBuilder.Entity("Activities.Models.UsersInRowEntity", b =>
                 {
+                    b.HasOne("Activities.Models.RowEntity", "Row")
+                        .WithMany()
+                        .HasForeignKey("RowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Activities.Models.UserEntity", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Row");
 
                     b.Navigation("User");
                 });

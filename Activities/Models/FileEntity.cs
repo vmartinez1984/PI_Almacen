@@ -8,14 +8,14 @@ namespace Activities.Models
         [Required]
         public string Url { get; set; }
 
+        
         [Required]
         [ForeignKey(nameof(RowEntity))]
-        public int IdRow { get; set; }
+        public int RowId { get; set; }
         public virtual RowEntity Row { get; set; }
 
-        [Required]
         [ForeignKey(nameof(UserEntity))]
-        public int IdUser { get; set; }
+        public int? UserId { get; set; }
         public virtual UserEntity User { get; set; }
     }
 }

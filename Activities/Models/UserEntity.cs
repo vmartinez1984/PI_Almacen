@@ -18,9 +18,9 @@ namespace Activities.Models
         public string ConfirmPassword { get; set; }
 
         [System.ComponentModel.DataAnnotations.Schema.ForeignKey(nameof(RoleEntity))]
-        public int IdRol { get; set; }
+        public int RolId { get; set; }
 
-        public List<RoleEntity> Role { get; set; }
+        public virtual List<RoleEntity> Role { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }

@@ -69,7 +69,7 @@ namespace Activities.Models
                     Name = "Administrador",
                     LastName = string.Empty,
                     Password = "123456",
-                    IdRol = 1,
+                    RolId = 1,
                     UserName = "administrador",
                     DateRegistration = DateTime.Now,
                     IsActive = true

@@ -9,16 +9,16 @@ namespace Activities.Models
     {
         [Required]
         [ForeignKey(nameof(ActivityEntity))]
-        public int IdActivity { get; set; }
+        public int ActivityId { get; set; }
 
         [Required]
         [ForeignKey(nameof(UserEntity))]
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
         public virtual UserEntity User { get; set; }
 
         [Required]
         [ForeignKey(nameof(RowStatusEntity))]
-        public int IdRowStatus { get; set; }
+        public int RowStatusId { get; set; }
         public virtual RowStatusEntity RowStatus { get; set; }
 
         [Display(Name ="Fecha de vencimiento")]

@@ -65,7 +65,7 @@ namespace Activities.Controllers
             List<RowDto> list;
 
             list = new List<RowDto>();
-            entities = _context.Row.Include(x => x.RowStatus).Where(x => x.IdActivity == idActivity).ToList();
+            entities = _context.Row.Include(x => x.RowStatus).Where(x => x.ActivityId == idActivity).ToList();
             entities.ForEach(row =>
             {
                 list.Add(GetRowDto(row));
@@ -86,7 +86,7 @@ namespace Activities.Controllers
                 DateRegistration = row.DateRegistration,
                 DateStart = row.DateStart,
                 DateStop = row.DateStop,
-                Status = _context.RowStatus.FirstOrDefault(x => x.Id == row.IdRowStatus).Name,
+                Status = _context.RowStatus.FirstOrDefault(x => x.Id == row.RowStatusId).Name,
                 ListUsers = GetListUser(row.Id),
                 ListFiles = GetListFiles(row.Id)
             };
@@ -109,10 +109,10 @@ namespace Activities.Controllers
             List<UserDto> list;
 
             list = new List<UserDto>();
-            entities = _context.UsersInRow.Include(x => x.User).Where(x => x.IdRow == idRow).ToList();
+            entities = _context.UsersInRow.Include(x => x.User).Where(x => x.RowId == idRow).ToList();
             entities.ForEach(entity =>
             {
-                entity.User = _context.User.Where(x => x.Id == entity.IdUser).FirstOrDefault();
+                entity.User = _context.User.Where(x => x.Id == entity.UserId).FirstOrDefault();
                 list.Add(GetUserDto(entity.User));
             });
 

@@ -8,12 +8,12 @@ namespace Activities.Models
     {      
         [Required]
         [ForeignKey(nameof(UserEntity))]
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
         public virtual UserEntity User { get; set; }
 
         [Required]
         [ForeignKey(nameof(ActivityStatusEntity))]
-        public int IdActivityStatus { get; set; }
+        public int ActivityStatusId { get; set; }
         public virtual ActivityStatusEntity ActivityStatus { get; set; }
 
         public virtual List<RowEntity> ListRows { get; set; }
