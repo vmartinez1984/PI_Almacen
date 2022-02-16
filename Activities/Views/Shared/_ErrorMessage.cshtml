@@ -1,0 +1,10 @@
+﻿@if (string.IsNullOrEmpty(ViewBag.Error))
+{
+    <!--No hay error-->
+}
+else
+{
+    <div class="form-group text-danger">
+        <p>@ViewBag.Error</p>
+    </div>
+}

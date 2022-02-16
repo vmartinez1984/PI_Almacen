@@ -1,13 +1,13 @@
 ﻿@model Activities.Models.UserEntity
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de usuario";
 }
 
-<h1>Details</h1>
+<h1>Detalles</h1>
 
 <div>
-    <h4>UserEntity</h4>
+    <h4>Usuario</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -21,18 +21,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Password)
-        </dd>
+        </dd>       
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ConfirmPassword)
+            @Html.DisplayNameFor(model => model.RoleId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ConfirmPassword)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RolId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RolId)
+            @Html.DisplayFor(model => model.Role.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -64,15 +58,10 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DateRegistration)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
+        
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Regresar a la lista</a>
 </div>

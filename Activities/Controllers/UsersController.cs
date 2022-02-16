@@ -21,7 +21,11 @@ namespace Activities.Controllers
         // GET: UserEntities
         public async Task<IActionResult> Index()
         {
-            return View(await _context.User.ToListAsync());
+            List<UserEntity> list;
+
+            list = await _context.User.Include(x => x.Role).Where(x=> x.IsActive).ToListAsync();
+
+            return View(list);
         }
 
         // GET: UserEntities/Details/5
@@ -32,7 +36,7 @@ namespace Activities.Controllers
                 return NotFound();
             }
 
-            var userEntity = await _context.User
+            var userEntity = await _context.User.Include(x=> x.Role)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (userEntity == null)
             {
@@ -45,6 +49,7 @@ namespace Activities.Controllers
         // GET: UserEntities/Create
         public IActionResult Create()
         {
+            ViewBag.ListRoles = new SelectList(_context.Role.Where(x => x.IsActive).ToList(), "Id", "Name");
             return View();
         }
 
@@ -53,14 +58,18 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserName,Password,ConfirmPassword,RolId,Name,LastName,Phone,Email,Id,DateRegistration,IsActive")] UserEntity userEntity)
+        public async Task<IActionResult> Create([Bind("UserName,Password,ConfirmPassword,RoleId,Name,LastName,Phone,Email,Id,DateRegistration,IsActive")] UserEntity userEntity)
         {
+            userEntity.IsActive = true;
+            userEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(userEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.ListRoles = new SelectList(_context.Role.Where(x => x.IsActive).ToList(), "Id", "Name");
             return View(userEntity);
         }
 
@@ -77,6 +86,8 @@ namespace Activities.Controllers
             {
                 return NotFound();
             }
+            ViewBag.ListRoles = new SelectList(_context.Role.Where(x => x.IsActive).ToList(), "Id", "Name");
+
             return View(userEntity);
         }
 
@@ -139,7 +150,8 @@ namespace Activities.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var userEntity = await _context.User.FindAsync(id);
-            _context.User.Remove(userEntity);
+            //_context.User.Remove(userEntity);
+            userEntity.IsActive = false;    
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

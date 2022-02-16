@@ -1,16 +1,11 @@
-﻿@model Activities.Models.UserEntity
+﻿@model HelpDesk.Models.UserEntity
 
-@{
-    ViewData["Title"] = "Editar usuario";
-}
 
-<h1>Editar</h1>
-
-<h4>Usuario</h4>
+<h4>UserEntity</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
@@ -19,20 +14,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" value="@Model.Password" />
+                <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control"  value="@Model.Password"/>
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RoleId" class="control-label"></label>
-                <select asp-for="RoleId" class="form-control" asp-items="@ViewBag.ListRoles">
-                    <option value="">Seleccione</option>
-                </select>
-                <span asp-validation-for="RoleId" class="text-danger"></span>
+                <label asp-for="RolId" class="control-label"></label>
+                <input asp-for="RolId" class="form-control" />
+                <span asp-validation-for="RolId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -54,19 +42,25 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
-           
             <div class="form-group">
-                <button type="submit" class="btn btn-primary" >
-                    Guardar
-                </button>
+                <label asp-for="DateRegistration" class="control-label"></label>
+                <input asp-for="DateRegistration" class="form-control" />
+                <span asp-validation-for="DateRegistration" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Regresar a la lista</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

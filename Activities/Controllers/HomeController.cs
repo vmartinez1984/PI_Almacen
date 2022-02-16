@@ -1,4 +1,5 @@
 ﻿using Activities.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,9 +18,12 @@ namespace Activities.Controllers
         {
             _logger = logger;
         }
-
+       
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetInt32("usuarioId") is null)
+                return RedirectToAction("Index", "Login");
+
             return View();
         }
 

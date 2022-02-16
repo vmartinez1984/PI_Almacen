@@ -69,10 +69,12 @@ namespace Activities.Models
                     Name = "Administrador",
                     LastName = string.Empty,
                     Password = "123456",
-                    RolId = 1,
+                    RoleId = 1,
                     UserName = "administrador",
                     DateRegistration = DateTime.Now,
-                    IsActive = true
+                    IsActive = true,
+                    Email = string.Empty,
+                    Phone = string.Empty
                 }
             );
         }        

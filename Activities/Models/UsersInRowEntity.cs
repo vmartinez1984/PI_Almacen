@@ -10,9 +10,9 @@ namespace Activities.Models
         public int UserId { get; set; }
         public virtual UserEntity User { get; set; }
 
-        [Required]
+        //[Required]
         [ForeignKey(nameof(RowEntity))]
-        public int RowId { get; set; }
+        public int? RowId { get; set; }
         public virtual RowEntity Row { get; set; }
     }
 }

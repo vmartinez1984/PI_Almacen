@@ -86,21 +86,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 345, DateTimeKind.Local).AddTicks(4555),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 967, DateTimeKind.Local).AddTicks(2402),
                             IsActive = true,
                             Name = "Por hacer"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 357, DateTimeKind.Local).AddTicks(566),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 974, DateTimeKind.Local).AddTicks(4758),
                             IsActive = true,
                             Name = "Haciendo"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 357, DateTimeKind.Local).AddTicks(655),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 974, DateTimeKind.Local).AddTicks(4825),
                             IsActive = true,
                             Name = "Hecho"
                         });
@@ -205,12 +205,7 @@ namespace Activities.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("UserEntityId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserEntityId");
 
                     b.ToTable("Role");
 
@@ -218,14 +213,14 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(3846),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 976, DateTimeKind.Local).AddTicks(4222),
                             IsActive = true,
                             Name = "Operador"
                         },
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(3873),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 976, DateTimeKind.Local).AddTicks(4251),
                             IsActive = true,
                             Name = "Administrador"
                         });
@@ -312,21 +307,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2185),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 976, DateTimeKind.Local).AddTicks(2515),
                             IsActive = true,
                             Name = "Listo"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2221),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 976, DateTimeKind.Local).AddTicks(2559),
                             IsActive = true,
                             Name = "En proceso"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(2226),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 976, DateTimeKind.Local).AddTicks(2568),
                             IsActive = true,
                             Name = "Estancado"
                         });
@@ -339,13 +334,11 @@ namespace Activities.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ConfirmPassword")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -357,6 +350,7 @@ namespace Activities.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -366,10 +360,11 @@ namespace Activities.Migrations
                         .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("RolId")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -379,18 +374,22 @@ namespace Activities.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("User");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 22, 12, 42, 359, DateTimeKind.Local).AddTicks(7432),
+                            DateRegistration = new DateTime(2022, 2, 15, 9, 0, 36, 976, DateTimeKind.Local).AddTicks(7406),
+                            Email = "",
                             IsActive = true,
                             LastName = "",
                             Name = "Administrador",
                             Password = "123456",
-                            RolId = 1,
+                            Phone = "",
+                            RoleId = 1,
                             UserName = "administrador"
                         });
                 });
@@ -408,7 +407,7 @@ namespace Activities.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("RowId")
+                    b.Property<int?>("RowId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -474,13 +473,6 @@ namespace Activities.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Activities.Models.RoleEntity", b =>
-                {
-                    b.HasOne("Activities.Models.UserEntity", null)
-                        .WithMany("Role")
-                        .HasForeignKey("UserEntityId");
-                });
-
             modelBuilder.Entity("Activities.Models.RowEntity", b =>
                 {
                     b.HasOne("Activities.Models.ActivityEntity", null)
@@ -504,13 +496,22 @@ namespace Activities.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Activities.Models.UserEntity", b =>
+                {
+                    b.HasOne("Activities.Models.RoleEntity", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("Activities.Models.UsersInRowEntity", b =>
                 {
                     b.HasOne("Activities.Models.RowEntity", "Row")
                         .WithMany()
-                        .HasForeignKey("RowId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RowId");
 
                     b.HasOne("Activities.Models.UserEntity", "User")
                         .WithMany()
@@ -531,11 +532,6 @@ namespace Activities.Migrations
             modelBuilder.Entity("Activities.Models.RowEntity", b =>
                 {
                     b.Navigation("ListComments");
-                });
-
-            modelBuilder.Entity("Activities.Models.UserEntity", b =>
-                {
-                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

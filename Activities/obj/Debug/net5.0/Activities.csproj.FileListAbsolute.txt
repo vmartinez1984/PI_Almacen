@@ -449,3 +449,7 @@ C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\View
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\Views\UsersInRows\Edit.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\Views\UsersInRows\Index.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\Views\Activities\_ListRows.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Razor\Views\Shared\_ErrorMessage.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Debug\net5.0\Activities.csproj.AssemblyReference.cache
