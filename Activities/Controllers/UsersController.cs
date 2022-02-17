@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Activities.Models;
+using Microsoft.AspNetCore.Http;
+using Activities.Helpers;
 
 namespace Activities.Controllers
 {
@@ -21,16 +23,22 @@ namespace Activities.Controllers
         // GET: UserEntities
         public async Task<IActionResult> Index()
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             List<UserEntity> list;
 
             list = await _context.User.Include(x => x.Role).Where(x=> x.IsActive).ToListAsync();
 
             return View(list);
-        }
+        }      
 
         // GET: UserEntities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -49,6 +57,9 @@ namespace Activities.Controllers
         // GET: UserEntities/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             ViewBag.ListRoles = new SelectList(_context.Role.Where(x => x.IsActive).ToList(), "Id", "Name");
             return View();
         }
@@ -60,6 +71,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserName,Password,ConfirmPassword,RoleId,Name,LastName,Phone,Email,Id,DateRegistration,IsActive")] UserEntity userEntity)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             userEntity.IsActive = true;
             userEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
@@ -76,6 +90,9 @@ namespace Activities.Controllers
         // GET: UserEntities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -96,8 +113,11 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserName,Password,ConfirmPassword,IdRol,Name,LastName,Phone,Email,Id,DateRegistration,IsActive")] UserEntity userEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("UserName,Password,ConfirmPassword, RoleId,Name,LastName,Phone,Email,Id")] UserEntity userEntity)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id != userEntity.Id)
             {
                 return NotFound();
@@ -107,7 +127,18 @@ namespace Activities.Controllers
             {
                 try
                 {
-                    _context.Update(userEntity);
+                    UserEntity userEntityOriginal;
+
+                    userEntityOriginal = _context.User.Where(x => x.Id == id).FirstOrDefault();
+                    userEntityOriginal.UserName = userEntity.UserName;  
+                    userEntityOriginal.Email = userEntity.Email;
+                    userEntityOriginal.Password = userEntity.Password;
+                    userEntityOriginal.LastName = userEntity.LastName;  
+                    userEntityOriginal.Name = userEntity.Name;  
+                    userEntityOriginal.RoleId = userEntity.RoleId;  
+                    userEntityOriginal.Phone = userEntity.Phone;
+                    userEntityOriginal.Email = userEntity.Email;
+                    _context.Update(userEntityOriginal);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -129,6 +160,9 @@ namespace Activities.Controllers
         // GET: UserEntities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -149,6 +183,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             var userEntity = await _context.User.FindAsync(id);
             //_context.User.Remove(userEntity);
             userEntity.IsActive = false;    

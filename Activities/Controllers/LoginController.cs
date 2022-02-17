@@ -1,4 +1,5 @@
 ﻿using Activities.Dtos;
+using Activities.Helpers;
 using Activities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,19 +30,19 @@ namespace Activities.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserEntity usuario;
+                UserEntity user;
 
-                usuario = _context.User.Where(x=> x.IsActive == true && x.UserName == userLogin.UserName && x.Password == userLogin.Password).FirstOrDefault(); 
-                if (usuario is null)
+                user = _context.User.Where(x=> x.IsActive == true && x.UserName == userLogin.UserName && x.Password == userLogin.Password).FirstOrDefault(); 
+                if (user is null)
                 {
                     ViewBag.Error = "Usuario y/o contraseña incorrectos";
                     return View();
                 }
                 else
                 {
-                    HttpContext.Session.SetInt32("usuarioId", usuario.Id);
-                    HttpContext.Session.SetInt32("perfilId", usuario.RoleId);
-                    HttpContext.Session.SetString("usuarioNombre", $"{usuario.Name} {usuario.LastName}");                    
+                    HttpContext.Session.SetInt32(SessionUser.Id, user.Id);
+                    HttpContext.Session.SetInt32("rolId", user.RoleId);
+                    HttpContext.Session.SetString("userName", $"{user.Name} {user.LastName}");                    
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -52,9 +53,8 @@ namespace Activities.Controllers
             }
         }
             
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOut(int id, IFormCollection collection)
+        [HttpGet]        
+        public ActionResult LogOut()
         {            
             HttpContext.Session.Clear();
 

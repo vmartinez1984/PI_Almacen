@@ -66,14 +66,27 @@ namespace Activities.Controllers
             {
                 _context.Add(rowEntity);
                 await _context.SaveChangesAsync();
-                
+
                 return RedirectToAction("Index", "Activities");
             }
-            
+
             ViewBag.IdActivity = rowEntity.ActivityId;
             ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeRowStatus([Bind("ActivityId,UserId,RowStatusId,DateStop,DateStart,Name,Description,Id,DateRegistration,IsActive")] RowEntity rowEntity)
+        {
+            RowEntity rowEntityOriginal;
+
+            rowEntityOriginal = _context.Row.Where(x => x.Id == rowEntity.Id).FirstOrDefault();
+            rowEntityOriginal.RowStatusId = rowEntity.RowStatusId;            
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Activities");
         }
 
         // GET: RowEntities/Edit/5

@@ -1,12 +1,9 @@
-﻿using Activities.Models;
+﻿using Activities.Helpers;
+using Activities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Activities.Controllers
 {
@@ -21,7 +18,7 @@ namespace Activities.Controllers
        
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetInt32("usuarioId") is null)
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
                 return RedirectToAction("Index", "Login");
 
             return View();

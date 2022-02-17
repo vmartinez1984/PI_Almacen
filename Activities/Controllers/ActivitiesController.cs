@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Activities.Models;
 using Activities.Dtos;
+using Activities.Helpers;
 
 namespace Activities.Controllers
 {
@@ -24,6 +25,7 @@ namespace Activities.Controllers
         {
             List<ActivityDto> list;
 
+            ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
             list = await GetAsync();
 
             return View(list);
@@ -35,7 +37,7 @@ namespace Activities.Controllers
             List<ActivityEntity> entities;
 
             list = new List<ActivityDto>();
-            entities = await _context.Activity.Where(x=>x.IsActive).ToListAsync();
+            entities = await _context.Activity.Where(x => x.IsActive).ToListAsync();
             entities.ForEach(entitie =>
             {
                 list.Add(Get(entitie));
@@ -53,7 +55,7 @@ namespace Activities.Controllers
                 Id = entitie.Id,
                 Name = entitie.Name,
                 Description = entitie.Description,
-                ListRows = GetListRows(entitie.Id),                
+                ListRows = GetListRows(entitie.Id),
             };
 
             return activityDto;
@@ -82,6 +84,8 @@ namespace Activities.Controllers
             {
                 Id = row.Id,
                 Name = row.Name,
+                RowStatusId = row.RowStatusId,
+                ActivityId = row.ActivityId,
                 Description = row.Description,
                 DateRegistration = row.DateRegistration,
                 DateStart = row.DateStart,

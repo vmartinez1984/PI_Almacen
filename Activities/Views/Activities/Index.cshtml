@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Activities.Dtos.ActivityDto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de actividades";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Agregar más jale</a>
+    <a asp-action="Create">Agregar nuevo grupo de actividades</a>
 </p>
 
 @foreach (var item in Model)
@@ -19,11 +19,19 @@
         <div class="card card-body">
             @await Html.PartialAsync("_ListRows",item.ListRows)
             <p>
-                @Html.ActionLink("Agregar nuevo jale", "create","rows", new { idActivity = item.Id })
+                @Html.ActionLink("Agregar nueva tarea", "create","rows", new { idActivity = item.Id })
             </p>
         </div>
         <div class="card card-footer">
             @item.Description
         </div>
     </div>
+}
+
+@section Scripts {
+    <script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    });
+    </script>
 }

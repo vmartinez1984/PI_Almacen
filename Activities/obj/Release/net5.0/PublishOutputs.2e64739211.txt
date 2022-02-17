@@ -11,9 +11,10 @@ C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\O
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap_.css
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap_.css.map
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap_.min.css
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap_.min.css.map
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js

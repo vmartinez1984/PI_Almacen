@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<Activities.Dtos.RowDto>
 
-<table class="table">
+<table id="table" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
+            <th>Cambiar estatus</th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -30,12 +31,63 @@
             <th></th>
         </tr>
     </thead>
+    <tfoot>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>Cambiar estatus</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateStop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRegistration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListUsers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListFiles)
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
     <tbody>
+        @{
+            string classColor;
+        }
         @foreach (var item in Model)
         {
-            <tr>
+            switch (item.RowStatusId)
+            {
+                case 1:
+                    classColor = "table-success";
+                    break;
+                case 2:
+                    classColor = "table-warning";
+                    break;
+                case 3:
+                    classColor = "table-danger";
+                    break;
+                default:
+                    classColor = string.Empty;
+                    break;
+            }
+            <tr class="@classColor">
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @await Html.PartialAsync("_ChangeRowStatus",item)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -54,7 +106,7 @@
                 </td>
                 <td>
                     <ul>
-                        @Html.ActionLink("Agregar compa","create","UsersInRows", new {IdRow = item.Id})
+                        @Html.ActionLink("Agregar colaborador","create","UsersInRows", new {IdRow = item.Id})
                         @foreach (var user in item.ListUsers)
                         {
                             <li>@user.FullName</li>

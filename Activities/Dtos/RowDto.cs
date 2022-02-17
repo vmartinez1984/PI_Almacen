@@ -8,6 +8,9 @@ namespace Activities.Dtos
     {
         public int Id { get; set; }
         public string Status { get; set; }
+        [Display(Name ="Status")]
+        public int RowStatusId { get; set; }
+        public int ActivityId { get; set; }
 
 
         [Display(Name = "Nombre")]
@@ -17,18 +20,18 @@ namespace Activities.Dtos
         public string Description { get; set; }
 
 
-        [Display(Name = "Fin del jale")]
+        [Display(Name = "Fecha de fin")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime DateStop { get; set; }
 
-        [Display(Name = "Inicio del jale")]
+        [Display(Name = "Fecha de inicio")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime DateStart { get; set; }
 
         [Display(Name = "Fecha de Registro")]
         public DateTime DateRegistration { get; set; }
 
-        [Display(Name ="Lista de carnales")]
+        [Display(Name ="Lista de colaboradores")]
         public List<UserDto> ListUsers { get; set; }
 
         [Display(Name = "Lista de documentos")]

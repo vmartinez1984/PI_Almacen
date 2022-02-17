@@ -1,4 +1,5 @@
 ﻿using HelpDesk.Dtos;
+using HelpDesk.Helpers;
 using HelpDesk.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,11 +7,11 @@ using System.Linq;
 
 namespace HelpDesk.Controllers
 {
-    public class LoginUsersController : Controller
+    public class LoginController : Controller
     {
         private readonly AppDbContext _context;
 
-        public LoginUsersController(AppDbContext context)
+        public LoginController(AppDbContext context)
         {
             _context = context;
         }
@@ -40,7 +41,7 @@ namespace HelpDesk.Controllers
                     }
                     else
                     {
-                        HttpContext.Session.SetInt32("userId", userEntity.Id);
+                        HttpContext.Session.SetInt32(SessionUser.Id, userEntity.Id);
                         HttpContext.Session.SetInt32("userRolId", userEntity.RolId);
                         HttpContext.Session.SetString("userName", $"{userEntity.Name} {userEntity.LastName}");
 
