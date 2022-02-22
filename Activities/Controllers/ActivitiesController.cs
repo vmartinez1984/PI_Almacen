@@ -21,7 +21,7 @@ namespace Activities.Controllers
         }
 
         // GET: ActivityEntities
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(bool isActive = true)
         {
             List<ActivityDto> list;
 
@@ -31,22 +31,26 @@ namespace Activities.Controllers
             return View(list);
         }
 
+        #region GetAsync
         private async Task<List<ActivityDto>> GetAsync()
         {
             List<ActivityDto> list;
             List<ActivityEntity> entities;
 
             list = new List<ActivityDto>();
-            entities = await _context.Activity.Where(x => x.IsActive).ToListAsync();
+            entities = await _context.Activity
+                .Include(x => x.ListRows)
+                .Include(x => x.ActivityStatus)
+                .Where(x => x.IsActive == true).ToListAsync();
             entities.ForEach(entitie =>
             {
-                list.Add(Get(entitie));
+                list.Add(GetActivityDto(entitie));
             });
 
             return list;
         }
 
-        private ActivityDto Get(ActivityEntity entitie)
+        private ActivityDto GetActivityDto(ActivityEntity entitie)
         {
             ActivityDto activityDto;
 
@@ -55,20 +59,18 @@ namespace Activities.Controllers
                 Id = entitie.Id,
                 Name = entitie.Name,
                 Description = entitie.Description,
-                ListRows = GetListRows(entitie.Id),
+                ListRows = GetListRowDtos(entitie),
             };
 
             return activityDto;
         }
 
-        private List<RowDto> GetListRows(int idActivity)
+        private List<RowDto> GetListRowDtos(ActivityEntity entity)
         {
-            List<RowEntity> entities;
             List<RowDto> list;
 
             list = new List<RowDto>();
-            entities = _context.Row.Include(x => x.RowStatus).Where(x => x.ActivityId == idActivity).ToList();
-            entities.ForEach(row =>
+            entity.ListRows.ForEach(row =>
             {
                 list.Add(GetRowDto(row));
             });
@@ -76,23 +78,23 @@ namespace Activities.Controllers
             return list;
         }
 
-        private RowDto GetRowDto(RowEntity row)
+        private RowDto GetRowDto(RowEntity entity)
         {
             RowDto rowDto;
 
             rowDto = new RowDto
             {
-                Id = row.Id,
-                Name = row.Name,
-                RowStatusId = row.RowStatusId,
-                ActivityId = row.ActivityId,
-                Description = row.Description,
-                DateRegistration = row.DateRegistration,
-                DateStart = row.DateStart,
-                DateStop = row.DateStop,
-                Status = _context.RowStatus.FirstOrDefault(x => x.Id == row.RowStatusId).Name,
-                ListUsers = GetListUser(row.Id),
-                ListFiles = GetListFiles(row.Id)
+                Id = entity.Id,
+                Name = entity.Name,
+                RowStatusId = entity.RowStatusId,
+                ActivityId = entity.ActivityId,
+                Description = entity.Description,
+                DateRegistration = entity.DateRegistration,
+                DateStart = entity.DateStart,
+                DateStop = entity.DateStop,
+                Status = _context.RowStatus.FirstOrDefault(x => x.Id == entity.RowStatusId).Name,
+                ListUsers = GetListUser(entity.Id),
+                ListFiles = GetListFiles(entity.Id)
             };
 
             return rowDto;
@@ -107,34 +109,38 @@ namespace Activities.Controllers
             return list;
         }
 
-        private List<UserDto> GetListUser(int idRow)
+        private List<UserInRowDto> GetListUser(int idRow)
         {
             List<UsersInRowEntity> entities;
-            List<UserDto> list;
+            List<UserInRowDto> list;
 
-            list = new List<UserDto>();
-            entities = _context.UsersInRow.Include(x => x.User).Where(x => x.RowId == idRow).ToList();
+            list = new List<UserInRowDto>();
+            entities = _context.UsersInRow
+                .Include(x => x.User)
+                .Where(x => x.RowId == idRow && x.IsActive)
+                .ToList();
             entities.ForEach(entity =>
             {
-                entity.User = _context.User.Where(x => x.Id == entity.UserId).FirstOrDefault();
-                list.Add(GetUserDto(entity.User));
+                list.Add(GetUserDto(entity));
             });
 
             return list;
         }
 
-        private UserDto GetUserDto(UserEntity user)
+        private UserInRowDto GetUserDto(UsersInRowEntity entity)
         {
-            UserDto dto;
+            UserInRowDto dto;
 
-            dto = new UserDto
+            dto = new UserInRowDto
             {
-                Id = user.Id,
-                FullName = $"{user.Name} {user.LastName}"
+                Id = entity.Id,
+                UserId = entity.UserId,
+                FullName = $"{entity.User.Name} {entity.User.LastName}"
             };
 
             return dto;
         }
+        #endregion
 
         // GET: ActivityEntities/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -171,13 +177,16 @@ namespace Activities.Controllers
         {
             activityEntity.IsActive = true;
             activityEntity.DateRegistration = DateTime.Now;
-            if (ModelState.IsValid)
-            {
-                _context.Add(activityEntity);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(activityEntity);
+            activityEntity.UserId = 1;
+            //activityEntity.Id = 1;
+            //if (ModelState.IsValid)
+            //{
+            //    activityEntity.Id = 0;
+            _context.Activity.Add(activityEntity);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            //}
+            //return View(activityEntity);
         }
 
         // GET: ActivityEntities/Edit/5
@@ -201,7 +210,7 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUser,IdActivityStatus,Name,Description,Id,DateRegistration,IsActive")] ActivityEntity activityEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,ActivityStatusId,Name,Description,Id,DateRegistration,IsActive")] ActivityEntity activityEntity)
         {
             if (id != activityEntity.Id)
             {
@@ -239,7 +248,8 @@ namespace Activities.Controllers
                 return NotFound();
             }
 
-            var activityEntity = await _context.Activity
+            var activityEntity = await _context.Activity.Include(x => x.User)
+                .Include(x => x.ActivityStatus)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (activityEntity == null)
             {
@@ -255,7 +265,8 @@ namespace Activities.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var activityEntity = await _context.Activity.FindAsync(id);
-            _context.Activity.Remove(activityEntity);
+            //_context.Activity.Remove(activityEntity);
+            activityEntity.IsActive = false;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

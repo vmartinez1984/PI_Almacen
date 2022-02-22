@@ -57,7 +57,15 @@ namespace Activities.Controllers
         // GET: UsersInRowEntities/Create
         public IActionResult Create(int idRow)
         {
-            ViewData["ListUsers"] = new SelectList(_context.User.Where(x => x.IsActive).ToList(), SelectProperty.Id, SelectProperty.Name);
+            List<UserEntity> list;
+            List<UserEntity> listFiltered;
+            List<UserEntity> listUser;
+
+            listUser = _context.UsersInRow.Where(x => x.RowId == idRow && x.IsActive).Select(x =>x.User).ToList();
+            list = _context.User.Where(x => x.IsActive).ToList();
+            listFiltered = list.Except(listUser).ToList();            
+
+            ViewData["ListUsers"] = new SelectList(listFiltered, SelectProperty.Id, SelectProperty.Name);
             ViewData["IdRow"] = idRow;
 
             return View();
@@ -144,7 +152,11 @@ namespace Activities.Controllers
             }
 
             var usersInRowEntity = await _context.UsersInRow
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(x => x.Row)
+                .Include(x => x.User)
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
+
             if (usersInRowEntity == null)
             {
                 return NotFound();
@@ -158,10 +170,12 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usersInRowEntity = await _context.UsersInRow.FindAsync(id);
-            _context.UsersInRow.Remove(usersInRowEntity);
+            var usersInRowEntity = await _context.UsersInRow
+                .FindAsync(id);
+            usersInRowEntity.IsActive = false;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction(nameof(Index), "Activities");
         }
 
         private bool UsersInRowEntityExists(int id)

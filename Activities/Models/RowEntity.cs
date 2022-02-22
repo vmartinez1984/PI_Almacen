@@ -10,6 +10,7 @@ namespace Activities.Models
         [Required]
         [ForeignKey(nameof(ActivityEntity))]
         public int ActivityId { get; set; }
+        public virtual ActivityEntity Activity { get; set; }
 
         [Required]
         [ForeignKey(nameof(UserEntity))]

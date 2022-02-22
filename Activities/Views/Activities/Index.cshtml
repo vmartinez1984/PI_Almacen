@@ -1,20 +1,36 @@
 ﻿@model IEnumerable<Activities.Dtos.ActivityDto>
 
 @{
-    ViewData["Title"] = "Lista de actividades";
+    ViewData["Title"] = "Lista de grupos de actividades";
 }
 
-<h1>Index</h1>
+<h1>Lista de actividades</h1>
 
 <p>
-    <a asp-action="Create">Agregar nuevo grupo de actividades</a>
+    <a asp-action="Create" asp-controller="Activities" title="Agregar nuevo grupo de actividades" data-toggle="tooltip" class="btn btn-success">
+        <i class="fas fa-plus"></i>
+    </a>
 </p>
 
 @foreach (var item in Model)
 {
     <div class="card">
         <div class="card-header">
-            @item.Name
+            <div class="row">
+                <div class="col-10">
+                    @item.Name
+                </div>
+                <div class="col-1">
+                    <a href="/Activities/Delete/@item.Id" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a href="/Activities/Edit/@item.Id" class="btn btn-warning">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="card card-body">
             @await Html.PartialAsync("_ListRows",item.ListRows)
@@ -26,12 +42,21 @@
             @item.Description
         </div>
     </div>
+    <br />
+    <br />
 }
 
 @section Scripts {
-    <script>
+<script>
     $(document).ready(function() {
-        $('#table').DataTable();
+        $('.table').DataTable({
+            paging: false,
+            searching: false,
+            info:false,
+            "language": {
+                    "zeroRecords": "Sin registros"
+            }
+        });
     });
-    </script>
+</script>
 }

@@ -465,6 +465,6 @@ C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\HelpDesk.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\ref\HelpDesk.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\HelpDesk.pdb
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\HelpDesk.genruntimeconfig.cache
-C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\HelpDesk.csproj.AssemblyReference.cache
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\HelpDesk\obj\Debug\net5.0\HelpDesk.csproj.AssemblyReference.cache

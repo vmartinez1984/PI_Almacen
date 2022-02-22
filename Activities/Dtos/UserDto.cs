@@ -2,9 +2,11 @@
 
 namespace Activities.Dtos
 {
-    public class UserDto
+    public class UserInRowDto
     {
         public int Id { get; set; }
+
+        public int UserId { get; set; }
 
         [Display(Name = "Nombre")]
         public string FullName { get; set; }

@@ -453,3 +453,4 @@ C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\Activiti
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\Razor\Views\Shared\_ErrorMessage.cshtml.g.cs
 C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\Users\vhmartinezb\source\repos\Pruebas\Activities\obj\Release\net5.0\Razor\Views\Activities\_ChangeRowStatus.cshtml.g.cs

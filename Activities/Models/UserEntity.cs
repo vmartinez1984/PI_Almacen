@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Activities.Models
 {
-    public class UserEntity: BaseEntity
+    public class UserEntity : BaseEntity
     {
         [Required]
         [StringLength(50)]
@@ -51,5 +51,14 @@ namespace Activities.Models
         [StringLength(255)]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
+
+        [NotMapped]
+        public string FullName
+        {
+            get
+            {
+                return $"{this.Name} {this.LastName}";
+            }
+        }
     }
 }

@@ -8,11 +8,13 @@ namespace Activities.Models
     {      
         [Required]
         [ForeignKey(nameof(UserEntity))]
+        [Display(Name = "Usuario")]
         public int UserId { get; set; }
         public virtual UserEntity User { get; set; }
 
         [Required]
         [ForeignKey(nameof(ActivityStatusEntity))]
+        [Display(Name = "Estatus")]
         public int ActivityStatusId { get; set; }
         public virtual ActivityStatusEntity ActivityStatus { get; set; }
 

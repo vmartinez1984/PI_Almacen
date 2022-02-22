@@ -1,10 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 
 namespace HelpDesk.Models
 {
     public class AppDbContext : DbContext
     {
+        private IConfiguration _configuration;
+
         //public DbSet<AddressEntity> Address { get; set; }
         public DbSet<BranchEntity> Branch { get; set; }
         public DbSet<BranchTypeEntity> BranchType { get; set; }
@@ -17,9 +20,12 @@ namespace HelpDesk.Models
         public DbSet<RoleEntity> Role { get; set; }
         public DbSet<UserEntity> User { get; set; }
 
-        public AppDbContext()
+        public AppDbContext(IConfiguration configuration)
         {
+            _configuration = configuration;
+            string stringConnection;
 
+            stringConnection = configuration.GetConnectionString("DefaultConnection");
         }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -31,9 +37,9 @@ namespace HelpDesk.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Demo02;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Demo02;Trusted_Connection=True;");
                 //optionsBuilder.UseSqlServer("workstation id=StorageAndQr.mssql.somee.com;packet size=4096;user id=vmartinez84_SQLLogin_3;pwd=bgcs8xmwrb;data source=StorageAndQr.mssql.somee.com;persist security info=False;initial catalog=StorageAndQr ");
-
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
             }
         }
 

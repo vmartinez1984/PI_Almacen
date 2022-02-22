@@ -1,45 +1,44 @@
 ﻿@model Activities.Models.UsersInRowEntity
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Quitar colaborador";
 }
+<div class="container">
 
-<h1>Delete</h1>
+    <h1 class="text-danger">Quitar calaborador de actividad</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>UsersInRowEntity</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RowId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RowId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateRegistration)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateRegistration)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    <h3 class="text-danger">¿Desea quitar colaborador?</h3>
+    <div>
+        <h4>@Model.User.FullName</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.User.FullName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RowId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Row.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateRegistration)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateRegistration)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger" > 
+               <i class="fas fa-eraser"></i>
+               Quitar colaborador de actividad
+              </button> |
+            <a asp-action="Index" asp-controller="Activities">Regresar a lista grupo de actividades</a>
+        </form>
+    </div>
 </div>

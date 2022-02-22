@@ -31,10 +31,10 @@ namespace Activities.Dtos
         [Display(Name = "Fecha de Registro")]
         public DateTime DateRegistration { get; set; }
 
-        [Display(Name ="Lista de colaboradores")]
-        public List<UserDto> ListUsers { get; set; }
+        [Display(Name ="Colaboradores")]
+        public List<UserInRowDto> ListUsers { get; set; }
 
-        [Display(Name = "Lista de documentos")]
+        [Display(Name = "Documentos")]
         public List<FileDto> ListFiles { get; set; }
     }
 }
