@@ -75,7 +75,7 @@ namespace Activities.Controllers
                 return RedirectToAction("Index", "Login");
 
             userEntity.IsActive = true;
-            userEntity.DateRegistration = DateTime.Now;
+            userEntity.DateRegistration = DateTime.Now;            
             if (ModelState.IsValid)
             {
                 _context.Add(userEntity);

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Activities.Models;
 using Activities.Dtos;
 using Activities.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace Activities.Controllers
 {
@@ -23,6 +24,9 @@ namespace Activities.Controllers
         // GET: ActivityEntities
         public async Task<IActionResult> Index(bool isActive = true)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             List<ActivityDto> list;
 
             ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
@@ -40,6 +44,8 @@ namespace Activities.Controllers
             list = new List<ActivityDto>();
             entities = await _context.Activity
                 .Include(x => x.ListRows)
+                    .ThenInclude(x=>x.ListComments)
+                        .ThenInclude(x=>x.User)
                 .Include(x => x.ActivityStatus)
                 .Where(x => x.IsActive == true).ToListAsync();
             entities.ForEach(entitie =>
@@ -94,10 +100,29 @@ namespace Activities.Controllers
                 DateStop = entity.DateStop,
                 Status = _context.RowStatus.FirstOrDefault(x => x.Id == entity.RowStatusId).Name,
                 ListUsers = GetListUser(entity.Id),
-                ListFiles = GetListFiles(entity.Id)
+                ListFiles = GetListFiles(entity.Id),
+                ListComments = GetListComments(entity.ListComments)
             };
 
             return rowDto;
+        }
+
+        private List<CommentDto> GetListComments(List<CommentEntity> listComments)
+        {
+            List<CommentDto> list;
+
+            list = new List<CommentDto>();
+            listComments.ForEach(comment =>
+            {
+                list.Add(new CommentDto
+                {
+                    Content = comment.Content,
+                    DateRegistration = comment.DateRegistration,
+                    UserFullName = comment.User.FullName                
+                });
+            });
+
+            return list;
         }
 
         private List<FileDto> GetListFiles(int id)
@@ -145,6 +170,9 @@ namespace Activities.Controllers
         // GET: ActivityEntities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -163,6 +191,9 @@ namespace Activities.Controllers
         // GET: ActivityEntities/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             ViewData["ListActivityStatus"] = new SelectList(_context.ActivityStatus.Where(x => x.IsActive).ToList(), "Id", "Name");
 
             return View();
@@ -175,9 +206,12 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserId,ActivityStatusId,Name,Description,Id,DateRegistration,IsActive")] ActivityEntity activityEntity)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             activityEntity.IsActive = true;
             activityEntity.DateRegistration = DateTime.Now;
-            activityEntity.UserId = 1;
+            activityEntity.UserId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
             //activityEntity.Id = 1;
             //if (ModelState.IsValid)
             //{
@@ -192,6 +226,9 @@ namespace Activities.Controllers
         // GET: ActivityEntities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -212,6 +249,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("UserId,ActivityStatusId,Name,Description,Id,DateRegistration,IsActive")] ActivityEntity activityEntity)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id != activityEntity.Id)
             {
                 return NotFound();
@@ -243,6 +283,9 @@ namespace Activities.Controllers
         // GET: ActivityEntities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -264,6 +307,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             var activityEntity = await _context.Activity.FindAsync(id);
             //_context.Activity.Remove(activityEntity);
             activityEntity.IsActive = false;

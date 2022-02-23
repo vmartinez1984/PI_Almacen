@@ -36,5 +36,8 @@ namespace Activities.Dtos
 
         [Display(Name = "Documentos")]
         public List<FileDto> ListFiles { get; set; }
+
+        [Display(Name = "Comentarios")]
+        public List<CommentDto> ListComments { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Activities.Models;
 using Activities.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace Activities.Controllers
 {
@@ -22,6 +23,9 @@ namespace Activities.Controllers
         // GET: UsersInRowEntities
         public async Task<IActionResult> Index(int idRow)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             List<UsersInRowEntity> list;
 
             list = await _context.UsersInRow
@@ -39,6 +43,9 @@ namespace Activities.Controllers
         // GET: UsersInRowEntities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -57,6 +64,9 @@ namespace Activities.Controllers
         // GET: UsersInRowEntities/Create
         public IActionResult Create(int idRow)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             List<UserEntity> list;
             List<UserEntity> listFiltered;
             List<UserEntity> listUser;
@@ -78,6 +88,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserId,RowId,Id,DateRegistration,IsActive")] UsersInRowEntity usersInRowEntity)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             usersInRowEntity.IsActive = true;
             usersInRowEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
@@ -95,6 +108,9 @@ namespace Activities.Controllers
         // GET: UsersInRowEntities/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -115,6 +131,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdUser,IdRow,Id,DateRegistration,IsActive")] UsersInRowEntity usersInRowEntity)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id != usersInRowEntity.Id)
             {
                 return NotFound();
@@ -146,6 +165,9 @@ namespace Activities.Controllers
         // GET: UsersInRowEntities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             if (id == null)
             {
                 return NotFound();
@@ -170,6 +192,9 @@ namespace Activities.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
             var usersInRowEntity = await _context.UsersInRow
                 .FindAsync(id);
             usersInRowEntity.IsActive = false;
