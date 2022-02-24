@@ -6,8 +6,7 @@
     <input type="hidden" asp-for="ActivityId" />
     <div class="form-group">
         <div class="input-group mb-3">
-            <select asp-for="RowStatusId" class="form-control" asp-items="@ViewBag.ListRowStatus">
-                <option value="">Seleccione</option>
+            <select asp-for="RowStatusId" class="form-control" asp-items="@ViewBag.ListRowStatus">          
             </select>
             <span asp-validation-for="RowStatusId" class="text-danger"></span>
             <button class="btn btn-outline-primary btn-sm">-></button>

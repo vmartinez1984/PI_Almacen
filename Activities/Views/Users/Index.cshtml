@@ -8,7 +8,7 @@
     <h1>Lista de usuarios</h1>
 
     <p>
-        <a asp-action="Create" asp-controller="Activities" title="Agregar usuario" data-toggle="tooltip" class="btn btn-success">
+        <a asp-action="Create" asp-controller="Users" title="Agregar usuario" data-toggle="tooltip" class="btn btn-success">
             <i class="fas fa-plus"></i>
         </a>
     </p>
@@ -96,12 +96,15 @@
                         <a asp-action="Edit" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar usuario" class="text-warning">
                             <i class="fas fa-edit"></i>
                         </a> |
-                        <a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar usuario" class="text-info">
+                        <a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" title="Detalles usuario" class="text-info">
                             <i class="fas fa-info"></i>
                         </a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar usuaio" class="text-danger">
-                            <i class="fas fa-eraser"></i>
-                        </a>
+                        @if (Model.Count() != 1)
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar usuaio" class="text-danger">
+                                <i class="fas fa-eraser"></i>
+                            </a>
+                        }
                     </td>
                 </tr>
             }

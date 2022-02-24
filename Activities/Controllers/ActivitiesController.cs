@@ -44,8 +44,8 @@ namespace Activities.Controllers
             list = new List<ActivityDto>();
             entities = await _context.Activity
                 .Include(x => x.ListRows)
-                    .ThenInclude(x=>x.ListComments)
-                        .ThenInclude(x=>x.User)
+                    .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
+                        .ThenInclude(x => x.User)
                 .Include(x => x.ActivityStatus)
                 .Where(x => x.IsActive == true).ToListAsync();
             entities.ForEach(entitie =>
@@ -118,18 +118,24 @@ namespace Activities.Controllers
                 {
                     Content = comment.Content,
                     DateRegistration = comment.DateRegistration,
-                    UserFullName = comment.User.FullName                
+                    UserFullName = comment.User.FullName
                 });
             });
 
             return list;
         }
 
-        private List<FileDto> GetListFiles(int id)
+        private List<FileDto> GetListFiles(int rowId)
         {
             List<FileDto> list;
 
-            list = new List<FileDto>();
+            list = _context.File.Where(x => x.RowId == rowId && x.IsActive).Select(entity => new FileDto
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                RowId = rowId,
+                Url = entity.Url
+            }).ToList();
 
             return list;
         }

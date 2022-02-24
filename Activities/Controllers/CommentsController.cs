@@ -65,6 +65,8 @@ namespace Activities.Controllers
                 return RedirectToAction("Index", "Login");
 
             commentEntity.UserId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
+            commentEntity.DateRegistration = DateTime.Now;
+            commentEntity.IsActive = true;
             if (ModelState.IsValid)
             {
                 _context.Add(commentEntity);

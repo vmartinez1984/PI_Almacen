@@ -77,7 +77,7 @@ namespace Activities.Models
                     Phone = string.Empty
                 }
             );
-        }        
+        }                
 
     }//end class
 }

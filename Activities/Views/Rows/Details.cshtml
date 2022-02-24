@@ -1,72 +1,99 @@
 ﻿@model Activities.Models.RowEntity
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h1>Details</h1>
+<div class="container">
+    <h1 class="text-info">Detalles de actividad</h1>
 
-<div>
-    <h4>RowEntity</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ActivityId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ActivityId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RowStatusId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RowStatusId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateStop)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateStop)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateStart)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateStart)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateRegistration)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateRegistration)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <h4 class="text-info">@Model.Name</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ActivityId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Activity.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.User.FullName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RowStatusId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RowStatus.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateStop)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateStop)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateRegistration)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateRegistration)
+            </dd>
+
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index" asp-controller="activities">Regresar a la lista</a>
+    </div>
+
+    <div>
+        <h4 class="text-info">Documentos</h4>
+        <hr />
+        <p>
+            <a asp-action="Create" asp-controller="Files" asp-route-RowId="@Model.Id">
+                <i class="fas fa-comment-medical"></i>
+                Agregar comentario
+            </a>
+            @foreach (var item in Model.ListFiles)
+            {
+                <blockquote class="blockquote">
+                    <a href="@item.Url">
+                        @item.Name
+                    </a>
+                    <br />
+                    <a href="~/Files/Delete/@item.Id" data-toggle="tooltip" title="Quitar documento" class="text-danger">
+                        <i class="fas fa-eraser"></i>
+                    </a>
+                    <footer class="blockquote-footer"><cite title="Source Title">@item.User.FullName</cite> @item.DateRegistration</footer>
+                </blockquote>
+            }
+        </p>
+    </div>
+
+    <div>
+        <h4 class="text-info">Comentarios</h4>
+        <hr />
+        <p>
+            <a asp-action="Create" asp-controller="Comments" asp-route-RowId="@Model.Id">
+                <i class="fas fa-comment-medical"></i>
+                Agregar comentario
+            </a>
+        </p>
+        @await Html.PartialAsync("_ListComments", Model.ListComments)
+    </div>
 </div>

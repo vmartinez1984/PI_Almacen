@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Activities.Models
 {
@@ -17,5 +18,9 @@ namespace Activities.Models
         [ForeignKey(nameof(UserEntity))]
         public int? UserId { get; set; }
         public virtual UserEntity User { get; set; }
+
+        [NotMapped]
+
+        public IFormFile FormFile { get; set; }
     }
 }

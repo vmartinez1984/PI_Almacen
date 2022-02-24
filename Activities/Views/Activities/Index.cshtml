@@ -4,7 +4,7 @@
     ViewData["Title"] = "Lista de grupos de actividades";
 }
 
-<h1>Lista de actividades</h1>
+<h1>Lista de grupo actividades</h1>
 
 <p>
     <a asp-action="Create" asp-controller="Activities" title="Agregar nuevo grupo de actividades" data-toggle="tooltip" class="btn btn-success">
@@ -35,7 +35,7 @@
         <div class="card card-body">
             @await Html.PartialAsync("_ListRows",item.ListRows)
             <p>
-                @Html.ActionLink("Agregar nueva tarea", "create","rows", new { idActivity = item.Id })
+                @Html.ActionLink("Agregar nueva actividad", "create","rows", new { idActivity = item.Id })
             </p>
         </div>
         <div class="card card-footer">

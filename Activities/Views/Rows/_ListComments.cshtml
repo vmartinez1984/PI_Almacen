@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Activities.Models.CommentEntity>
+
+@foreach (var item in Model)
+{
+    <blockquote class="blockquote">
+        @item.Content
+        <footer class="blockquote-footer"><cite title="Source Title">@item.User.FullName</cite> @item.DateRegistration</footer>
+    </blockquote>
+}

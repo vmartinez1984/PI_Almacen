@@ -41,6 +41,10 @@ namespace Activities.Controllers
             }
 
             var rowEntity = await _context.Row
+                .Include(x => x.ListFiles.Where(x => x.IsActive))
+                    .ThenInclude(x => x.User)
+                .Include(x => x.ListComments.Where(x => x.IsActive))
+                    .ThenInclude(x => x.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (rowEntity == null)
             {
@@ -99,7 +103,7 @@ namespace Activities.Controllers
             RowEntity rowEntityOriginal;
 
             rowEntityOriginal = _context.Row.Where(x => x.Id == rowEntity.Id).FirstOrDefault();
-            rowEntityOriginal.RowStatusId = rowEntity.RowStatusId;            
+            rowEntityOriginal.RowStatusId = rowEntity.RowStatusId;
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Activities");
@@ -121,6 +125,8 @@ namespace Activities.Controllers
             {
                 return NotFound();
             }
+            ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
+
             return View(rowEntity);
         }
 
@@ -129,7 +135,7 @@ namespace Activities.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdActivity,IdUser,IdRowStatus,DateStop,DateStart,Name,Description,Id,DateRegistration,IsActive")] RowEntity rowEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("ActivityId,UserId,RowStatusId,DateStop,DateStart,Name,Description,Id,DateRegistration,IsActive")] RowEntity rowEntity)
         {
             if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
                 return RedirectToAction("Index", "Login");
@@ -159,6 +165,8 @@ namespace Activities.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
             return View(rowEntity);
         }
 
@@ -173,7 +181,7 @@ namespace Activities.Controllers
                 return NotFound();
             }
 
-            var rowEntity = await _context.Row
+            var rowEntity = await _context.Row.Include(x => x.Activity).Include(x => x.RowStatus).Include(x => x.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (rowEntity == null)
             {
@@ -192,9 +200,9 @@ namespace Activities.Controllers
                 return RedirectToAction("Index", "Login");
 
             var rowEntity = await _context.Row.FindAsync(id);
-            _context.Row.Remove(rowEntity);
+            rowEntity.IsActive = false;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "Activities");
         }
 
         private bool RowEntityExists(int id)

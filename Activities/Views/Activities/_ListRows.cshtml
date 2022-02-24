@@ -6,7 +6,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>Cambiar estatus</th>
+           @* <th>Cambiar estatus</th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -31,7 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ListComments)
             </th>
-            <th></th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tfoot>
@@ -39,7 +39,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>Cambiar estatus</th>
+            @*<th>Cambiar estatus</th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -64,7 +64,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ListComments)
             </th>
-            <th></th>
+            <th><Acciones</th>
         </tr>
     </tfoot>
     <tbody>
@@ -92,9 +92,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
-                <td>
+                @*<td>
                     @await Html.PartialAsync("_ChangeRowStatus",item)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -131,13 +131,17 @@
                 @*Documentos*@
                 <td>
                     <ul>
-                        <a href="~/UsersInRows/Create?IdRow=@item.Id" data-toggle="tooltip" title="Agregar documento" class="text-success">
+                        <a href="~/Files/Create?RowId=@item.Id" data-toggle="tooltip" title="Agregar documento" class="text-success">
                             <i class="fas fa-file-upload"></i>
                         </a>
                         @foreach (var file in item.ListFiles)
                         {
-                            <li>@file.Name</li>
-                            <a href="~/UsersInRows/Delete?IdRow=@item.Id" data-toggle="tooltip" title="Quitar documento" class="text-danger">
+                            <li>
+                                <a href="@file.Url" target="_blank">
+                                    @file.Name
+                                </a>
+                            </li>
+                            <a href="~/Files/Delete/@file.Id" data-toggle="tooltip" title="Quitar documento" class="text-danger">
                                 <i class="fas fa-eraser"></i>
                             </a>
                         }
@@ -151,8 +155,13 @@
                     </a>
                     @foreach (var comment in item.ListComments)
                     {
-                        <div class="row">
-                            <div class="col-10 text-truncate">@comment.Content</div>
+                        <div class="row">                            
+                            <div class="col-10 text-truncate">
+                                @*<blockquote class="blockquote">*@
+                                    @comment.Content
+                                    <footer class="blockquote-footer"><cite title="Source Title">@comment.UserFullName</cite>@comment.DateRegistration</footer>
+                                @*</blockquote>*@
+                                </div>
                             <div class="col-2">
                                 <a href="~/UsersInRows/Delete?IdRow=@item.Id" data-toggle="tooltip" title="Quitar Comentario" class="text-danger">
                                     <i class="fas fa-eraser"></i>
@@ -171,6 +180,7 @@
                     <a asp-action="Delete" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar actividad" class="text-danger">
                         <i class="fas fa-eraser"></i>
                     </a>
+                    @await Html.PartialAsync("_ChangeRowStatus",item)
                 </td>
             </tr>
         }

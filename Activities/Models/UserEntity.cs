@@ -59,6 +59,6 @@ namespace Activities.Models
             {
                 return $"{this.Name} {this.LastName}";
             }
-        }
+        }        
     }
 }
