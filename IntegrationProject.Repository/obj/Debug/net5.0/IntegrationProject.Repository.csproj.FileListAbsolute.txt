@@ -10,3 +10,15 @@ C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Repository\obj\Debu
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Repository\obj\Debug\net5.0\ref\IntegrationProject.Repository.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\bin\Debug\net5.0\IntegrationProject.Repository.deps.json
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\bin\Debug\net5.0\IntegrationProject.Repository.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\bin\Debug\net5.0\IntegrationProject.Repository.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.AssemblyInfoInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.AssemblyInfo.cs
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\refint\IntegrationProject.Repository.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\IntegrationProject.Repository.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Repository\obj\Debug\net5.0\ref\IntegrationProject.Repository.dll

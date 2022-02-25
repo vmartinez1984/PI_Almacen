@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj": {}
+    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj": {
+    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj",
+        "projectUniqueName": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj",
         "projectName": "PruebaDeConcepto.Api",
-        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj",
+        "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj",
         "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\obj\\",
+        "outputPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vmartinez\\AppData\\Roaming\\NuGet\\NuGet.Config",

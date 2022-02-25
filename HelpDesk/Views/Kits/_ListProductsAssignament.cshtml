@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HelpDesk.Models.ProductAssignmentEntity>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAssignment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRegistration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAssignment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRegistration)
+                </td>
+
+                <td>
+                    <a asp-action="Delete" asp-controller="ProductAssignments" asp-route-kitId="@item.KitId" asp-route-id="@item.Id">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

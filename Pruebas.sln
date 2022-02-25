@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{61EF908A-6E24-44EF-A1F6-206CE862C6C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaDeConcepto.Api", "PruebaDeConcepto.Api\PruebaDeConcepto.Api.csproj", "{028A95D0-4486-4551-9467-5723FF56DF05}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaDeConceptoDi", "PruebaDeConceptoDi\PruebaDeConceptoDi.csproj", "{C28F3672-349D-45BB-9196-95B88C3BF904}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InyeccionDeDependenciaConDapper", "InyeccionDeDependenciaConDapper\InyeccionDeDependenciaConDapper.csproj", "{B1DE7A26-2790-41FF-AC94-3F09BD3F37FF}"
@@ -35,25 +33,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServicioDummy", "ServicioDu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usuarios", "Usuarios", "{27CEB00F-436E-496C-B254-A174A7C20590}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMtz.Api", "VMtz.Api\VMtz.Api.csproj", "{3CDDB7C0-EECD-4DA3-B20E-4D66FB829AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMtz.Api", "VMtz.Api\VMtz.Api.csproj", "{3CDDB7C0-EECD-4DA3-B20E-4D66FB829AEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolaMundo", "HolaMundo\HolaMundo.csproj", "{70A1E12D-5AF9-41BC-9A1B-256C94984E83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolaMundo", "HolaMundo\HolaMundo.csproj", "{70A1E12D-5AF9-41BC-9A1B-256C94984E83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProyectoDeIntegracion", "ProyectoDeIntegracion", "{6A000F9A-C36E-4F62-8415-4348063CEBFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationProject.Repository", "IntegrationProject.Repository\IntegrationProject.Repository.csproj", "{522A70F0-E4AC-45D4-9E64-93554C4B3F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationProject.Repository", "IntegrationProject.Repository\IntegrationProject.Repository.csproj", "{522A70F0-E4AC-45D4-9E64-93554C4B3F71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationProject.Service", "IntegrationProject.Service\IntegrationProject.Service.csproj", "{9B041D26-835D-43F9-87D6-9D1261DE00A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationProject.Service", "IntegrationProject.Service\IntegrationProject.Service.csproj", "{9B041D26-835D-43F9-87D6-9D1261DE00A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationProject.Core", "IntegrationProject.Core\IntegrationProject.Core.csproj", "{487412F9-4FB3-4C8A-93B3-19AC41FA42B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationProject.Core", "IntegrationProject.Core\IntegrationProject.Core.csproj", "{487412F9-4FB3-4C8A-93B3-19AC41FA42B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationProject.Mvc", "IntegrationProject.Mvc\IntegrationProject.Mvc.csproj", "{EE21357C-F122-436D-9411-B705AEDC55A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationProject.Mvc", "IntegrationProject.Mvc\IntegrationProject.Mvc.csproj", "{EE21357C-F122-436D-9411-B705AEDC55A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationProject.Mvc2", "IntegrationProject.Mvc2\IntegrationProject.Mvc2.csproj", "{36737D45-89BD-4DE2-8205-B44ADDC24535}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationProject.Mvc2", "IntegrationProject.Mvc2\IntegrationProject.Mvc2.csproj", "{36737D45-89BD-4DE2-8205-B44ADDC24535}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk", "HelpDesk\HelpDesk.csproj", "{17F47CE4-20BE-4012-A967-1AF242CF7471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpDesk", "HelpDesk\HelpDesk.csproj", "{17F47CE4-20BE-4012-A967-1AF242CF7471}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activities", "Activities\Activities.csproj", "{42C283B5-CED4-451D-A179-C0A17B239D08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Activities", "Activities\Activities.csproj", "{42C283B5-CED4-451D-A179-C0A17B239D08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +63,6 @@ Global
 		{61EF908A-6E24-44EF-A1F6-206CE862C6C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61EF908A-6E24-44EF-A1F6-206CE862C6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61EF908A-6E24-44EF-A1F6-206CE862C6C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{028A95D0-4486-4551-9467-5723FF56DF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{028A95D0-4486-4551-9467-5723FF56DF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{028A95D0-4486-4551-9467-5723FF56DF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{028A95D0-4486-4551-9467-5723FF56DF05}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C28F3672-349D-45BB-9196-95B88C3BF904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C28F3672-349D-45BB-9196-95B88C3BF904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C28F3672-349D-45BB-9196-95B88C3BF904}.Release|Any CPU.ActiveCfg = Release|Any CPU

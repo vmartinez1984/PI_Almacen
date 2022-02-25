@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jp+lBNYzS+F4wgj4OPxmm6oMnSI60ZgKs70/GVgYkklE5arPSaKGWtCFaxtFvHqrhJv3jSJ99DPjyV1aQFi0Hg==",
+  "dgSpecHash": "8QQ8pbsaE/WgrHzQFf2V27sKL2iPR722jKfjeScH+tUBbUPjxjAgByU8Hoktv93rGpk6jKVTTtZsoRnKKLq9FA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

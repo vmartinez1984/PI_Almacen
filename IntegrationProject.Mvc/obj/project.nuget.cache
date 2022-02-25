@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uGFj5lWEk+od25pJ7RZNv0kDicXF8vWIUqAHztP/iM9g+q7vcJg6o1mrNzUetRTRkGJYALfjocML4DCpBAbp0Q==",
+  "dgSpecHash": "fPz5+5cgx9hUqgmBlB0a0uiDL4MPHm/MSC656IAOmsvhGqUvRyzyz3VP96Ji/rnDfIap4Sv4weMiNFt7CnbSRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\IntegrationProject.Mvc\\IntegrationProject.Mvc.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IntegrationProject.Mvc\\IntegrationProject.Mvc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.13\\microsoft.aspnetcore.mvc.razor.extensions.5.0.13.nupkg.sha512",

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj": {}
+    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj": {
+    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj",
+        "projectUniqueName": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj",
         "projectName": "HolaMundo",
-        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj",
+        "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\HolaMundo.csproj",
         "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\HolaMundo\\obj\\",
         "projectStyle": "PackageReference",

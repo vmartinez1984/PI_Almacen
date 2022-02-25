@@ -28,7 +28,7 @@ namespace HelpDesk.Controllers
                     new CompanyEntity
                     {
                         Id = x.Id,
-                        CountDependencys = _context.Branch.Count(x => x.CompanyId == x.Id),
+                        CountDependencys = x.ListBranches.Count,
                         //CountPersons= _context.Person.Count(x => x.br)
                         Name = x.Name,
                         DateRegistration = x.DateRegistration,

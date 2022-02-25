@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HelpDesk.Models;
+using HelpDesk.Helpers;
 
 namespace HelpDesk.Controllers
 {
@@ -59,7 +60,7 @@ namespace HelpDesk.Controllers
         // GET: ProductAssignments/Create
         public IActionResult Create()
         {           
-            ViewData["PersonId"] = new SelectList(_context.Person.Where(x=> x.IsActive).ToList(), "Id", "Name");
+            ViewData["PersonId"] = new SelectList(_context.Person.Where(x=> x.IsActive).ToList(), "Id", nameof(PersonEntity.FullName));
             ViewData["ProductId"] = new SelectList(_context.Product.Where(x=> x.ProductStatusId == Activo).ToList(), "Id", "Name");
             
             return View();
@@ -169,12 +170,18 @@ namespace HelpDesk.Controllers
         // POST: ProductAssignments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, int? kitId)
         {
             var productAssignmentEntity = await _context.ProductAssignment.FindAsync(id);
-            _context.ProductAssignment.Remove(productAssignmentEntity);
+            productAssignmentEntity.IsActive = false;
+            var product = await _context.Product.FindAsync(productAssignmentEntity.ProductId);
+            product.ProductStatusId = ProductStatus.Activo;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            if(kitId == null)
+                return RedirectToAction(nameof(Index));
+            else
+                return RedirectToAction(nameof(Index), "Kits");
         }
 
         private bool ProductAssignmentEntityExists(int id)

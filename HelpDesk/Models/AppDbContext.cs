@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using HelpDesk.Models;
 
 namespace HelpDesk.Models
 {
@@ -13,6 +14,7 @@ namespace HelpDesk.Models
         public DbSet<BranchTypeEntity> BranchType { get; set; }
         public DbSet<CategoryEntity> Category { get; set; }
         public DbSet<CompanyEntity> Company { get; set; }
+        public DbSet<KitEntity> Kit { get; set; }
         public DbSet<PersonEntity> Person { get; set; }
         public DbSet<ProductAssignmentEntity> ProductAssignment { get; set; }
         public DbSet<ProductEntity> Product { get; set; }
@@ -189,7 +191,7 @@ namespace HelpDesk.Models
                   },
                    new ProductEntity
                    {
-                       Id = 4,                       
+                       Id = 4,
                        DateRegistration = DateTime.Now,
                        Description = "Camara axis 1020",
                        CategoryId = 3,
@@ -197,7 +199,40 @@ namespace HelpDesk.Models
                        IsActive = true,
                        Name = "Camara IP",
                        SerieNumber = "148318"
-                   }
+                   },
+                    new ProductEntity
+                    {
+                        Id = 5,
+                        DateRegistration = DateTime.Now,
+                        Description = "8GB Ram, ICore5, SSD 250GB",
+                        CategoryId = 3,
+                        ProductStatusId = 1,
+                        IsActive = true,
+                        Name = "PC 2000",
+                        SerieNumber = "148318"
+                    },
+                    new ProductEntity
+                    {
+                        Id = 6,
+                        DateRegistration = DateTime.Now,
+                        Description = "Logitech",
+                        CategoryId = 3,
+                        ProductStatusId = 1,
+                        IsActive = true,
+                        Name = "Maus y teclado",
+                        SerieNumber = "148318"
+                    },
+                    new ProductEntity
+                    {
+                        Id = 7,
+                        DateRegistration = DateTime.Now,
+                        Description = "LG",
+                        CategoryId = 3,
+                        ProductStatusId = 1,
+                        IsActive = true,
+                        Name = "Monitor 21",
+                        SerieNumber = "148318"
+                    }
             );
         }
     }

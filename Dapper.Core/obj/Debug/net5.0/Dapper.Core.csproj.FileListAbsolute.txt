@@ -10,3 +10,15 @@ C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Co
 C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\ref\Dapper.Core.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\Dapper.Core\obj\Debug\net5.0\Dapper.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\bin\Debug\net5.0\Dapper.Core.deps.json
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\bin\Debug\net5.0\Dapper.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\bin\Debug\net5.0\Dapper.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.AssemblyInfoInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.AssemblyInfo.cs
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\refint\Dapper.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\Dapper.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Dapper.Core\obj\Debug\net5.0\ref\Dapper.Core.dll

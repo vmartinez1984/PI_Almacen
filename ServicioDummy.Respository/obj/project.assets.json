@@ -644,11 +644,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Respository\\ServicioDummy.Respository.csproj",
+      "projectUniqueName": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Respository\\ServicioDummy.Respository.csproj",
       "projectName": "ServicioDummy.Respository",
-      "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Respository\\ServicioDummy.Respository.csproj",
+      "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Respository\\ServicioDummy.Respository.csproj",
       "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Respository\\obj\\",
+      "outputPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Respository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vmartinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -666,8 +666,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Core\\ServicioDummy.Core.csproj": {
-              "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Core\\ServicioDummy.Core.csproj"
+            "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Core\\ServicioDummy.Core.csproj": {
+              "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\ServicioDummy.Core\\ServicioDummy.Core.csproj"
             }
           }
         }

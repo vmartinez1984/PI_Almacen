@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tWua592crIQH/238OYBD5usXR1Li3kHJzHboPrKhPGBEeg3isZWmEUMkruhw2GYb+P0fhGeXL2IB0kZ8vovQ+Q==",
+  "dgSpecHash": "31Q/unjCd9YL83hS5rMZi4FZqRZoxplVSocyiwvefRnlnAx5dDJcYb9K4EZcMRewJI4qNObchpLee0jll1VznQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

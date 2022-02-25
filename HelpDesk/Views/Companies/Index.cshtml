@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<HelpDesk.Models.CompanyEntity>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Empresas";
 }
+
+<div class="container-fluid">
 
 <h1>Lista de empresas</h1>
 
@@ -50,7 +52,7 @@
                     @Html.DisplayFor(modelItem => item.Street)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CountDependencys) |
+                    @Html.DisplayFor(modelItem => item.CountDependencys)
                     @*@Html.ActionLink("Ver","Index","Branchs", new { IdCompany = item.Id})*@
                 </td>
                 @*<td>
@@ -67,10 +69,12 @@
 
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |                    
                     <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+</div>

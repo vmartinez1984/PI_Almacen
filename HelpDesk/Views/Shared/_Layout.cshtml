@@ -26,13 +26,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Companies" asp-action="Index">Compañias</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Companies" asp-action="Index">Empresas</a>
                         </li> 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Inventario</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ProductAssignments" asp-action="Index">Asignaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Kits" asp-action="Index">Kits</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -48,13 +51,10 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
+    </header>    
         <main role="main" class="pb-3">
             @RenderBody()
-        </main>
-    </div>
-
+        </main>   
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - HelpDesk - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

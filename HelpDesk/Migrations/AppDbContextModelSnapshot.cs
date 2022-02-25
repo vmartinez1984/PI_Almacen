@@ -77,7 +77,7 @@ namespace HelpDesk.Migrations
                             Id = 1,
                             BranchTypeId = 1,
                             CompanyId = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(9868),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 481, DateTimeKind.Local).AddTicks(7191),
                             Email = "correo@dominio.com",
                             IsActive = true,
                             Name = "Sucursal",
@@ -117,14 +117,14 @@ namespace HelpDesk.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(1031),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(8407),
                             IsActive = true,
                             Name = "Matriz"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(1053),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(8414),
                             IsActive = true,
                             Name = "Sucursal"
                         });
@@ -160,21 +160,21 @@ namespace HelpDesk.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(112),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(7823),
                             IsActive = true,
                             Name = "Software"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(146),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(7831),
                             IsActive = true,
                             Name = "Hardware"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(154),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(7836),
                             IsActive = true,
                             Name = "Comunicación"
                         });
@@ -215,12 +215,34 @@ namespace HelpDesk.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(7774),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 481, DateTimeKind.Local).AddTicks(5807),
                             IsActive = true,
                             Name = "Compañia A",
                             Note = "Prueba",
                             Street = "Domicilio conocido"
                         });
+                });
+
+            modelBuilder.Entity("HelpDesk.Models.KitEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateRegistration")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kit");
                 });
 
             modelBuilder.Entity("HelpDesk.Models.PersonEntity", b =>
@@ -268,7 +290,7 @@ namespace HelpDesk.Migrations
                         {
                             Id = 1,
                             BranchId = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(2771),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 481, DateTimeKind.Local).AddTicks(9008),
                             Email = "ahal_tocob@hotmail.com",
                             IsActive = true,
                             LastName = "Mtz",
@@ -293,6 +315,9 @@ namespace HelpDesk.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int>("KitId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PersonId")
                         .HasColumnType("int");
 
@@ -303,6 +328,8 @@ namespace HelpDesk.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("KitId");
 
                     b.HasIndex("PersonId");
 
@@ -339,6 +366,9 @@ namespace HelpDesk.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("KitEntityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -356,6 +386,8 @@ namespace HelpDesk.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("KitEntityId");
+
                     b.HasIndex("ProductStatusId");
 
                     b.ToTable("Product");
@@ -365,9 +397,9 @@ namespace HelpDesk.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(7463),
-                            DateStart = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(5631),
-                            DateStop = new DateTime(2023, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(6854),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(2042),
+                            DateStart = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(862),
+                            DateStop = new DateTime(2023, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(1645),
                             Description = "Posicion 1/3",
                             IsActive = true,
                             Name = "Oficce 360",
@@ -378,9 +410,9 @@ namespace HelpDesk.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9737),
-                            DateStart = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9701),
-                            DateStop = new DateTime(2023, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9722),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3506),
+                            DateStart = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3492),
+                            DateStop = new DateTime(2023, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3496),
                             Description = "Posicion 2/3",
                             IsActive = true,
                             Name = "Oficce 360",
@@ -391,9 +423,9 @@ namespace HelpDesk.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9754),
-                            DateStart = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9744),
-                            DateStop = new DateTime(2023, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9749),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3519),
+                            DateStart = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3513),
+                            DateStop = new DateTime(2023, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3516),
                             Description = "Posicion 3/3",
                             IsActive = true,
                             Name = "Oficce 360",
@@ -404,10 +436,43 @@ namespace HelpDesk.Migrations
                         {
                             Id = 4,
                             CategoryId = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 3, DateTimeKind.Local).AddTicks(9760),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3525),
                             Description = "Camara axis 1020",
                             IsActive = true,
                             Name = "Camara IP",
+                            ProductStatusId = 1,
+                            SerieNumber = "148318"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 3,
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3530),
+                            Description = "8GB Ram, ICore5, SSD 250GB",
+                            IsActive = true,
+                            Name = "PC 2000",
+                            ProductStatusId = 1,
+                            SerieNumber = "148318"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 3,
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3536),
+                            Description = "Logitech",
+                            IsActive = true,
+                            Name = "Maus y teclado",
+                            ProductStatusId = 1,
+                            SerieNumber = "148318"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 3,
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 482, DateTimeKind.Local).AddTicks(3541),
+                            Description = "LG",
+                            IsActive = true,
+                            Name = "Monitor 21",
                             ProductStatusId = 1,
                             SerieNumber = "148318"
                         });
@@ -443,35 +508,35 @@ namespace HelpDesk.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 33, 989, DateTimeKind.Local).AddTicks(8385),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 477, DateTimeKind.Local).AddTicks(6121),
                             IsActive = true,
                             Name = "Activo"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1805),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 477, DateTimeKind.Local).AddTicks(6511),
                             IsActive = true,
                             Name = "Asignado"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1863),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 477, DateTimeKind.Local).AddTicks(6518),
                             IsActive = true,
                             Name = "Merma"
                         },
                         new
                         {
                             Id = 4,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1871),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 477, DateTimeKind.Local).AddTicks(6523),
                             IsActive = true,
                             Name = "Baja por daño"
                         },
                         new
                         {
                             Id = 5,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 0, DateTimeKind.Local).AddTicks(1877),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 477, DateTimeKind.Local).AddTicks(6529),
                             IsActive = true,
                             Name = "Recuperado"
                         });
@@ -510,14 +575,14 @@ namespace HelpDesk.Migrations
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(2880),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(9326),
                             IsActive = true,
                             Name = "Operador"
                         },
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(2907),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 478, DateTimeKind.Local).AddTicks(9343),
                             IsActive = true,
                             Name = "Administrador"
                         });
@@ -573,7 +638,7 @@ namespace HelpDesk.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 2, 11, 21, 37, 34, 2, DateTimeKind.Local).AddTicks(5872),
+                            DateRegistration = new DateTime(2022, 2, 24, 18, 33, 30, 481, DateTimeKind.Local).AddTicks(4518),
                             IsActive = true,
                             LastName = "",
                             Name = "Administrador",
@@ -613,6 +678,12 @@ namespace HelpDesk.Migrations
 
             modelBuilder.Entity("HelpDesk.Models.ProductAssignmentEntity", b =>
                 {
+                    b.HasOne("HelpDesk.Models.KitEntity", "Kit")
+                        .WithMany()
+                        .HasForeignKey("KitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HelpDesk.Models.PersonEntity", "Person")
                         .WithMany()
                         .HasForeignKey("PersonId")
@@ -631,6 +702,8 @@ namespace HelpDesk.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Kit");
+
                     b.Navigation("Person");
 
                     b.Navigation("Product");
@@ -645,6 +718,10 @@ namespace HelpDesk.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("HelpDesk.Models.KitEntity", null)
+                        .WithMany("ListProducts")
+                        .HasForeignKey("KitEntityId");
 
                     b.HasOne("HelpDesk.Models.ProductStatusEntity", "ProductStatus")
                         .WithMany()
@@ -672,6 +749,11 @@ namespace HelpDesk.Migrations
             modelBuilder.Entity("HelpDesk.Models.CompanyEntity", b =>
                 {
                     b.Navigation("ListBranches");
+                });
+
+            modelBuilder.Entity("HelpDesk.Models.KitEntity", b =>
+                {
+                    b.Navigation("ListProducts");
                 });
 
             modelBuilder.Entity("HelpDesk.Models.UserEntity", b =>

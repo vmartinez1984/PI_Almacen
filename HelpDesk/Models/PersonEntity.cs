@@ -28,5 +28,7 @@ namespace HelpDesk.Models
 
         [Display(Name= "Dependencia")]
         public virtual BranchEntity Branch { get; set; }
+
+        public string FullName { get { return $"{this.Name} {this.LastName}"; } }
     }
 }

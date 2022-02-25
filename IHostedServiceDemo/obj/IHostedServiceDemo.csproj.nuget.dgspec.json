@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj": {}
+    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj": {
+    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj",
+        "projectUniqueName": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj",
         "projectName": "IHostedServiceDemo",
-        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj",
+        "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj",
         "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\obj\\",
         "projectStyle": "PackageReference",

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
-    public class UserEntity:BaseEntity
+    public class UserEntity : BaseEntity
     {
         [Required]
         [StringLength(50)]
@@ -18,7 +18,7 @@ namespace HelpDesk.Models
         [StringLength(12)]
         [DataType(DataType.Password)]
         [Compare("Password")]
-        public string ConfirmPassword { get; set;}
+        public string ConfirmPassword { get; set; }
 
         [ForeignKey(nameof(RoleEntity))]
         public int RolId { get; set; }
@@ -36,5 +36,8 @@ namespace HelpDesk.Models
 
         [StringLength(255)]
         public string Email { get; set; }
+
+        [NotMapped]
+        public string FullName { get { return $"{Name} {LastName}"; } }
     }
 }

@@ -6,3 +6,11 @@ C:\Users\vhmartinezb\source\repos\Pruebas\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\vhmartinezb\source\repos\Pruebas\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
 C:\Users\vhmartinezb\source\repos\Pruebas\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
 C:\Users\vhmartinezb\source\repos\Pruebas\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

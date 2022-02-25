@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q+vWZc00hNarpwQN1BF1TBKjQ+8KSMGg/W8n2VWVQyVo4PtxVE15sbHhXSVrtfT9XrV0pP4VpHu3io32pKcenA==",
+  "dgSpecHash": "SCGxLKRzAvAw7+270EcS1wj17/Mq1V+5OTjNKMW6qvFFH0/fVk3dVp7Y0+/qnw+YcbgNlkRmOQAbgsPD4QwmIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\WorkerService.Api\\WorkerService.Api.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\WorkerService.Api\\WorkerService.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.0.4\\microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",

@@ -10,3 +10,15 @@ C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Core\obj\Debug\net5
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Core\obj\Debug\net5.0\ref\IntegrationProject.Core.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\bin\Debug\net5.0\IntegrationProject.Core.deps.json
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\bin\Debug\net5.0\IntegrationProject.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\bin\Debug\net5.0\IntegrationProject.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.AssemblyInfoInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.AssemblyInfo.cs
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\refint\IntegrationProject.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\IntegrationProject.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Core\obj\Debug\net5.0\ref\IntegrationProject.Core.dll

@@ -1,53 +1,56 @@
 ﻿@model HelpDesk.Models.CompanyEntity
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de la empresa";
 }
 
-<h1>Details</h1>
+<div class="container">
 
-<div>
-    <h4>CompanyEntity</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Note)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Street)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Street)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DateRegistration)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DateRegistration)
-        </dd>
-    </dl>
-</div>
-<div class="card">
-    <div class="card-header">
-        <h4>Lista de dependencias</h4>
+    <h1>Detalles</h1>
+
+    <div>
+        <h4>@Model.Name</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Note)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Note)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Street)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Street)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateRegistration)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateRegistration)
+                </dd>
+            </dl>
     </div>
-    <div class="card-body">
-        @await Html.PartialAsync("/Views/Branchs/_List.cshtml",Model.ListBranches)
+    <div class="card">
+        <div class="card-header">
+            <h4>Lista de dependencias</h4>
+        </div>
+        <div class="card-body">
+            @await Html.PartialAsync("/Views/Branchs/_List.cshtml",Model.ListBranches)
+        </div>
+        <div class="card-footer">
+            @Html.ActionLink("Agregar dependencia","Create","Branchs", new { IdCompany = Model.Id })
+        </div>
     </div>
-    <div class="card-footer">
-        @Html.ActionLink("Agregar dependencia","Create","Branchs", new { IdCompany = Model.Id })
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index">Regresar a la lista</a>
     </div>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rjEZKsqrhB1WwejO+Q4BHBFn6yFy5FXluP7uIIO+5B/I857kkqqXPK/minsOEMtswIglmy37sYkR8uV4qO9Sdw==",
+  "dgSpecHash": "dS1LU9kUNnDuHSchb+G+Vq4WEY1zP/eH5quAhccI6WnVrI4vcvFw8ANwAEhHj15e52+pofzp9OKSv99cLfdwCw==",
   "success": false,
-  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConcepto.Api\\PruebaDeConcepto.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.22\\microsoft.aspnetcore.authentication.jwtbearer.3.1.22.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

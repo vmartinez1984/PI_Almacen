@@ -34,7 +34,7 @@ namespace HelpDesk.Controllers
                     UserEntity userEntity;
 
                     userEntity = _context.User.Where(x=> x.IsActive == true && x.UserName == userDto.UserName && x.Password == userDto.Password).FirstOrDefault();
-                    if (userDto is null)
+                    if (userEntity is null)
                     {
                         ViewBag.Error = "Usuario y/o contraseña no validos";
                         return View();

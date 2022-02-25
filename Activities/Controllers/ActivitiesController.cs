@@ -43,7 +43,7 @@ namespace Activities.Controllers
 
             list = new List<ActivityDto>();
             entities = await _context.Activity
-                .Include(x => x.ListRows)
+                .Include(x => x.ListRows.Where(x => x.IsActive))
                     .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
                         .ThenInclude(x => x.User)
                 .Include(x => x.ActivityStatus)

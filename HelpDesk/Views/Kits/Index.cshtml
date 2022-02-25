@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HelpDesk.Models.KitEntity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+
+    <h1>Lista de kits</h1>
+
+    <p>
+        <a asp-action="Create">Agregar nuevo kit</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateRegistration)
+                </th>
+                <th>Productos</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRegistration)
+                    </td>
+                    <td>                        
+                        <a asp-action="AddProducts" asp-route-kitId="@item.Id"> Productos 
+                            @item.ListProductAssignments.Count()
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edita</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

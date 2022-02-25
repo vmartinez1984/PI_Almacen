@@ -10,3 +10,15 @@ C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\n
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\ref\IntegrationProject.Service.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\bin\Debug\net5.0\IntegrationProject.Service.deps.json
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\bin\Debug\net5.0\IntegrationProject.Service.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\bin\Debug\net5.0\IntegrationProject.Service.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.AssemblyInfoInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.AssemblyInfo.cs
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\refint\IntegrationProject.Service.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\IntegrationProject.Service.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\IntegrationProject.Service\obj\Debug\net5.0\ref\IntegrationProject.Service.dll

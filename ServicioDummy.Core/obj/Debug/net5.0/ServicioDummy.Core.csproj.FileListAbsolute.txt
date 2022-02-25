@@ -10,3 +10,15 @@ C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Core\obj\Debug\net5.0\Se
 C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Core\obj\Debug\net5.0\ref\ServicioDummy.Core.dll
 C:\Users\vhmartinezb\source\repos\Pruebas\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\bin\Debug\net5.0\ServicioDummy.Core.deps.json
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\bin\Debug\net5.0\ServicioDummy.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\bin\Debug\net5.0\ServicioDummy.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.csproj.AssemblyReference.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.AssemblyInfoInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.AssemblyInfo.cs
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.csproj.CoreCompileInputs.cache
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\refint\ServicioDummy.Core.dll
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ServicioDummy.Core.pdb
+C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\ServicioDummy.Core\obj\Debug\net5.0\ref\ServicioDummy.Core.dll

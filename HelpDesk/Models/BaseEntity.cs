@@ -10,9 +10,9 @@ namespace HelpDesk.Models
 
         [Required]
         [Display(Name = "Fecha de registro")]
-        public DateTime DateRegistration { get; set; }
+        public DateTime DateRegistration { get; set; } = DateTime.Now;
 
         [Required]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
