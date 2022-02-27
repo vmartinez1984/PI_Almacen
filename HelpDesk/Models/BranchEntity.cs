@@ -33,13 +33,11 @@ namespace HelpDesk.Models
 
 
         [Required]
-        [ForeignKey(nameof(BranchTypeEntity))]
-        [Range(1,10)]
+        [ForeignKey(nameof(BranchTypeEntity))]        
         [Display(Name = "Tipo")]
         public int BranchTypeId { get; set; }
 
-        public virtual BranchTypeEntity TypeBranch { get; set; }
-
+        public virtual BranchTypeEntity TypeBranch { get; set; }        
 
         [NotMapped]
         [Display(Name= "Personas")]

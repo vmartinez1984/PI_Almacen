@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj": {}
+    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj": {
+    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj",
+        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj",
         "projectName": "InyeccionDeDependenciaConDapper",
-        "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj",
+        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\InyeccionDeDependenciaConDapper.csproj",
         "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\InyeccionDeDependenciaConDapper\\obj\\",
         "projectStyle": "PackageReference",

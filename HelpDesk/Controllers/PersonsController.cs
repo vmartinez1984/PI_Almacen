@@ -21,7 +21,7 @@ namespace HelpDesk.Controllers
         // GET: PersonEntities
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Person.ToListAsync());
+            return View(await _context.Person.Include(x => x.Branch).ToListAsync());
         }
 
         // GET: PersonEntities/Details/5
@@ -43,9 +43,15 @@ namespace HelpDesk.Controllers
         }
 
         // GET: PersonEntities/Create
-        public IActionResult Create(int idBranch)
+        public IActionResult Create(int? branchId, int? companyId)
         {
-            ViewBag.IdBranch = idBranch;    
+            ViewBag.BranchId = branchId;
+            ViewBag.CompanyId = companyId;
+            if (companyId == null)
+                companyId = _context.Branch.Where(x => x.Id == branchId).Select(x => x.Id).FirstOrDefault();
+            ViewBag.ListBranchs = new SelectList(_context.Branch.Where(x => x.IsActive && x.CompanyId == companyId).ToList(), "Id", "Name");
+            ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
+
             return View();
         }
 
@@ -54,7 +60,7 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,LastName,Phone,Email,IdBranch,Id,DateRegistration,IsActive")] PersonEntity personEntity)
+        public async Task<IActionResult> Create([Bind("Name,LastName,Phone,Email,BranchId,Id,DateRegistration,IsActive")] PersonEntity personEntity)
         {
             personEntity.IsActive = true;
             personEntity.DateRegistration = DateTime.Now;
@@ -62,7 +68,8 @@ namespace HelpDesk.Controllers
             {
                 _context.Add(personEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details","Branchs", new {Id = personEntity.BranchId});
+                return RedirectToAction(nameof(Index);
+                //return RedirectToAction("Details", "Branchs", new { Id = personEntity.BranchId });
             }
             return View(personEntity);
         }

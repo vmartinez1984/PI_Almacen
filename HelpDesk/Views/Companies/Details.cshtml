@@ -38,19 +38,20 @@
                 </dd>
             </dl>
     </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index">Regresar a la lista</a>
+    </div>
+    <hr/>
     <div class="card">
         <div class="card-header">
             <h4>Lista de dependencias</h4>
         </div>
         <div class="card-body">
-            @await Html.PartialAsync("/Views/Branchs/_List.cshtml",Model.ListBranches)
+            @await Html.PartialAsync("_List.cshtml",Model.ListBranches)
         </div>
         <div class="card-footer">
             @Html.ActionLink("Agregar dependencia","Create","Branchs", new { IdCompany = Model.Id })
         </div>
-    </div>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-        <a asp-action="Index">Regresar a la lista</a>
     </div>
 </div>

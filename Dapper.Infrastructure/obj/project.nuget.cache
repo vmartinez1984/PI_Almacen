@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ZaiBdWMDVyf6WeEKC4yUbrhjoopZsax+4seVfEM+fk0wITdY029uhtP+JCvHUriNM9u/PD13qLnBj7DPexgnA==",
+  "dgSpecHash": "pRZE6/mHWV6oEHB9Vok4do4v6jxk0UO17dBWZfGvITPBvELXxSuvk8lTTrrkF6b+bGRLQvS9b4Wsav8naaUgvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\Dapper.Infrastructure\\Dapper.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\Dapper.Infrastructure\\Dapper.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

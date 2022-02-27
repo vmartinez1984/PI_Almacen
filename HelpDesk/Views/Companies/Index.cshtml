@@ -6,75 +6,80 @@
 
 <div class="container-fluid">
 
-<h1>Lista de empresas</h1>
+    <h1>Lista de empresas</h1>
 
-<p>
-    <a asp-action="Create">Agregar empresa</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountDependencys)
-            </th>
-          @*  <th>
-                @Html.DisplayNameFor(model => model.CountPersons)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountProducts)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.DateRegistration)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <p>
+        <a asp-action="Create">Agregar empresa</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Note)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Street)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CountDependencys)
-                    @*@Html.ActionLink("Ver","Index","Branchs", new { IdCompany = item.Id})*@
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.CountPersons) |
-                    @Html.ActionLink("Ver","")
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CountProducts) |
-                    @Html.ActionLink("Agregar dependencia","")
-                </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateRegistration)
-                </td>
-
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |                    
-                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Note)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Street)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountDependencys)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountPersons)
+                </th>
+                @*
+                    <th>
+                    @Html.DisplayNameFor(model => model.CountProducts)
+                    </th>
+                    <th>
+                    @Html.DisplayNameFor(model => model.DateRegistration)
+                    </th>
+                *@
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Note)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CountDependencys) |
+
+                        @Html.ActionLink("Agregar","Create","Branchs", new { IdCompany = item.Id})
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CountPersons) |
+                        @Html.ActionLink("Agregar","Create","Persons", new {CompanyId = item.Id})
+                    </td>
+                    @*
+                        <td>
+                        @Html.DisplayFor(modelItem => item.CountProducts) |
+                        @Html.ActionLink("Agregar dependencia","")
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRegistration)
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 </div>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CVJ2ksmixk63DJ4dqrdlWC1gCY60Lr10SGpZ7oZ4SKeGUpNJheO8eZp6eNVs562U6qto2ALEBRvNYAf+rVyjzQ==",
+  "dgSpecHash": "5daOU4QsGMOOrscbqQxUiSyuzbyF4fJOfnUC9MiMTSesxEqWyiGIG2QZwLX6YhA4seBzQVn/j39wUZCv71MdrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\VMtz.Api\\VMtz.Api.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\VMtz.Api\\VMtz.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

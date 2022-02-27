@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rvPNH1dKzE6lpuUeLdlTizj+uPc79Inxr82B/EfIlHIySQFK1uG+DPjfYpSsXIHGspIbFl4uDEhggo20ak8Ktw==",
+  "dgSpecHash": "T9s9uByKx66KmsyPFZQ2cWLZiRz+4vssuod2iGwf6bF/cktzHD+We1f7FjT+oClo18dZ0nXXHBYKPK1MqRKtBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\IHostedServiceDemo\\IHostedServiceDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

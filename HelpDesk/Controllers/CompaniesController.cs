@@ -20,16 +20,17 @@ namespace HelpDesk.Controllers
         // GET: Companies
         public async Task<IActionResult> Index()
         {
-            List<CompanyEntity> list;            
+            List<CompanyEntity> list;
 
             list = await _context.Company
-                .Include(x => x.ListBranches)
+                .Include(x => x.ListBranches.Where(x => x.IsActive))
+                    .ThenInclude(x => x.ListPerson.Where(x => x.IsActive))
                 .Where(x => x.IsActive).Select(x =>
                     new CompanyEntity
                     {
                         Id = x.Id,
                         CountDependencys = x.ListBranches.Count,
-                        //CountPersons= _context.Person.Count(x => x.br)
+                        //CountPersons = CountPersons(x.ListBranches),
                         Name = x.Name,
                         DateRegistration = x.DateRegistration,
                         IsActive = x.IsActive,
@@ -38,8 +39,25 @@ namespace HelpDesk.Controllers
                         Street = x.Street
                     }
                 ).ToListAsync();
+            list.ForEach(item =>
+            {
+                item.CountPersons = CountPersons(item.ListBranches);
+            });
 
             return View(list);
+        }
+
+        private int CountPersons(List<BranchEntity> listBranches)
+        {
+            int total;
+
+            total = 0;
+            listBranches.ForEach(branch =>
+            {
+                total += branch.ListPerson.Count();
+            });
+
+            return total;
         }
 
         // GET: Companies/Details/5

@@ -18,12 +18,32 @@ namespace HelpDesk.Controllers
             _context = context;
         }
 
+        public JsonResult All(int companyId)
+        {
+            List<BranchEntity> list;
+
+            list = _context.Branch.Where(x => x.CompanyId == companyId && x.IsActive).ToList();
+
+            return Json(list);
+        }
+
         // GET: Branchs
         public async Task<IActionResult> Index(int? idCompany)
         {
-            ViewBag.CompanyName = await _context.Company.Where(x => x.Id == idCompany).Select(x => x.Name).FirstOrDefaultAsync();
+            List<BranchEntity> list;
 
-            return View(await _context.Branch.Where(x => x.CompanyId == idCompany).ToListAsync());
+            if (idCompany == null)
+            {
+                list = await _context.Branch.Include(x => x.Company).Include(x => x.TypeBranch).Where(x => x.IsActive).ToListAsync();
+            }
+            else
+            {
+                list = await _context.Branch.Include(x => x.Company).Include(x => x.TypeBranch).Where(x => x.CompanyId == idCompany && x.IsActive).ToListAsync();
+                ViewBag.CompanyName = await _context.Company.Where(x => x.Id == idCompany).Select(x => x.Name).FirstOrDefaultAsync();
+            }
+
+
+            return View(list);
         }
 
         // GET: Branchs/Details/5
@@ -54,9 +74,9 @@ namespace HelpDesk.Controllers
         // GET: Branchs/Create
         public IActionResult Create(int? idCompany)
         {
-            ViewBag.IdCompany = idCompany;
+            ViewBag.CompanyId = idCompany;
             ViewBag.ListTypeBranchs = new SelectList(_context.BranchType.Where(x => x.IsActive).ToList(), "Id", "Name");
-            //ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
+            ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
 
             return View();
         }
@@ -66,18 +86,19 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Phone,Email,Note,IdCompany,IdTypeBranch,ZipCode,Street,Id,DateRegistration,IsActive")] BranchEntity branchEntity)
+        public async Task<IActionResult> Create([Bind("Name,Phone,Email,Note, CompanyId,BranchTypeId,ZipCode,Street,Id,DateRegistration,IsActive")] BranchEntity branchEntity)
         {
-            branchEntity.IsActive = true;
-            branchEntity.DateRegistration = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(branchEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Companies", new { Id = branchEntity.CompanyId });
+                //return RedirectToAction("Details", "Companies", new { Id = branchEntity.CompanyId });
+                return RedirectToAction("Index");
             }
-            ViewBag.IdCompany = branchEntity.CompanyId;
+            ViewBag.CompanyId = branchEntity.CompanyId;
             ViewBag.ListTypeBranchs = new SelectList(_context.BranchType.Where(x => x.IsActive).ToList(), "Id", "Name");
+            ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
+
             return View(branchEntity);
         }
 
@@ -94,6 +115,9 @@ namespace HelpDesk.Controllers
             {
                 return NotFound();
             }
+            ViewBag.ListTypeBranchs = new SelectList(_context.BranchType.Where(x => x.IsActive).ToList(), "Id", "Name");
+            ViewBag.ListCompanies = new SelectList(_context.Company.Where(x => x.IsActive).ToList(), "Id", "Name");
+
             return View(branchEntity);
         }
 
@@ -102,7 +126,7 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Phone,Email,Note,IdCompany,IdTypeBranch,ZipCode,Street,Id,DateRegistration,IsActive")] BranchEntity branchEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Phone,Email,Note, CompanyId,BranchTypeId,ZipCode,Street,Id,DateRegistration,IsActive")] BranchEntity branchEntity)
         {
             if (id != branchEntity.Id)
             {
@@ -140,7 +164,7 @@ namespace HelpDesk.Controllers
                 return NotFound();
             }
 
-            var branchEntity = await _context.Branch
+            var branchEntity = await _context.Branch.Include(x => x.Company).Include(x => x.TypeBranch)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (branchEntity == null)
             {
@@ -156,7 +180,7 @@ namespace HelpDesk.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var branchEntity = await _context.Branch.FindAsync(id);
-            _context.Branch.Remove(branchEntity);
+            branchEntity.IsActive = false;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

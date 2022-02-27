@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj": {}
+    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj": {
+    "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj",
+        "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj",
         "projectName": "PruebaDeConceptoDi",
-        "projectPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj",
+        "projectPath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj",
         "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\obj\\",
         "projectStyle": "PackageReference",

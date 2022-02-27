@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3r3OcPLSv4z2m58yCYW8OU3nuz2bWOlsmd+wSfabPQeR5TaUD4NKXB1yex6YPYEwxWSA5fc4+npPiO7wm9DVrA==",
+  "dgSpecHash": "G31/HbpI2CKHRSXKgUOP1a8PpetlaOAq2IikVItZdQGVhpkoPHkoDuPRPzxOXhVYSJcUnTVl8x5EdWFUSyN8uA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vmartinez\\Source\\Repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj",
+  "projectFilePath": "C:\\Users\\vmartinez\\source\\repos\\vmartinez1984\\PI_Almacen\\PruebaDeConceptoDi\\PruebaDeConceptoDi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\vmartinez\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

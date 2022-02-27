@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
-    public class PersonEntity: BaseEntity
+    public class PersonEntity : BaseEntity
     {
         [Required]
         [Display(Name = "Nombre")]
@@ -24,11 +24,15 @@ namespace HelpDesk.Models
         public string Email { get; set; }
 
         [ForeignKey(nameof(BranchEntity))]
+        [Display(Name = "Dependencia")]
         public int BranchId { get; set; }
 
-        [Display(Name= "Dependencia")]
+        [Display(Name = "Dependencia")]
         public virtual BranchEntity Branch { get; set; }
 
         public string FullName { get { return $"{this.Name} {this.LastName}"; } }
+
+        [NotMapped]
+        public int CompanyId { get; set; }
     }
 }
