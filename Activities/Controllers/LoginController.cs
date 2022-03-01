@@ -41,8 +41,8 @@ namespace Activities.Controllers
                 else
                 {
                     HttpContext.Session.SetInt32(SessionUser.Id, user.Id);
-                    HttpContext.Session.SetInt32("rolId", user.RoleId);
-                    HttpContext.Session.SetString("userName", $"{user.Name} {user.LastName}");                    
+                    HttpContext.Session.SetInt32(SessionUser.RoleId, user.RoleId);
+                    HttpContext.Session.SetString(SessionUser.FullName, user.FullName);                    
 
                     return RedirectToAction("Index", "Home");
                 }

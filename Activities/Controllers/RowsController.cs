@@ -21,7 +21,7 @@ namespace Activities.Controllers
         }
 
         // GET: RowEntities
-        public async Task<IActionResult> Index(int idActivity)
+        public async Task<IActionResult> Index(int? idActivity)
         {
             if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
                 return RedirectToAction("Index", "Login");

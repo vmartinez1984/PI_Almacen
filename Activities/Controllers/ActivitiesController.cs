@@ -27,151 +27,80 @@ namespace Activities.Controllers
             if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
                 return RedirectToAction("Index", "Login");
 
-            List<ActivityDto> list;
+            switch (HttpContext.Session.GetInt32(SessionUser.RoleId))
+            {
+                case Role.Administrador:
+                    List<ActivityEntity> list;
 
+                    list = await GetAsync();
+                    ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
+
+                    return View(list);
+                //break;
+                case Role.Colaborador:
+
+                    return RedirectToAction("Rows");
+                    //break;
+                    //default:
+                    //    list = new List<ActivityDto>();
+                    //    break;
+            }
+
+            return View();
+        }
+
+        public async Task<ActionResult> Rows()
+        {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+
+            List<RowEntity> list;
+
+            list = await GetListRowsFromCollaborator();
             ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
-            list = await GetAsync();
 
             return View(list);
         }
 
-        #region GetAsync
-        private async Task<List<ActivityDto>> GetAsync()
+        private async Task<List<RowEntity>> GetListRowsFromCollaborator()
         {
-            List<ActivityDto> list;
+            int userId;
+            List<RowEntity> listRows;
+
+            userId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
+            listRows = await _context.UsersInRow
+                .Include(x => x.Row)
+                    .Include(x => x.Row.ListUsers)
+                        .ThenInclude(x => x.User)
+                    .Include(x => x.Row.ListComments)
+                        .ThenInclude(x => x.User)
+                    .Include(x => x.Row.ListFiles)
+                    .Include(x => x.Row.RowStatus)
+                .Where(x => x.UserId == userId && x.IsActive)
+                .Select(x => x.Row)
+                .ToListAsync();
+
+            return listRows;
+        }
+        
+        private async Task<List<ActivityEntity>> GetAsync()
+        {
             List<ActivityEntity> entities;
 
-            list = new List<ActivityDto>();
             entities = await _context.Activity
+                .Include(x => x.ListRows.Where(x => x.IsActive))
+                    .ThenInclude(x => x.ListUsers)
+                        .ThenInclude(x => x.User)
                 .Include(x => x.ListRows.Where(x => x.IsActive))
                     .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
                         .ThenInclude(x => x.User)
+                .Include(x => x.ListRows.Where(x => x.IsActive))
+                    .ThenInclude(x => x.ListFiles)
                 .Include(x => x.ActivityStatus)
                 .Where(x => x.IsActive == true).ToListAsync();
-            entities.ForEach(entitie =>
-            {
-                list.Add(GetActivityDto(entitie));
-            });
 
-            return list;
-        }
-
-        private ActivityDto GetActivityDto(ActivityEntity entitie)
-        {
-            ActivityDto activityDto;
-
-            activityDto = new ActivityDto
-            {
-                Id = entitie.Id,
-                Name = entitie.Name,
-                Description = entitie.Description,
-                ListRows = GetListRowDtos(entitie),
-            };
-
-            return activityDto;
-        }
-
-        private List<RowDto> GetListRowDtos(ActivityEntity entity)
-        {
-            List<RowDto> list;
-
-            list = new List<RowDto>();
-            entity.ListRows.ForEach(row =>
-            {
-                list.Add(GetRowDto(row));
-            });
-
-            return list;
-        }
-
-        private RowDto GetRowDto(RowEntity entity)
-        {
-            RowDto rowDto;
-
-            rowDto = new RowDto
-            {
-                Id = entity.Id,
-                Name = entity.Name,
-                RowStatusId = entity.RowStatusId,
-                ActivityId = entity.ActivityId,
-                Description = entity.Description,
-                DateRegistration = entity.DateRegistration,
-                DateStart = entity.DateStart,
-                DateStop = entity.DateStop,
-                Status = _context.RowStatus.FirstOrDefault(x => x.Id == entity.RowStatusId).Name,
-                ListUsers = GetListUser(entity.Id),
-                ListFiles = GetListFiles(entity.Id),
-                ListComments = GetListComments(entity.ListComments)
-            };
-
-            return rowDto;
-        }
-
-        private List<CommentDto> GetListComments(List<CommentEntity> listComments)
-        {
-            List<CommentDto> list;
-
-            list = new List<CommentDto>();
-            listComments.ForEach(comment =>
-            {
-                list.Add(new CommentDto
-                {
-                    Content = comment.Content,
-                    DateRegistration = comment.DateRegistration,
-                    UserFullName = comment.User.FullName
-                });
-            });
-
-            return list;
-        }
-
-        private List<FileDto> GetListFiles(int rowId)
-        {
-            List<FileDto> list;
-
-            list = _context.File.Where(x => x.RowId == rowId && x.IsActive).Select(entity => new FileDto
-            {
-                Id = entity.Id,
-                Name = entity.Name,
-                RowId = rowId,
-                Url = entity.Url
-            }).ToList();
-
-            return list;
-        }
-
-        private List<UserInRowDto> GetListUser(int idRow)
-        {
-            List<UsersInRowEntity> entities;
-            List<UserInRowDto> list;
-
-            list = new List<UserInRowDto>();
-            entities = _context.UsersInRow
-                .Include(x => x.User)
-                .Where(x => x.RowId == idRow && x.IsActive)
-                .ToList();
-            entities.ForEach(entity =>
-            {
-                list.Add(GetUserDto(entity));
-            });
-
-            return list;
-        }
-
-        private UserInRowDto GetUserDto(UsersInRowEntity entity)
-        {
-            UserInRowDto dto;
-
-            dto = new UserInRowDto
-            {
-                Id = entity.Id,
-                UserId = entity.UserId,
-                FullName = $"{entity.User.Name} {entity.User.LastName}"
-            };
-
-            return dto;
-        }
-        #endregion
+            return entities;
+        }        
 
         // GET: ActivityEntities/Details/5
         public async Task<IActionResult> Details(int? id)

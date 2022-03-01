@@ -68,7 +68,7 @@ namespace HelpDesk.Controllers
             {
                 _context.Add(personEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index);
+                return RedirectToAction(nameof(Index));
                 //return RedirectToAction("Details", "Branchs", new { Id = personEntity.BranchId });
             }
             return View(personEntity);

@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Activities.Models.RowEntity>
+
+@{
+    ViewData["Title"] = "Actividades";
+}
+
+<div class="container-fluid">
+
+    <table class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RowStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateStop)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateRegistration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListUsers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListFiles)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListComments)
+                </th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RowStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateStop)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateRegistration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListUsers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListFiles)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ListComments)
+                </th>
+                <th>Acciones</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @{
+                string classColor;
+            }
+            @foreach (var item in Model)
+            {
+                switch (item.RowStatusId)
+                {
+                    case 1:
+                        classColor = "table-success";
+                        break;
+                    case 2:
+                        classColor = "table-warning";
+                        break;
+                    case 3:
+                        classColor = "table-danger";
+                        break;
+                    default:
+                        classColor = string.Empty;
+                        break;
+                }
+                <tr class="@classColor">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RowStatus.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStop)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRegistration)
+                    </td>
+                    <td>
+                        @foreach (var userInRow in item.ListUsers)
+                        {
+                            <i class="fas fa-user"></i>
+                            @userInRow.User.FullName
+                            <br />
+                        }
+                    </td>
+
+                    @*Documentos*@
+                    <td>
+                        <ul>
+                            <a href="~/Files/Create?RowId=@item.Id" data-toggle="tooltip" title="Agregar documento" class="text-success">
+                                <i class="fas fa-file-upload"></i>
+                            </a>
+                            @foreach (var file in item.ListFiles)
+                            {
+                                <li style="list-style-type:none">
+                                    <a href="@file.Url" target="_blank">
+                                        @file.Name
+                                    </a>
+                                </li>
+                                <a href="~/Files/Delete/@file.Id" data-toggle="tooltip" title="Quitar documento" class="text-danger">
+                                    <i class="fas fa-eraser"></i>
+                                </a>
+                            }
+                        </ul>
+                    </td>
+
+                    @*Comentarios*@
+                    <td>
+                        <a href="~/Comments/Create?RowId=@item.Id" data-toggle="tooltip" title="Agregar commentario" class="text-success">
+                            <i class="fas fa-comment"></i>
+                        </a>
+                        @foreach (var comment in item.ListComments)
+                        {
+                            <div class="row">
+                                <div class="col-10 text-truncate">
+                                    @comment.Content
+                                    <footer class="blockquote-footer"><cite title="Source Title">@comment.User.FullName</cite> @comment.DateRegistration</footer>
+                                </div>
+                            </div>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar actividad" class="text-warning">
+                            <i class="fas fa-edit"></i>
+                        </a> |
+                        <a asp-action="Details" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar actividad" class="text-info">
+                            <i class="fas fa-info"></i>
+                        </a> |
+                        <a asp-action="Delete" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar actividad" class="text-danger">
+                            <i class="fas fa-eraser"></i>
+                        </a>
+                        @await Html.PartialAsync("_ChangeRowStatus",item)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
