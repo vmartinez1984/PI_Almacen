@@ -46,6 +46,10 @@
     }
     else
     {
+        <div>
+            <a asp-action="Edit" asp-route-id="@kit.Id">Editar</a>
+        </div>
+
         <h3>Agregar productos</h3>
         <hr />
         <div class="row">
@@ -60,7 +64,7 @@
                         </select>
                         <span asp-validation-for="ProductId" class="text-danger"></span>
                     </div>
-                    <input asp-for="PersonId" value="@kit.ListProductAssignments[0].PersonId" type="hidden"/>
+                    <input asp-for="PersonId" value="@kit.ListProductAssignments[0].PersonId" type="hidden" />
                     <input asp-for="DateAssignment" value="@kit.ListProductAssignments[0].DateAssignment" type="hidden" />
 
                     <div class="form-group">
@@ -72,8 +76,8 @@
             </div>
         </div>
     }
-    <br/>
-    <br/>
+    <br />
+    <br />
     @await Html.PartialAsync("_ListProductsAssignament", kit.ListProductAssignments)
     <div>
         <a asp-action="Index">Regresar a lista</a>

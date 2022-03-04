@@ -946,3 +946,9 @@ C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\HelpDesk\obj\Debug\net5
 C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\HelpDesk\obj\Debug\net5.0\Razor\Views\Kits\_ListProductsAssignamentSimple.cshtml.g.cs
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\obj\Debug\net5.0\Razor\Views\Companies\_List.cshtml.g.cs
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\obj\Debug\net5.0\Razor\Views\Branchs\_ListPersons.cshtml.g.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\bin\Debug\net5.0\Rotativa.AspNetCore.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\obj\Debug\net5.0\Razor\Views\Kits\Pdf.cshtml.g.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\bin\Debug\net5.0\Rotativa\Windows\wkhtmltoimage.exe
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\HelpDesk\bin\Debug\net5.0\Rotativa\Windows\wkhtmltopdf.exe

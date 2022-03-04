@@ -71,9 +71,9 @@ namespace Activities.Controllers
             List<UserEntity> listFiltered;
             List<UserEntity> listUser;
 
-            listUser = _context.UsersInRow.Where(x => x.RowId == idRow && x.IsActive).Select(x =>x.User).ToList();
+            listUser = _context.UsersInRow.Where(x => x.RowId == idRow && x.IsActive).Select(x => x.User).ToList();
             list = _context.User.Where(x => x.IsActive).ToList();
-            listFiltered = list.Except(listUser).ToList();            
+            listFiltered = list.Except(listUser).ToList();
 
             ViewData["ListUsers"] = new SelectList(listFiltered, SelectProperty.Id, SelectProperty.Name);
             ViewData["IdRow"] = idRow;
@@ -99,7 +99,7 @@ namespace Activities.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index), "Activities");
             }
-            ViewData["ListUsers"] = new SelectList(_context.User.Where(x => x.IsActive).ToList(), SelectProperty.Id, SelectProperty.Name);
+            ViewData["ListUsers"] = new SelectList(_context.User.Where(x => x.IsActive).ToList(), SelectProperty.Id, nameof(UserEntity.FullName));
             ViewData["IdRow"] = usersInRowEntity.RowId;
 
             return View(usersInRowEntity);

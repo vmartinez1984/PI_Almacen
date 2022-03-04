@@ -27,23 +27,24 @@ namespace Activities.Controllers
             if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
                 return RedirectToAction("Index", "Login");
 
+            List<ActivityEntity> list;
             switch (HttpContext.Session.GetInt32(SessionUser.RoleId))
             {
                 case Role.Administrador:
-                    List<ActivityEntity> list;
 
-                    list = await GetAsync();
+                    list = await GetAsync(null);
                     ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
 
                     return View(list);
-                //break;
+                case Role.LiderDeEquipo:
+
+                    list = await GetAsync((int)HttpContext.Session.GetInt32(SessionUser.Id));
+                    ViewData["ListRowStatus"] = new SelectList(_context.RowStatus.Where(x => x.IsActive).ToArray(), SelectProperty.Id, SelectProperty.Name);
+
+                    return View(list);
                 case Role.Colaborador:
 
                     return RedirectToAction("Rows");
-                    //break;
-                    //default:
-                    //    list = new List<ActivityDto>();
-                    //    break;
             }
 
             return View();
@@ -82,25 +83,43 @@ namespace Activities.Controllers
 
             return listRows;
         }
-        
-        private async Task<List<ActivityEntity>> GetAsync()
+
+        private async Task<List<ActivityEntity>> GetAsync(int? userId)
         {
             List<ActivityEntity> entities;
 
-            entities = await _context.Activity
-                .Include(x => x.ListRows.Where(x => x.IsActive))
-                    .ThenInclude(x => x.ListUsers)
-                        .ThenInclude(x => x.User)
-                .Include(x => x.ListRows.Where(x => x.IsActive))
-                    .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
-                        .ThenInclude(x => x.User)
-                .Include(x => x.ListRows.Where(x => x.IsActive))
-                    .ThenInclude(x => x.ListFiles)
-                .Include(x => x.ActivityStatus)
-                .Where(x => x.IsActive == true).ToListAsync();
+            if (userId == null)
+            {
+                entities = await _context.Activity
+                    .Include(x => x.ListRows.Where(x => x.IsActive))
+                        .ThenInclude(x => x.ListUsers)
+                            .ThenInclude(x => x.User)
+                    .Include(x => x.ListRows.Where(x => x.IsActive))
+                        .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
+                            .ThenInclude(x => x.User)
+                    .Include(x => x.ListRows.Where(x => x.IsActive))
+                        .ThenInclude(x => x.ListFiles)
+                    .Include(x => x.ActivityStatus)
+                    .Where(x => x.IsActive == true).ToListAsync();
+            }
+            else
+            {
+                entities = await _context.Activity
+                   .Include(x => x.ListRows.Where(x => x.IsActive))
+                       .ThenInclude(x => x.ListUsers)
+                           .ThenInclude(x => x.User)
+                   .Include(x => x.ListRows.Where(x => x.IsActive))
+                       .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
+                           .ThenInclude(x => x.User)
+                   .Include(x => x.ListRows.Where(x => x.IsActive))
+                       .ThenInclude(x => x.ListFiles)
+                   .Include(x => x.ActivityStatus)
+                   .Where(x => x.IsActive == true && x.UserId == userId)
+                   .ToListAsync();
+            }
 
             return entities;
-        }        
+        }
 
         // GET: ActivityEntities/Details/5
         public async Task<IActionResult> Details(int? id)

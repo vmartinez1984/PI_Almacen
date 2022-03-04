@@ -58,7 +58,8 @@ namespace Activities.Models
             );
 
             modelBuilder.Entity<RoleEntity>().HasData(
-                new RoleEntity { Id = 2, Name = "Operador", DateRegistration = DateTime.Now, IsActive = true },
+                new RoleEntity { Id = 3, Name = "Lider de equipo", DateRegistration = DateTime.Now, IsActive = true },
+                new RoleEntity { Id = 2, Name = "Colaborador", DateRegistration = DateTime.Now, IsActive = true },
                 new RoleEntity { Id = 1, Name = "Administrador", DateRegistration = DateTime.Now, IsActive = true }
             );
 

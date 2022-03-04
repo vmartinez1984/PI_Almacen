@@ -55,6 +55,9 @@ namespace HelpDesk
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            // Configuramos Rotativa indicándole el Path RELATIVO donde se
+            // encuentran los archivos de la herramienta wkhtmltopdf.
+            Rotativa.AspNetCore.RotativaConfiguration.Setup((Microsoft.AspNetCore.Hosting.IHostingEnvironment)env, "..\\Rotativa\\Windows\\");
         }
     }
 }

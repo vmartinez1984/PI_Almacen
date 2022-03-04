@@ -41,6 +41,7 @@ namespace Activities.Controllers
             }
 
             var rowEntity = await _context.Row
+                .Include(x => x.Activity)
                 .Include(x => x.ListFiles.Where(x => x.IsActive))
                     .ThenInclude(x => x.User)
                 .Include(x => x.ListComments.Where(x => x.IsActive))

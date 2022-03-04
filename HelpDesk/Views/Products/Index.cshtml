@@ -41,9 +41,36 @@
             </tr>
         </thead>
         <tbody>
+            @{
+                string cssClass;
+
+                cssClass = string.Empty;
+            }
             @foreach (var item in Model)
             {
-                <tr>
+                @switch (item.Category.Name)
+                {
+                    case "Software":
+                        @if (10 > ((TimeSpan)(item.DateStop - DateTime.Now)).Days)
+                        {
+                            cssClass = "text-danger";
+                        }
+                        else if (((TimeSpan)(item.DateStop - DateTime.Now)).Days < 30 && 10 < ((TimeSpan)(item.DateStop - DateTime.Now)).Days)
+                        {
+                            cssClass = "text-warning";
+                        }
+                        else if (31 < ((TimeSpan)(item.DateStop - DateTime.Now)).Days)
+                        {
+                            cssClass = "text-success";
+                        }
+                        break;
+                    default:
+                        cssClass = string.Empty;
+                        break;
+                }
+
+
+                <tr class="@cssClass">
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
@@ -57,7 +84,7 @@
                         @Html.DisplayFor(modelItem => item.DateStart)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DateStop)
+                        @Html.DisplayFor(modelItem => item.DateStop)                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Category.Name)

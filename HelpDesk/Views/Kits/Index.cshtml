@@ -34,13 +34,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DateRegistration)
                     </td>
-                    <td>                        
-                        <a asp-action="AddProducts" asp-route-kitId="@item.Id"> Productos 
-                            @item.ListProductAssignments.Count()
-                        </a>
+                    <td>
+                        Productos @item.ListProductAssignments.Count()
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edita</a> |
+                        <a asp-action="Pdf" asp-route-kitId="@item.Id"> Pdf </a> |
+                        <a asp-action="AddProducts" asp-route-kitId="@item.Id"> Editar </a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
                         <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
                     </td>

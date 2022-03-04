@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using HelpDesk.Models;
 using HelpDesk.Helpers;
 using Microsoft.AspNetCore.Http;
+using Rotativa.AspNetCore;
 
 namespace HelpDesk.Controllers
 {
@@ -21,10 +20,55 @@ namespace HelpDesk.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> Pdf(int id)
+        {
+
+            var kitEntity = await _context.Kit
+                .Include(x => x.ListProductAssignments)
+                    .ThenInclude(x => x.Product)
+                .Include(x => x.ListProductAssignments)
+                    .ThenInclude(x => x.Person)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            
+            return new ViewAsPdf("Pdf", kitEntity)
+            {
+                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12",
+                FileName = $"kit_{1}.pdf",
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Portrait,
+                PageSize = Rotativa.AspNetCore.Options.Size.Letter, 
+                ContentType = "application/pdf"
+            };
+
+            //// Define la URL de la Cabecera 
+            //string _headerUrl = Url.Action("ContactHeaderPDF", "Customers", null, "https");
+            //// Define la URL del Pie de página
+            //string _footerUrl = Url.Action("ContactFooterPDF", "Customers", null, "https");
+
+            //return new ViewAsPdf("ContactPDF", kitEntity)
+            //{
+            //    // Establece la Cabecera y el Pie de página
+            //    CustomSwitches = "--header-html " + _headerUrl + " --header-spacing 13 " +
+            //                     "--footer-html " + _footerUrl + " --footer-spacing 0"
+            //    ,
+            //    PageMargins = new Margins(50, 10, 12, 10)
+            //};
+        }
+
+        public IActionResult HeaderPDF()
+        {
+            return View("HeaderPDF");
+        }
+
+        public IActionResult FooterPDF()
+        {
+            return View("FooterPDF");
+        }
+
         // GET: Kits
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Kit.Include(x => x.ListProductAssignments.Where(x => x.IsActive)).ToListAsync());
+            return View(await _context.Kit.Include(x => x.ListProductAssignments.Where(x => x.IsActive)).Where(x => x.IsActive).ToListAsync());
         }
 
         // GET: Kits/Details/5
@@ -38,6 +82,8 @@ namespace HelpDesk.Controllers
             var kitEntity = await _context.Kit
                 .Include(x => x.ListProductAssignments)
                     .ThenInclude(x => x.Product)
+                .Include(x => x.ListProductAssignments)
+                    .ThenInclude(x => x.Person)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (kitEntity == null)
             {
@@ -113,6 +159,8 @@ namespace HelpDesk.Controllers
             }
 
             var kitEntity = await _context.Kit.FindAsync(id);
+            if (kitEntity.ListProductAssignments.Count != 0)
+                kitEntity.DateAssignment = kitEntity.ListProductAssignments[0].DateAssignment;
             if (kitEntity == null)
             {
                 return NotFound();
@@ -125,7 +173,7 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Code,Id,DateRegistration,IsActive")] KitEntity kitEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Code,Id,DateRegistration,IsActive, DateAssignment")] KitEntity kitEntity)
         {
             if (id != kitEntity.Id)
             {
@@ -179,7 +227,7 @@ namespace HelpDesk.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var kitEntity = await _context.Kit.FindAsync(id);
-            _context.Kit.Remove(kitEntity);
+            kitEntity.IsActive = false;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

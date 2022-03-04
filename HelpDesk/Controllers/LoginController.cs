@@ -27,45 +27,38 @@ namespace HelpDesk.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(UserLoginDto userDto)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                UserEntity userEntity;
+
+                userEntity = _context.User.Where(x => x.IsActive == true && x.UserName == userDto.UserName && x.Password == userDto.Password).FirstOrDefault();
+                if (userEntity is null)
                 {
-                    UserEntity userEntity;
-
-                    userEntity = _context.User.Where(x=> x.IsActive == true && x.UserName == userDto.UserName && x.Password == userDto.Password).FirstOrDefault();
-                    if (userEntity is null)
-                    {
-                        ViewBag.Error = "Usuario y/o contraseña no validos";
-                        return View();
-                    }
-                    else
-                    {
-                        HttpContext.Session.SetInt32(SessionUser.Id, userEntity.Id);
-                        HttpContext.Session.SetInt32("userRolId", userEntity.RolId);
-                        HttpContext.Session.SetString("userName", $"{userEntity.Name} {userEntity.LastName}");
-
-                        return RedirectToAction("Index", "Home");
-                        //switch (userEntity.RolId)
-                        //{
-                        //    case Rol.Administrador:
-                        //        return RedirectToAction("Index", "Administration");
-                        //    //break;
-                        //    case Rol.Empleado:
-                        //        return RedirectToAction("Index", "EmployeeAssistance", new { area = "Employees" });
-                        //    //break;
-                        //    default:
-                        //        return RedirectToAction("Index", "Home");
-                        //        //break;
-                        //}
-                    }
+                    ViewBag.Error = "Usuario y/o contraseña no validos";
+                    return View();
                 }
                 else
                 {
-                    return View();
+                    HttpContext.Session.SetInt32(SessionUser.Id, userEntity.Id);
+                    HttpContext.Session.SetInt32("userRolId", userEntity.RolId);
+                    HttpContext.Session.SetString("userName", $"{userEntity.Name} {userEntity.LastName}");
+
+                    return RedirectToAction("Index", "Home");
+                    //switch (userEntity.RolId)
+                    //{
+                    //    case Rol.Administrador:
+                    //        return RedirectToAction("Index", "Administration");
+                    //    //break;
+                    //    case Rol.Empleado:
+                    //        return RedirectToAction("Index", "EmployeeAssistance", new { area = "Employees" });
+                    //    //break;
+                    //    default:
+                    //        return RedirectToAction("Index", "Home");
+                    //        //break;
+                    //}
                 }
             }
-            catch
+            else
             {
                 return View();
             }

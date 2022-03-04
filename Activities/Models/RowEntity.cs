@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Activities.Models
 {
     public class RowEntity : BaseCataloge
-    {
+    {       
         [Required]
         [ForeignKey(nameof(ActivityEntity))]
         [Display(Name = "Grupo de actividades")]
@@ -27,6 +27,7 @@ namespace Activities.Models
         public virtual RowStatusEntity RowStatus { get; set; }
 
         [Display(Name = "Fecha de fin")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime DateStop { get; set; }
 

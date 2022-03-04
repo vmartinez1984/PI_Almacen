@@ -138,15 +138,11 @@
                         }
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar actividad" class="text-warning">
-                            <i class="fas fa-edit"></i>
-                        </a> |
-                        <a asp-action="Details" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar actividad" class="text-info">
+
+                        <a asp-action="Details" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Detalles de la actividad" class="text-info">
                             <i class="fas fa-info"></i>
-                        </a> |
-                        <a asp-action="Delete" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar actividad" class="text-danger">
-                            <i class="fas fa-eraser"></i>
                         </a>
+
                         @await Html.PartialAsync("_ChangeRowStatus",item)
                     </td>
                 </tr>
