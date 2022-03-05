@@ -71,7 +71,7 @@ namespace Activities.Controllers
             userId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
             listRows = await _context.UsersInRow
                 .Include(x => x.Row)
-                    .Include(x => x.Row.ListUsers)
+                    .Include(x => x.Row.ListUsersInRow)
                         .ThenInclude(x => x.User)
                     .Include(x => x.Row.ListComments)
                         .ThenInclude(x => x.User)
@@ -88,35 +88,29 @@ namespace Activities.Controllers
         {
             List<ActivityEntity> entities;
 
-            if (userId == null)
-            {
-                entities = await _context.Activity
+            var query = _context.Activity
                     .Include(x => x.ListRows.Where(x => x.IsActive))
-                        .ThenInclude(x => x.ListUsers)
+                        .ThenInclude(x => x.ListUsersInRow.Where(x => x.IsActive))
                             .ThenInclude(x => x.User)
                     .Include(x => x.ListRows.Where(x => x.IsActive))
                         .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
                             .ThenInclude(x => x.User)
                     .Include(x => x.ListRows.Where(x => x.IsActive))
                         .ThenInclude(x => x.ListFiles)
-                    .Include(x => x.ActivityStatus)
-                    .Where(x => x.IsActive == true).ToListAsync();
+                    .Include(x => x.ActivityStatus);
+            if (userId == null)
+            {
+                entities = await
+                query.Where(x => x.IsActive == true)
+                .ToListAsync();
             }
             else
             {
-                entities = await _context.Activity
-                   .Include(x => x.ListRows.Where(x => x.IsActive))
-                       .ThenInclude(x => x.ListUsers)
-                           .ThenInclude(x => x.User)
-                   .Include(x => x.ListRows.Where(x => x.IsActive))
-                       .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
-                           .ThenInclude(x => x.User)
-                   .Include(x => x.ListRows.Where(x => x.IsActive))
-                       .ThenInclude(x => x.ListFiles)
-                   .Include(x => x.ActivityStatus)
-                   .Where(x => x.IsActive == true && x.UserId == userId)
-                   .ToListAsync();
+                entities = await
+                query.Where(x => x.IsActive == true && x.UserId == userId)
+                .ToListAsync();
             }
+
 
             return entities;
         }

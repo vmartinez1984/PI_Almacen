@@ -59,13 +59,13 @@ namespace Expenses.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,CategotyId,PeriodId,DateRegister,IsActive")] Expense expense)
+        public async Task<IActionResult> Create([Bind("Id,Name,CategoryId,PeriodId,Amount,DateRegister,IsActive")] Expense expense)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(expense);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), "Periods", new { Id = expense.PeriodId });
             }
             ViewData["PeriodId"] = new SelectList(_context.Period, "Id", "Name", expense.PeriodId);
             return View(expense);
@@ -84,7 +84,10 @@ namespace Expenses.Controllers
             {
                 return NotFound();
             }
-            ViewData["PeriodId"] = new SelectList(_context.Period, "Id", "Name", expense.PeriodId);
+
+            ViewData["ListCategories"] = new SelectList(_context.Category.Where(x => x.IsActive), "Id", "Name");
+            ViewData["PeriodId"] = new SelectList(_context.Period.Where(x => x.IsActive), "Id", "Name");
+
             return View(expense);
         }
 
@@ -93,7 +96,7 @@ namespace Expenses.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategotyId,PeriodId,DateRegister,IsActive")] Expense expense)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategoryId,PeriodId,Amount,DateRegister,IsActive")] Expense expense)
         {
             if (id != expense.Id)
             {
@@ -118,7 +121,7 @@ namespace Expenses.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), "Periods", new { Id = expense.PeriodId });
             }
             ViewData["PeriodId"] = new SelectList(_context.Period, "Id", "Name", expense.PeriodId);
             return View(expense);
@@ -134,6 +137,7 @@ namespace Expenses.Controllers
 
             var expense = await _context.Expense
                 .Include(e => e.Period)
+                .Include(e => e.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (expense == null)
             {
@@ -149,9 +153,9 @@ namespace Expenses.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var expense = await _context.Expense.FindAsync(id);
-            _context.Expense.Remove(expense);
+            expense.IsActive = false;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Details), "Periods", new { Id = expense.PeriodId });
         }
 
         private bool ExpenseExists(int id)

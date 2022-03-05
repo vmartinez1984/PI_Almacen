@@ -9,6 +9,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateRegister)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -23,11 +26,25 @@
                     @Html.DisplayFor(modelItem => item.DateRegister)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="Entries">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="Entries">Borrar</a>
                 </td>
             </tr>
         }
+        <tr>
+            <td>
+            </td>
+            <td>
+                Total
+            </td>
+            <td>
+                @Model.Sum(x=> x.Amount).ToString("C")
+            </td>
+            <td>
+            </td>
+        </tr>
     </tbody>
 </table>

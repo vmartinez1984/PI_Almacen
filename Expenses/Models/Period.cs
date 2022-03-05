@@ -11,6 +11,7 @@ namespace Expenses.Models
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Nombre")]
         public string Name { get; set; }
 
         [Required]

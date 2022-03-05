@@ -38,7 +38,7 @@ namespace Activities.Models
         public virtual List<CommentEntity> ListComments { get; set; }
 
         [Display(Name = "Colaboradores")]
-        public virtual List<UsersInRowEntity> ListUsers { get; set; }
+        public virtual List<UsersInRowEntity> ListUsersInRow { get; set; }
 
         [Display(Name = "Archivos")]
         public virtual List<FileEntity> ListFiles { get; set; }

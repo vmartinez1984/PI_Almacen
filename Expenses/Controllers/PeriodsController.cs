@@ -34,8 +34,9 @@ namespace Expenses.Controllers
             }
 
             var period = await _context.Period
-                .Include(x => x.ListExpenses)
-                .Include(x => x.ListEntries)
+                .Include(x => x.ListExpenses.Where(x => x.IsActive))
+                    .ThenInclude(x => x.Category)
+                .Include(x => x.ListEntries.Where(x => x.IsActive))
                 .Where(x => x.Id == id)
                 .FirstOrDefaultAsync();
             if (period == null)

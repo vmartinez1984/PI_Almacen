@@ -16,6 +16,7 @@ namespace Expenses.Models
 
         [Required]
         [Display(Name = "Cantidad")]
+        [DataType(DataType.Currency)]
         public int Amount { get; set; }
 
         [Required]
@@ -23,11 +24,14 @@ namespace Expenses.Models
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
         [Display(Name = "Categoria")]
-        public virtual List<Category> ListCategories { get; set; }
+        public virtual Category Category { get; set; }
 
         [Required]
         [ForeignKey(nameof(Period))]
+        [Display(Name = "Periodo")]
         public int PeriodId { get; set; }
+
+        [Display(Name = "Periodo")]
         public virtual Period Period { get; set; }
 
         [Required]

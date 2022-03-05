@@ -19,8 +19,10 @@ namespace Expenses.Controllers
         }
 
         // GET: Entries
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int periodId)
         {
+            ViewBag.PeriodId = periodId;
+
             return View(await _context.Entry.ToListAsync());
         }
 
@@ -43,8 +45,11 @@ namespace Expenses.Controllers
         }
 
         // GET: Entries/Create
-        public IActionResult Create()
+        public IActionResult Create(int periodId)
         {
+            ViewData["ListPeriods"] = new SelectList(_context.Period.Where(x => x.IsActive), "Id", "Name");
+            ViewBag.PeriodId = periodId;
+
             return View();
         }
 
@@ -53,13 +58,13 @@ namespace Expenses.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,DateRegister,IsActive")] Entry entry)
+        public async Task<IActionResult> Create([Bind("Id,Name,DateRegister,IsActive,PeriodId,Amount")] Entry entry)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(entry);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), "Periods", new { Id = entry.PeriodId });
             }
             return View(entry);
         }
@@ -85,7 +90,7 @@ namespace Expenses.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DateRegister,IsActive")] Entry entry)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,DateRegister,IsActive, PeriodId, Amount")] Entry entry)
         {
             if (id != entry.Id)
             {
@@ -110,7 +115,10 @@ namespace Expenses.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), "Periods", new
+                {
+                    Id = entry.PeriodId,
+                });
             }
             return View(entry);
         }
@@ -139,9 +147,9 @@ namespace Expenses.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var entry = await _context.Entry.FindAsync(id);
-            _context.Entry.Remove(entry);
+            entry.IsActive = false;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Details), "Periods", new { Id = entry.PeriodId });
         }
 
         private bool EntryExists(int id)

@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.DateRegistration)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ListUsers)
+                @Html.DisplayNameFor(model => model.ListUsersInRow)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ListFiles)
@@ -42,7 +42,7 @@
                 @Html.DisplayNameFor(model => model.DateRegistration)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ListUsers)
+                @Html.DisplayNameFor(model => model.ListUsersInRow)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ListFiles)
@@ -87,17 +87,19 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DateRegistration)
                 </td>
+
+                @*Usuarios*@
                 <td>
                     <ul>
                         <a href="~/UsersInRows/Create?IdRow=@item.Id" data-toggle="tooltip" title="Agregar colaborador" class="text-success">
                             <i class="fas fa-user-plus"></i>
                         </a>
 
-                        @foreach (var userInRow in item.ListUsers)
+                        @foreach (var userInRow in item.ListUsersInRow)
                         {
                             <li>
                                 @userInRow.User.FullName
-                                <a href="~/UsersInRows/Delete?Id=@userInRow.User.Id" data-toggle="tooltip" title="Quitar colaborador" class="text-danger">
+                                <a href="~/UsersInRows/Delete?Id=@userInRow.Id" data-toggle="tooltip" title="Quitar colaborador" class="text-danger">
                                     <i class="fas fa-user-minus"></i>
                                 </a>
                             </li>
@@ -128,7 +130,7 @@
                 @*Comentarios*@
                 <td>
                     <a href="~/Comments/Create?RowId=@item.Id" data-toggle="tooltip" title="Agregar commentario" class="text-success">
-                        <i class="fas fa-comment"></i>
+                        <i class="fas fa-comment-medical"></i>
                     </a>
                     @foreach (var comment in item.ListComments)
                     {
@@ -157,7 +159,7 @@
                     <a asp-action="Delete" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar actividad" class="text-danger">
                         <i class="fas fa-eraser"></i>
                     </a>
-                    @*@await Html.PartialAsync("_ChangeRowStatus",item)*@
+                    @await Html.PartialAsync("_ChangeRowStatus",item)
                 </td>
             </tr>
         }

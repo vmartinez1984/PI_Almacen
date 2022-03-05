@@ -22,7 +22,7 @@
                     @Html.DisplayNameFor(model => model.DateRegistration)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ListUsers)
+                    @Html.DisplayNameFor(model => model.ListUsersInRow)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ListFiles)
@@ -48,7 +48,7 @@
                     @Html.DisplayNameFor(model => model.DateRegistration)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ListUsers)
+                    @Html.DisplayNameFor(model => model.ListUsersInRow)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ListFiles)
@@ -94,7 +94,7 @@
                         @Html.DisplayFor(modelItem => item.DateRegistration)
                     </td>
                     <td>
-                        @foreach (var userInRow in item.ListUsers)
+                        @foreach (var userInRow in item.ListUsersInRow)
                         {
                             <i class="fas fa-user"></i>
                             @userInRow.User.FullName
@@ -115,9 +115,6 @@
                                         @file.Name
                                     </a>
                                 </li>
-                                <a href="~/Files/Delete/@file.Id" data-toggle="tooltip" title="Quitar documento" class="text-danger">
-                                    <i class="fas fa-eraser"></i>
-                                </a>
                             }
                         </ul>
                     </td>

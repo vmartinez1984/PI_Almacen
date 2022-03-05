@@ -11,10 +11,10 @@
                 @Html.DisplayNameFor(model => model.CategoryId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Period)
+                @Html.DisplayNameFor(model => model.DateRegister)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateRegister)
+                @Html.DisplayNameFor(model => model.Amount)
             </th>
             <th></th>
         </tr>
@@ -27,21 +27,34 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoryId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Period.Name)
+                    @Html.DisplayFor(modelItem => item.Category.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateRegister)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Expenses" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-controller="Expenses" asp-route-id="@item.Id">Borrar</a>
                 </td>
             </tr>
         }
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Total
+            </td>
+            <td>
+                @Model.Sum(x=> x.Amount).ToString("C")
+            </td>
+            <td>
+            </td>
+        </tr>
     </tbody>
 </table>
 <hr />

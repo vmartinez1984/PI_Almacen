@@ -1,10 +1,11 @@
 ﻿@model Expenses.Models.Period
 
 @{
-    ViewData["Title"] = "Details";
-}
+    ViewData["Title"] = "Balance";
+    int balance;    
 
-@*<h1>Details</h1>*@
+    balance = Model.ListEntries.Sum(x => x.Amount) - Model.ListExpenses.Sum(x => x.Amount);    
+}
 
 <div>
     <h4 class="text-info">Periodo</h4>
@@ -37,6 +38,10 @@
     </dl>
 </div>
 
+<h2 class="text-info text-right">
+    Balance @balance.ToString("C")
+</h2>
+
 <hr />
 <h2 class="text-success">Ingresos</h2>
 <p>
@@ -51,6 +56,12 @@
 </p>
 @await Html.PartialAsync("_ListExpenses", Model.ListExpenses)
 
+
+<h2 class="text-info text-right">
+    Balance @balance.ToString("C")
+</h2>
+
+<hr />
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar a la lista</a>
 </div>
