@@ -26,7 +26,7 @@ namespace Activities.Models
         [Display(Name = "Estatus")]
         public virtual RowStatusEntity RowStatus { get; set; }
 
-        [Display(Name = "Fecha de fin")]
+        [Display(Name = "Fecha de vencimiento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime DateStop { get; set; }

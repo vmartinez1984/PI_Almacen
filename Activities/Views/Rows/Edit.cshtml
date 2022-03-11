@@ -16,6 +16,7 @@
                 <input asp-for="ActivityId" class="form-control" type="hidden" />
                 <input asp-for="UserId" class="form-control" type="hidden" />
                 <input asp-for="DateRegistration" type="hidden" />
+                <input asp-for="IsActive" type="hidden" />
                 <div class="form-group">
                     <label asp-for="RowStatusId" class="control-label"></label>
                     <select asp-for="RowStatusId" class="form-control" asp-items="@ViewBag.ListRowStatus">

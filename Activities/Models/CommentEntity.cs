@@ -15,6 +15,7 @@ namespace Activities.Models
         [ForeignKey(nameof(UserEntity))]
         [Display(Name = "Colaborador")]
         public int UserId { get; set; }
+        [Display(Name = "Colaborador")]
         public UserEntity User { get; set; }
 
         [Required]

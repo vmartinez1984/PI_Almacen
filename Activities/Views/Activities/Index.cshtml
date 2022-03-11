@@ -4,10 +4,10 @@
     ViewData["Title"] = "Lista de grupos de actividades";
 }
 
-<h1>Lista de grupo actividades</h1>
+<h1>Lista de Proyectos</h1>
 
 <p>
-    <a asp-action="Create" asp-controller="Activities" title="Agregar nuevo grupo de actividades" data-toggle="tooltip" class="btn btn-success">
+    <a asp-action="Create" asp-controller="Activities" title="Agregar proyecto" data-toggle="tooltip" class="btn btn-success">
         <i class="fas fa-plus"></i>
     </a>
 </p>
@@ -39,7 +39,14 @@
             </p>
         </div>
         <div class="card card-footer">
-            @item.Description
+            <div class="row">
+                <div class="col-8">
+                    @item.Description
+                </div>
+                <div class="col-4 text-right">
+                    @item.User.FullName
+                </div>
+            </div>
         </div>
     </div>
     <br />

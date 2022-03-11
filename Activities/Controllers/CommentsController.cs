@@ -155,9 +155,9 @@ namespace Activities.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var commentEntity = await _context.Comment.FindAsync(id);
-            _context.Comment.Remove(commentEntity);
+            commentEntity.IsActive = false;
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "Activities");
         }
 
         private bool CommentEntityExists(int id)

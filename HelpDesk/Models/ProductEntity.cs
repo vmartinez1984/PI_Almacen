@@ -24,7 +24,7 @@ namespace HelpDesk.Models
         [DataType(DataType.Date)]
         public DateTime? DateStart { get; set; }
 
-        [Display(Name = "Fecha fin")]
+        [Display(Name = "Fecha de vencimiento")]
         [DataType(DataType.Date)]
         public DateTime? DateStop { get; set; }
 

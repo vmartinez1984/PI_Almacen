@@ -48,13 +48,14 @@ namespace Activities.Models
             modelBuilder.Entity<ActivityStatusEntity>().HasData(
                 new ActivityStatusEntity { Id = 1, Name = "Por hacer", DateRegistration = DateTime.Now, IsActive = true },
                 new ActivityStatusEntity { Id = 2, Name = "Haciendo", DateRegistration = DateTime.Now, IsActive = true },
-                new ActivityStatusEntity { Id = 3, Name = "Hecho", DateRegistration = DateTime.Now, IsActive = true }
+                new ActivityStatusEntity { Id = 3, Name = "Hecho", DateRegistration = DateTime.Now, IsActive = true }                
             );
 
             modelBuilder.Entity<RowStatusEntity>().HasData(
                 new RowStatusEntity { Id = 1, Name = "Listo", DateRegistration = DateTime.Now, IsActive = true },
                 new RowStatusEntity { Id = 2, Name = "En proceso", DateRegistration = DateTime.Now, IsActive = true },
-                new RowStatusEntity { Id = 3, Name = "Estancado", DateRegistration = DateTime.Now, IsActive = true }
+                new RowStatusEntity { Id = 3, Name = "Estancado", DateRegistration = DateTime.Now, IsActive = true },
+                new RowStatusEntity { Id = 4, Name = "Por hacer", DateRegistration = DateTime.Now, IsActive = true }
             );
 
             modelBuilder.Entity<RoleEntity>().HasData(

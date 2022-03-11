@@ -74,6 +74,11 @@
                     classColor = string.Empty;
                     break;
             }
+            if (item.DateStop.ToShortDateString() == DateTime.Now.ToShortDateString())
+            {
+                classColor = "table-danger";
+                item.RowStatusId = 3;
+            }
             <tr class="@classColor">
                 <td>
                     @Html.DisplayFor(modelItem => item.RowStatus.Name)
@@ -142,13 +147,14 @@
                                 @*</blockquote>*@
                             </div>
                             <div class="col-2">
-                                <a href="~/UsersInRows/Delete?IdRow=@item.Id" data-toggle="tooltip" title="Quitar Comentario" class="text-danger">
+                                <a href="~/Comments/Delete/@comment.Id" data-toggle="tooltip" title="Quitar Comentario" class="text-danger">
                                     <i class="fas fa-eraser"></i>
                                 </a>
                             </div>
                         </div>
                     }
                 </td>
+
                 <td>
                     <a asp-action="Edit" asp-controller="rows" asp-route-id="@item.Id" data-toggle="tooltip" title="Editar actividad" class="text-warning">
                         <i class="fas fa-edit"></i>

@@ -1,46 +1,47 @@
 ﻿@model Activities.Models.ActivityEntity
 
 @{
-    ViewData["Title"] = "Agregar grupo de actividades";
+    ViewData["Title"] = "Agregar proyecto";
 }
+<div class="container">
+    <h1 class="text-success">Agregar proyecto</h1>
 
-<h1 class="text-success">Agregar grupo de actividades</h1>
-
-<h4>Grupo de actividades</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ActivityStatusId" class="control-label"></label>
-                <select asp-for="ActivityStatusId" asp-items="@ViewBag.ListActivityStatus" class="form-control">
-                    <option value="">Seleccione</option>
-                </select>
-                <span asp-validation-for="ActivityStatusId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save"></i>
-                    Guardar
-                </button>
-            </div>
-        </form>
+    <h4>proyecto</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ActivityStatusId" class="control-label"></label>
+                    <select asp-for="ActivityStatusId" asp-items="@ViewBag.ListActivityStatus" class="form-control">
+                        <option value="">Seleccione</option>
+                    </select>
+                    <span asp-validation-for="ActivityStatusId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Regresar a la lista</a>
+    <div>
+        <a asp-action="Index">Regresar a la lista</a>
+    </div>
 </div>
 
 @section Scripts {

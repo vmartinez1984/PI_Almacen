@@ -96,8 +96,9 @@ namespace Activities.Controllers
                         .ThenInclude(x => x.ListComments.Where(x => x.IsActive))
                             .ThenInclude(x => x.User)
                     .Include(x => x.ListRows.Where(x => x.IsActive))
-                        .ThenInclude(x => x.ListFiles)
-                    .Include(x => x.ActivityStatus);
+                        .ThenInclude(x => x.ListFiles.Where(x => x.IsActive))
+                    .Include(x => x.ActivityStatus)
+                    .Include(x=> x.User);
             if (userId == null)
             {
                 entities = await
