@@ -3,7 +3,10 @@ C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\Comprobante Domicilio.pdf
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\DATOS GENERALES ARRENDATARIO.pdf
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\kit_1 (1).pdf
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\kit_1 (2).pdf
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\Producto07.pdf
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\Protocolo de atención_Acoso escolar.pdf
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\The-X-Files.jpg
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

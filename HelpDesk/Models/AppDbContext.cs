@@ -38,9 +38,7 @@ namespace HelpDesk.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-                //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Demo02;Trusted_Connection=True;");
-                //optionsBuilder.UseSqlServer("workstation id=StorageAndQr.mssql.somee.com;packet size=4096;user id=vmartinez84_SQLLogin_3;pwd=bgcs8xmwrb;data source=StorageAndQr.mssql.somee.com;persist security info=False;initial catalog=StorageAndQr ");
+            {                
                 optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
             }
         }
