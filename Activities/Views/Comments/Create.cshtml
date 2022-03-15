@@ -6,39 +6,45 @@
 }
 <div class="container">
 
-<h1 class="text-success">Agregar</h1>
+    <h1 class="text-success">Agregar</h1>
 
-<h4 class="text-success">Comentario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="RowId" class="form-control" value="@row.Id"  type="hidden"/>
-            <div class="form-group">
-                <label asp-for="Row.Name" class="control-label"></label>
-                <input asp-for="Row.Name" class="form-control" value="@row.Name" disabled/>                
-            </div>
+    <h4 class="text-success">Comentario</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="RowId" class="form-control" value="@row.Id" type="hidden" />
+                <div class="form-group">
+                    @*<label asp-for="Row.Name" class="control-label"></label>*@
+                    <label class="control-label">Nombre de la actividad</label>
+                    <input asp-for="Row.Name" class="form-control" value="@row.Name" disabled />
+                </div>
 
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <textarea asp-for="Content" class="form-control" maxlength="150" ></textarea>
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <button type="submit" value="Create" class="btn btn-primary">
-                    <i class="fas fa-save"></i>
-                    Guardar
-                </button>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="Content" class="control-label"></label>
+                    <textarea asp-for="Content" class="form-control" maxlength="150"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <p class="text-info text-right">
+                    
+                    <b>
+                      -  @ViewBag.UserName
+                    </b>
+                </p>
+                <div class="form-group">
+                    <button type="submit" value="Create" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index" asp-controller="Activities">Regresar al grupo de actividades</a>
-</div>
+    <div>
+        <a asp-action="Index" asp-controller="Activities">Regresar al grupo de actividades</a>
+    </div>
 </div>
 
 @section Scripts {

@@ -21,7 +21,7 @@ namespace Files.Controllers
         // GET: Folders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Folder.ToListAsync());
+            return View(await _context.Folder.Where(x => x.IsActive).ToListAsync());
         }
 
         // GET: Folders/Details/5
@@ -33,7 +33,7 @@ namespace Files.Controllers
             }
 
             var folder = await _context.Folder
-                .Include(x => x.ListArchives.Where(x=> x.IsActive))
+                .Include(x => x.ListArchives.Where(x => x.IsActive))
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (folder == null)
             {

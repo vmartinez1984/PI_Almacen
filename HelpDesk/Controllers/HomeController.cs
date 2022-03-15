@@ -1,5 +1,6 @@
 ﻿using HelpDesk.Helpers;
 using HelpDesk.Models;
+using HelpDesk.Notifications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -23,8 +24,8 @@ namespace HelpDesk.Controllers
         public IActionResult Index()
         {
             if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
-                return RedirectToAction("Index", "Login"); 
-
+                return RedirectToAction("Index", "Login");
+            //EmailNotification.Send("ahal_tocob@hotmail.com");
             return View();
         }
 

@@ -50,6 +50,7 @@ namespace Activities.Controllers
         public IActionResult Create(int rowId)
         {
             ViewBag.Row = _context.Row.Find(rowId);
+            ViewBag.UserName = HttpContext.Session.GetString(SessionUser.FullName);
 
             return View();
         }

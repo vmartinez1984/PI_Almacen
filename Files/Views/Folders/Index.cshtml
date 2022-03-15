@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Files.Models.Folder>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de carpetas";
 }
 
-<h1>Index</h1>
+<h1>Lista de carpetas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Agregar nueva</a>
 </p>
 <table class="table">
     <thead>
@@ -15,12 +15,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+           @* <th>
                 @Html.DisplayNameFor(model => model.FolderId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>
+            </th>  *@        
             <th>
                 @Html.DisplayNameFor(model => model.DateRegistration)
             </th>
@@ -33,19 +30,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.FolderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
+            </td> *@        
             <td>
                 @Html.DisplayFor(modelItem => item.DateRegistration)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
             </td>
         </tr>
 }

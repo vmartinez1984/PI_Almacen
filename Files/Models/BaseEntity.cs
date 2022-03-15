@@ -10,6 +10,8 @@ namespace Files.Models
 
         [Required]
         public bool IsActive { get; set; } = true;
+
+        [Display(Name = "Fecha de registro")]
         public DateTime DateRegistration { get; set; } = DateTime.Now;
     }
 }

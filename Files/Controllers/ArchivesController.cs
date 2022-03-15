@@ -25,7 +25,7 @@ namespace Files.Controllers
         // GET: Archives
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Archive.ToListAsync());
+            return View(await _context.Archive.Include(x => x.Folder).Where(x => x.IsActive).ToListAsync());
         }
 
         // GET: Archives/Details/5
@@ -36,7 +36,7 @@ namespace Files.Controllers
                 return NotFound();
             }
 
-            var archive = await _context.Archive
+            var archive = await _context.Archive.Include(x => x.Folder)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (archive == null)
             {
@@ -49,6 +49,7 @@ namespace Files.Controllers
         // GET: Archives/Create
         public IActionResult Create()
         {
+            ViewData["ListFolders"] = new SelectList(_context.Folder.Where(x => x.IsActive), "Id", "Name");
             return View();
         }
 
@@ -68,7 +69,7 @@ namespace Files.Controllers
 
                 guid = Guid.NewGuid();
                 fileName = $"{guid}_{archive.FormFile.FileName}";
-                filePath = Path.Combine(_webHostEnvironment.ContentRootPath, "wwwroot", "files",fileName);
+                filePath = Path.Combine(_webHostEnvironment.ContentRootPath, "wwwroot", "files", fileName);
                 fileStream = new FileStream(filePath, FileMode.Create);
                 await archive.FormFile.CopyToAsync(fileStream);
                 FileInfo fileInfo = new FileInfo(filePath);
@@ -150,7 +151,7 @@ namespace Files.Controllers
                 return NotFound();
             }
 
-            var archive = await _context.Archive
+            var archive = await _context.Archive.Include(x => x.Folder)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (archive == null)
             {
@@ -166,7 +167,8 @@ namespace Files.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var archive = await _context.Archive.FindAsync(id);
-            _context.Archive.Remove(archive);
+            //_context.Archive.Remove(archive);
+            archive.IsActive = false;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
