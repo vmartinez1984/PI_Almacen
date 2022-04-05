@@ -927,3 +927,4 @@ C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\ne
 C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\Activities.genruntimeconfig.cache
 C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\ref\Activities.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\Razor\Views\Activities\Rows.cshtml.g.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\Razor\Views\Home\Game.cshtml.g.cs

@@ -1,8 +1,73 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Activities.Dtos.ActivitySummaryDto>
+@{
+    ViewData["Title"] = "Inicio";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 text-primary">Actividades</h1>
 </div>
+<img src="/images/PortadaActividades.jpg" class="img-fluid" alt="Responsive image">
+
+@foreach (var item in Model)
+{
+    <div class="card mt-3">
+        <div class="card-header">
+            <p>@item.Name</p>
+        </div>
+        <div class="card-body">
+            <div>
+                <canvas id="chart_@item.Id"></canvas>
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    <canvas id="myChart"></canvas>
+</div>*@
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+        ];
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+          }]
+        };
+
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+
+    </script>
+    @foreach (var item in Model)
+    {
+        <script>
+            const chart_@item.Id = new Chart(
+                document.getElementById('chart_@item.Id'),
+                config
+            );
+        </script>
+    }
+}

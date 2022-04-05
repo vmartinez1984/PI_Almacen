@@ -55,7 +55,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Activities", "Activities\Ac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk03", "Helpdesk03\Helpdesk03.csproj", "{2655914E-00E5-4171-BE7E-9415CDA3CC1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Files", "Files\Files.csproj", "{78B5832A-0CE5-4843-B953-1B8401200316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Files", "Files\Files.csproj", "{78B5832A-0CE5-4843-B953-1B8401200316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMongoDb", "MvcMongoDb\MvcMongoDb.csproj", "{05E10BFC-72FF-404B-9B94-6CCF722D06BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDb.Api", "MongoDb.Api\MongoDb.Api.csproj", "{7BC3FA82-33AA-4DC4-84F6-A10D50CF4AC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,6 +155,14 @@ Global
 		{78B5832A-0CE5-4843-B953-1B8401200316}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78B5832A-0CE5-4843-B953-1B8401200316}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78B5832A-0CE5-4843-B953-1B8401200316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E10BFC-72FF-404B-9B94-6CCF722D06BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E10BFC-72FF-404B-9B94-6CCF722D06BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E10BFC-72FF-404B-9B94-6CCF722D06BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E10BFC-72FF-404B-9B94-6CCF722D06BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC3FA82-33AA-4DC4-84F6-A10D50CF4AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC3FA82-33AA-4DC4-84F6-A10D50CF4AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC3FA82-33AA-4DC4-84F6-A10D50CF4AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC3FA82-33AA-4DC4-84F6-A10D50CF4AC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
