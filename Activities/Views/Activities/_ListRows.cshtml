@@ -65,7 +65,7 @@
                     classColor = "table-success";
                     break;
                 case 2:
-                    classColor = "table-warning";
+                    classColor = "table-info";
                     break;
                 case 3:
                     classColor = "table-danger";
@@ -74,10 +74,13 @@
                     classColor = string.Empty;
                     break;
             }
-            if (item.DateStop.ToShortDateString() == DateTime.Now.ToShortDateString())
+            if (item.RowStatusId != 1)
             {
-                classColor = "table-danger";
-                item.RowStatusId = 3;
+                if (item.DateStop.ToShortDateString() == DateTime.Now.ToShortDateString())
+                {
+                    classColor = "table-danger";
+                    item.RowStatusId = 3;
+                }
             }
             <tr class="@classColor">
                 <td>

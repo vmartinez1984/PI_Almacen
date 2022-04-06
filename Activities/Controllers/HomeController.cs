@@ -35,6 +35,15 @@ namespace Activities.Controllers
             return View(list);
         }
 
+        public IActionResult ActivitySummary()
+        {
+            List<ActivitySummaryDto> list;
+
+            list = GetListActivitySumery();
+
+            return Json(list);
+        }
+
         private List<ActivitySummaryDto> GetListActivitySumery()
         {
             List<ActivitySummaryDto> list;
@@ -48,26 +57,56 @@ namespace Activities.Controllers
             entities.ForEach(entity =>
             {
                 list.Add(
-                    new ActivitySummaryDto { Id = entity.Id, Name = entity.Name, Data = GetData(entity.ListRows) }
+                    new ActivitySummaryDto { Id = entity.Id, Name = entity.Name, ListRowStatus = GetData(entity.ListRows) }
                 );
             });
 
             return list;
         }
 
-        private Dictionary<string, int> GetData(List<RowEntity> listRows)
+        private List<RowStatusDto> GetData(List<RowEntity> listRows)
         {
-            Dictionary<string, int> dictionary;
+            List<RowStatusDto> list;
             List<string> listName;
 
-            dictionary = new Dictionary<string, int>();
+            list = new List<RowStatusDto>();
             listName = listRows.Distinct().Select(x => x.RowStatus.Name).ToList();
             listName.ForEach(rowStatusName =>
             {
-                dictionary.Add(rowStatusName, listRows.Count(x => x.RowStatus.Name == rowStatusName));
+                list.Add(new RowStatusDto {
+                     Name = rowStatusName,
+                      Total = listRows.Count(x => x.RowStatus.Name == rowStatusName),
+                      Color = GetColor(rowStatusName)
+                });
             });
 
-            return dictionary;
+            return list;
+        }
+
+        private string GetColor(string rowStatusName)
+        {
+            string color;
+
+            switch (rowStatusName)
+            {
+                case "Listo":
+                    color = "#38b44a";
+                    break;
+                case "En proceso":
+                    color = "#17a2b8";
+                    break;
+                case "Estancado":
+                    color = "#df382c";
+                    break;
+                case "Por hacer":
+                    color = "#aea79f";
+                    break;
+                default:
+                    color = string.Empty;
+                    break;
+            }
+
+            return color;
         }
 
         public IActionResult Game()

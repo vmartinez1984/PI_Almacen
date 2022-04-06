@@ -8,6 +8,15 @@ namespace Activities.Dtos
 
         public string Name { get; set; }
 
-        public Dictionary<string, int> Data { get; set; }
+        public List<RowStatusDto> ListRowStatus { get; set; }
+    }
+
+    public class RowStatusDto
+    {
+        public string Name { get; set; }
+
+        public int Total { get; set; }
+
+        public string Color { get; set; }
     }
 }
