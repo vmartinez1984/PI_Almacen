@@ -37,7 +37,7 @@ namespace Activities.Api
         }
 
         [HttpGet]
-        [Route("Api/Chat/{userIdSource}/{userIdDestiny}")]
+        [Route("/Api/Chat/{userIdSource}/{userIdDestiny}")]
         public async Task<IActionResult> GetChat(int userIdSource,int userIdDestiny)
         {
             return Ok();

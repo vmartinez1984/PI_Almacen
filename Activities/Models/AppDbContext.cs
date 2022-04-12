@@ -11,12 +11,14 @@ namespace Activities.Models
 
         public DbSet<ActivityEntity> Activity { get; set; }
         public DbSet<ActivityStatusEntity> ActivityStatus { get; set; }
+        public DbSet<ChatEntity> Chat { get; set; }
         public DbSet<CommentEntity> Comment { get; set; }
         public DbSet<FileEntity> File { get; set; }
         public DbSet<RoleEntity> Role { get; set; }
         public DbSet<RowEntity> Row { get; set; }
         public DbSet<RowStatusEntity> RowStatus { get; set; }
         public DbSet<UserEntity> User { get; set; }
+        public DbSet<UserOnlineEntity> UserOnline { get; set; }
         public DbSet<UsersInRowEntity> UsersInRow { get; set; }
 
 
@@ -36,9 +38,7 @@ namespace Activities.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-                //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=Demo03;Trusted_Connection=True;");
-                //optionsBuilder.UseSqlServer("workstation id=ProyectoDeIntegracion.mssql.somee.com;packet size=4096;user id=erickudl_SQLLogin_1;pwd=575clhbt2z;data source=ProyectoDeIntegracion.mssql.somee.com;persist security info=False;initial catalog=ProyectoDeIntegracion");
+            {              
                 optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
             }
         }

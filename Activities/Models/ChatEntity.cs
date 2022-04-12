@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Activities.Models
 {
-    public class Chat
+    public class ChatEntity
     {
         [Key]
         public int Id { get; set; }
