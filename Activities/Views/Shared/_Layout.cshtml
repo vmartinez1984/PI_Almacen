@@ -98,12 +98,13 @@
                         </div>
                     </div>
                 }
-                
+
         </nav>
     </header>
     <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
+            @await Html.PartialAsync("_Chat")
         </main>
     </div>
 
@@ -119,6 +120,56 @@
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $('document').ready(function(){
+            getListUsers();
+        });
+        function getListUsers(){
+            var url ;
+
+            url ="api/users";
+            fetch(url).then(
+                response => {
+                    if(response.ok){
+                        return response.json();
+                    }else{
+                        throw response;
+                    }
+                }
+            ).then(response => {
+                //console.log(response);
+                fillListUsers(response);
+            });
+        }
+
+        function fillListUsers(response){
+            let divList;
+            userIdSource = 1;
+
+            divList = document.getElementById("divListUusers");
+            response.forEach(element => {
+                var div;
+                var divStatus;
+                var divRow;
+
+                divRow = document.createElement("div");
+                div = document.createElement("div");
+                divStatus = document.createElement("div");
+                divRow.className = "row"
+                div.innerHTML = element.name;
+                div.className = "col-md-7"
+                divStatus.className = "col-md-5"
+                divStatus.innerHTML = "<p class='text-success' id='user_"+element.id+"'> en linea <button class='btn btn-success btn-sm' onclick='chatear("+userIdSource+","+element.id+");'>Chatear</button> </p>"
+                divRow.appendChild(div)
+                divRow.appendChild(divStatus)
+                divList.append(divRow);
+            });
+        }
+
+        function chatear(userIdSource, userIdDestiny){
+
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

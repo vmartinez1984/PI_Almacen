@@ -928,3 +928,8 @@ C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\ne
 C:\Users\vmartinez\Source\Repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\ref\Activities.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\Razor\Views\Activities\Rows.cshtml.g.cs
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\Razor\Views\Home\Game.cshtml.g.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Debug\net5.0\Razor\Views\Shared\_Chat.cshtml.g.cs
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
