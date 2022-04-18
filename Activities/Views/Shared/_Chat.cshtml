@@ -16,7 +16,9 @@
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lista de usuarios</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Usuario</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                    <span id="userNameDestiny">Usuario</span>
+                                </a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -25,23 +27,24 @@
                                 <div id="divListUusers"></div>
 
                             </div>
+
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="row">
                                     <div class="col">
                                         <br />
-                                        <div class="form-group">
-                                            <textarea class="form-control" id="textAreaChat" rows="7" disabled></textarea>
+                                        <div class="card">
+                                        <div id="divConversation" class="card-body" style="max-height:500px; overflow-y: auto">                                    </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mt-1">
                                     <div class="col-md-8">
-                                        <input type="text" maxlength="250" class="form-control" />
+                                        <input type="text" maxlength="250" class="form-control" id="message" onkeyup="onkeyup_detectEnter(event);"/>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="hidden" id="userIdSource"/>
-                                        <input type="hidden" id="userIdDestiny"/>
-                                        <button class="btn btn-primary btn-block" onclick="sendMessage();">Enviar</button>
+                                        <input type="hidden" id="userIdSource" />
+                                        <input type="hidden" id="userIdDestiny" />
+                                        <button class="btn btn-primary btn-block" onclick="onclick_sendMessage();">Enviar</button>
                                     </div>
                                 </div>
                             </div>

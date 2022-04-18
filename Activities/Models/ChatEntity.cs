@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Activities.Models
 {
@@ -9,7 +10,9 @@ namespace Activities.Models
         public int Id { get; set; }
 
         [Required]
+        [ForeignKey(nameof(UserEntity))]
         public int UserIdSource { get; set; }
+        [NotMapped]
         public virtual UserEntity UserSource { get; set; }
 
         [Required]
@@ -17,10 +20,12 @@ namespace Activities.Models
         public string Message { get; set; }
 
         [Required]
+        [ForeignKey(nameof(UserEntity))]
         public int UserIdDestiny { get; set; }
+        [NotMapped]
         public virtual UserEntity UserDestiny { get; set; }
 
         [Required]
-        public DateTime DateRegistration { get; set; } = DateTime.MinValue;
+        public DateTime DateRegistration { get; set; } = DateTime.Now;
     }
 }

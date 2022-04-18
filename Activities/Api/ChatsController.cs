@@ -1,4 +1,5 @@
-﻿using Activities.Models;
+﻿using Activities.Helpers;
+using Activities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +24,12 @@ namespace Activities.Api
         [Route("/Api/Users")]
         public async Task<IActionResult> GetUsers()
         {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+            int userId;
 
-            var list = await _context.User.Include(x => x.Role).Where(x => x.IsActive)
+            userId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
+            var list = await _context.User.Include(x => x.Role).Where(x => x.IsActive && x.Id != userId)
                 .Select(x => new
                 {
                     id = x.Id,
@@ -38,9 +43,78 @@ namespace Activities.Api
 
         [HttpGet]
         [Route("/Api/Chat/{userIdSource}/{userIdDestiny}")]
-        public async Task<IActionResult> GetChat(int userIdSource,int userIdDestiny)
+        public async Task<IActionResult> GetChat(int userIdSource, int userIdDestiny)
         {
-            return Ok();
+            var listChat = await _context.Chat
+                .Where(x =>
+                    (x.UserIdSource == userIdSource && x.UserIdDestiny == userIdDestiny)
+                    ||
+                    (x.UserIdSource == userIdDestiny && x.UserIdDestiny == userIdSource)
+                )
+                .OrderByDescending(x => x.Id)
+                .Take(100)
+                .ToListAsync();
+
+            listChat.ForEach(item =>
+            {
+                item.UserSource = _context.User.Where(x => x.Id == item.UserIdSource).FirstOrDefault();
+            });
+            var list = listChat.Select(x => new
+            {
+                Id = x.Id,
+                UserIdSource = x.UserIdSource,
+                UserNameSource = x.UserSource.Name,
+                Message = x.Message,
+                Date = x.DateRegistration.ToShortTimeString()
+            });
+
+
+            return Ok(list);
+        }
+
+        [HttpGet]
+        [Route("/Api/Chat/{chatId}/IsLast")]
+        public async Task<IActionResult> IsLastChatId(int chatId)
+        {
+            var chat = await _context.Chat.Where(x => x.Id == chatId).FirstOrDefaultAsync();
+            var lastChat = await _context.Chat
+                 .Where(x =>
+                    (x.UserIdSource == chat.UserIdSource && x.UserIdDestiny == chat.UserIdDestiny)
+                    ||
+                    (x.UserIdSource == chat.UserIdDestiny && x.UserIdDestiny == chat.UserIdSource)
+                )
+                .OrderByDescending(x => x.Id)
+                .FirstOrDefaultAsync();
+
+            if (chatId == lastChat.Id)
+                return Ok(new { IsLast = true });
+            else
+            {
+                if (chatId < lastChat.Id)
+                    return Ok(new { IsLast = false });
+                else
+                    return Ok(new { IsLast = true });
+            }
+        }
+
+        [HttpGet]
+        [Route("/Api/Chat/Messages/{userIdSource}")]
+        public async Task<IActionResult> GetMessage(int userIdSource)
+        {
+            var list = await _context.Chat.Where(x => x.UserIdDestiny == userIdSource)
+                .ToListAsync();
+
+            return Ok(list);
+        }
+
+        [HttpPost]
+        [Route("/Api/Chat/")]
+        public async Task<IActionResult> SendMessage(ChatEntity chat)
+        {
+            _context.Chat.Add(chat);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Id = chat.Id });
         }
     }
 }
