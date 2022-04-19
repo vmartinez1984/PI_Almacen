@@ -10,6 +10,8 @@ C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\Protocolo de atención_Acoso escolar.pdf
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\Files\The-X-Files.jpg
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\images\PortadaActividades.jpg
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\js\chart.js
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\js\chat.js
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\js\site.js
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\js\stats.js
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -79,6 +81,7 @@ C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -88,6 +91,9 @@ C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\System.Composition.Convention.dll
 C:\Users\vmartinez\source\repos\vmartinez1984\PI_Almacen\Activities\obj\Release\net5.0\PubTmp\Out\System.Composition.Hosting.dll

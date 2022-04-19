@@ -8,35 +8,35 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAI58EMV+GekK2MxXhUj8anwAAAAACAAAAAAADZgAAwAAAABAAAABwUykAbFdU4gx6K44DL3uvAAAAAASAAACgAAAAEAAAAAgB0w00BYKMW8kadH8joJIYAAAAlD38EEylUeqJHZmGfirOzSdY+VrHtb/ZFAAAAN1iQLzn9gASpobrBKIzNR8kZtfO</EncryptedPassword>
     <_PublishTargetUrl>ftp://155.254.244.27/www.ProyectoDeIntegracion.somee.com</_PublishTargetUrl>
-    <History>False|2022-02-24T03:02:54.0838192Z;False|2022-02-23T20:57:28.5821681-06:00;True|2022-02-22T09:53:48.1003901-06:00;False|2022-02-22T03:06:18.4123227-06:00;True|2022-02-19T12:26:03.3209498-06:00;True|2022-02-19T12:13:03.8958781-06:00;True|2022-02-19T11:54:15.9624305-06:00;True|2022-02-19T11:37:56.3322678-06:00;True|2022-02-19T10:46:50.2579170-06:00;True|2022-02-16T19:40:18.7036390-06:00;True|2022-02-16T18:24:51.1282242-06:00;True|2022-02-16T09:42:54.2964133-06:00;False|2022-02-16T09:36:18.8909613-06:00;True|2022-02-15T10:01:42.6357446-06:00;True|2022-02-11T23:17:59.2655012-06:00;False|2022-02-11T23:10:12.3460643-06:00;True|2022-02-11T23:07:04.7506298-06:00;</History>
+    <History>True|2022-04-19T17:05:19.1935514Z;True|2022-04-19T10:45:17.0275205-05:00;False|2022-02-23T21:02:54.0838192-06:00;False|2022-02-23T20:57:28.5821681-06:00;True|2022-02-22T09:53:48.1003901-06:00;False|2022-02-22T03:06:18.4123227-06:00;True|2022-02-19T12:26:03.3209498-06:00;True|2022-02-19T12:13:03.8958781-06:00;True|2022-02-19T11:54:15.9624305-06:00;True|2022-02-19T11:37:56.3322678-06:00;True|2022-02-19T10:46:50.2579170-06:00;True|2022-02-16T19:40:18.7036390-06:00;True|2022-02-16T18:24:51.1282242-06:00;True|2022-02-16T09:42:54.2964133-06:00;False|2022-02-16T09:36:18.8909613-06:00;True|2022-02-15T10:01:42.6357446-06:00;True|2022-02-11T23:17:59.2655012-06:00;False|2022-02-11T23:10:12.3460643-06:00;True|2022-02-11T23:07:04.7506298-06:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Activities.deps.json">
-      <publishTime>02/23/2022 21:04:26</publishTime>
+      <publishTime>04/19/2022 12:00:35</publishTime>
     </File>
     <File Include="Activities.dll">
-      <publishTime>02/23/2022 21:04:09</publishTime>
+      <publishTime>04/19/2022 11:59:58</publishTime>
     </File>
     <File Include="Activities.exe">
-      <publishTime>02/23/2022 21:04:09</publishTime>
+      <publishTime>04/19/2022 11:59:58</publishTime>
     </File>
     <File Include="Activities.pdb">
-      <publishTime>02/23/2022 21:04:09</publishTime>
+      <publishTime>04/19/2022 11:59:58</publishTime>
     </File>
     <File Include="Activities.runtimeconfig.json">
-      <publishTime>02/23/2022 20:55:11</publishTime>
+      <publishTime>04/18/2022 17:39:45</publishTime>
     </File>
     <File Include="Activities.Views.dll">
-      <publishTime>02/23/2022 21:04:10</publishTime>
+      <publishTime>04/19/2022 12:00:01</publishTime>
     </File>
     <File Include="Activities.Views.pdb">
-      <publishTime>02/23/2022 21:04:10</publishTime>
+      <publishTime>04/19/2022 12:00:01</publishTime>
     </File>
     <File Include="appsettings.Development.json">
       <publishTime>02/23/2022 08:10:15</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>02/23/2022 08:10:15</publishTime>
+      <publishTime>04/19/2022 09:00:47</publishTime>
     </File>
     <File Include="cs/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/12/2020 00:15:14</publishTime>
@@ -209,6 +209,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Microsoft.IdentityModel.Tokens.dll">
       <publishTime>10/18/2019 23:43:40</publishTime>
     </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/29/2020 15:14:12</publishTime>
+    </File>
     <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
       <publishTime>02/09/2021 01:32:08</publishTime>
     </File>
@@ -228,10 +231,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/09/2021 01:32:12</publishTime>
     </File>
     <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
-      <publishTime>08/02/2021 19:32:18</publishTime>
+      <publishTime>02/09/2021 01:32:18</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>03/24/2018 17:44:14</publishTime>
     </File>
     <File Include="pl/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/12/2020 00:15:14</publishTime>
@@ -311,6 +314,15 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
       <publishTime>11/15/2019 08:53:46</publishTime>
     </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>03/07/2022 17:38:48</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>03/07/2022 17:39:06</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>03/07/2022 17:39:14</publishTime>
+    </File>
     <File Include="System.Composition.AttributedModel.dll">
       <publishTime>11/05/2016 04:55:42</publishTime>
     </File>
@@ -348,34 +360,58 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/12/2020 00:20:06</publishTime>
     </File>
     <File Include="tr/Microsoft.CodeAnalysis.resources.dll">
-      <publishTime>11/11/2020 18:14:42</publishTime>
+      <publishTime>11/12/2020 00:14:42</publishTime>
     </File>
     <File Include="tr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
       <publishTime>11/12/2020 00:16:28</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/23/2022 21:04:27</publishTime>
+      <publishTime>04/19/2022 12:00:36</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
+    <File Include="wwwroot/css/tetris.css">
+      <publishTime>04/04/2022 11:10:41</publishTime>
+    </File>
     <File Include="wwwroot/favicon.ico">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/Files/Comprobante Domicilio.pdf">
       <publishTime>02/23/2022 19:30:36</publishTime>
     </File>
     <File Include="wwwroot/Files/DATOS GENERALES ARRENDATARIO.pdf">
-      <publishTime>02/23/2022 18:52:27</publishTime>
+      <publishTime>02/24/2022 22:54:50</publishTime>
+    </File>
+    <File Include="wwwroot/Files/kit_1 %281%29.pdf">
+      <publishTime>03/03/2022 10:06:49</publishTime>
+    </File>
+    <File Include="wwwroot/Files/kit_1 %282%29.pdf">
+      <publishTime>03/05/2022 09:39:37</publishTime>
     </File>
     <File Include="wwwroot/Files/Producto07.pdf">
       <publishTime>02/23/2022 19:29:13</publishTime>
     </File>
+    <File Include="wwwroot/Files/Protocolo de atención_Acoso escolar.pdf">
+      <publishTime>03/05/2022 09:39:12</publishTime>
+    </File>
     <File Include="wwwroot/Files/The-X-Files.jpg">
       <publishTime>02/23/2022 19:33:00</publishTime>
     </File>
+    <File Include="wwwroot/images/PortadaActividades.jpg">
+      <publishTime>04/04/2022 18:24:00</publishTime>
+    </File>
+    <File Include="wwwroot/js/chart.js">
+      <publishTime>04/19/2022 09:04:18</publishTime>
+    </File>
+    <File Include="wwwroot/js/chat.js">
+      <publishTime>04/19/2022 11:40:26</publishTime>
+    </File>
     <File Include="wwwroot/js/site.js">
       <publishTime>02/23/2022 08:10:17</publishTime>
+    </File>
+    <File Include="wwwroot/js/stats.js">
+      <publishTime>04/04/2022 10:44:05</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
       <publishTime>02/23/2022 08:10:17</publishTime>
@@ -423,70 +459,70 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap_.min.css.map">
-      <publishTime>10/02/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/LICENSE">
       <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/dist/jquery.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery/LICENSE.txt">
-      <publishTime>02/10/2022 09:06:05</publishTime>
+      <publishTime>02/23/2022 08:10:17</publishTime>
     </File>
     <File Include="wwwroot/vendor/fontawesome-free/attribution.js">
       <publishTime>04/28/2021 20:21:05</publishTime>

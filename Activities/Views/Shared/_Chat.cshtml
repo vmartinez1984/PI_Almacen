@@ -1,7 +1,7 @@
 ﻿
 <div class="fixed-bottom mb-4">
     <div class="row">
-        <div class="col-md-4 offset-8">
+        <div class="col-md-5 offset-md-7 col-xl-6 offset-sm-6">
             <div class="card">
                 <div class="card-header">
                     <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -23,9 +23,11 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <br />
-                                <div id="divListUusers"></div>
-
+                                <div class="card">
+                                <div class="card-body">
+                                    <div id="divListUusers"></div>
+                                </div>
+                                </div>
                             </div>
 
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -33,13 +35,13 @@
                                     <div class="col">
                                         <br />
                                         <div class="card">
-                                        <div id="divConversation" class="card-body" style="max-height:500px; overflow-y: auto">                                    </div>
+                                            <div id="divConversation" class="card-body" style="max-height:350px; overflow-y: auto"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mt-1">
                                     <div class="col-md-8">
-                                        <input type="text" maxlength="250" class="form-control" id="message" onkeyup="onkeyup_detectEnter(event);"/>
+                                        <input type="text" maxlength="250" class="form-control" id="message" onkeyup="onkeyup_detectEnter(event);" />
                                     </div>
                                     <div class="col-md-4">
                                         <input type="hidden" id="userIdSource" />
