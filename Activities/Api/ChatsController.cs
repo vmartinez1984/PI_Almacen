@@ -1,4 +1,5 @@
-﻿using Activities.Helpers;
+﻿using Activities.Dtos;
+using Activities.Helpers;
 using Activities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,49 @@ namespace Activities.Api
                 .ToListAsync();
 
             return Ok(list);
+        }
+
+        [HttpGet]
+        [Route("/Api/Users/Online")]
+        public async Task<IActionResult> GetUsersOnline()
+        {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+            int userId;
+
+            userId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
+            var list = await _context.UserOnline.Include(x => x.User)
+                .Where(x => x.Id != userId)
+                .Select(x => new
+                {
+                    userId = x.UserId,
+                    name = x.User.Name,
+                    lastName = x.User.LastName,
+                    online = x.IsActive
+                })
+                .ToListAsync();
+
+            return Ok(list);
+        }
+
+        [HttpPost]
+        [Route("/Api/Users/Online")]
+        public async Task<IActionResult> SetUserOnline(UserOnLine userOnLine)
+        {
+            if (HttpContext.Session.GetInt32(SessionUser.Id) is null)
+                return RedirectToAction("Index", "Login");
+            int userId;
+            UserOnlineEntity userOnlineEntity;
+
+            userId = (int)HttpContext.Session.GetInt32(SessionUser.Id);
+            userOnlineEntity = await _context.UserOnline.Where(x => x.UserId == userOnLine.UserId).FirstOrDefaultAsync();
+            if (userOnlineEntity != null)
+            {
+                userOnlineEntity.IsActive = true;
+                await _context.SaveChangesAsync();
+            };
+
+            return Ok(new { online = true });
         }
 
         [HttpGet]

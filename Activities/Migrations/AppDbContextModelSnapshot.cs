@@ -87,21 +87,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 301, DateTimeKind.Local).AddTicks(4129),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 542, DateTimeKind.Local).AddTicks(5342),
                             IsActive = true,
                             Name = "Por hacer"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 304, DateTimeKind.Local).AddTicks(3302),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 546, DateTimeKind.Local).AddTicks(5321),
                             IsActive = true,
                             Name = "Haciendo"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 304, DateTimeKind.Local).AddTicks(3428),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 546, DateTimeKind.Local).AddTicks(5386),
                             IsActive = true,
                             Name = "Hecho"
                         });
@@ -237,21 +237,21 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(6216),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 548, DateTimeKind.Local).AddTicks(1238),
                             IsActive = true,
                             Name = "Lider de equipo"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(6231),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 548, DateTimeKind.Local).AddTicks(1260),
                             IsActive = true,
                             Name = "Colaborador"
                         },
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(6235),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 548, DateTimeKind.Local).AddTicks(1264),
                             IsActive = true,
                             Name = "Administrador"
                         });
@@ -336,28 +336,28 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(5166),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 547, DateTimeKind.Local).AddTicks(9928),
                             IsActive = true,
                             Name = "Listo"
                         },
                         new
                         {
                             Id = 2,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(5203),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 547, DateTimeKind.Local).AddTicks(9983),
                             IsActive = true,
                             Name = "En proceso"
                         },
                         new
                         {
                             Id = 3,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(5207),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 547, DateTimeKind.Local).AddTicks(9991),
                             IsActive = true,
                             Name = "Estancado"
                         },
                         new
                         {
                             Id = 4,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(5210),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 547, DateTimeKind.Local).AddTicks(9998),
                             IsActive = true,
                             Name = "Por hacer"
                         });
@@ -418,7 +418,7 @@ namespace Activities.Migrations
                         new
                         {
                             Id = 1,
-                            DateRegistration = new DateTime(2022, 4, 12, 12, 10, 36, 305, DateTimeKind.Local).AddTicks(8248),
+                            DateRegistration = new DateTime(2022, 4, 26, 17, 12, 54, 548, DateTimeKind.Local).AddTicks(3899),
                             Email = "",
                             IsActive = true,
                             LastName = "",

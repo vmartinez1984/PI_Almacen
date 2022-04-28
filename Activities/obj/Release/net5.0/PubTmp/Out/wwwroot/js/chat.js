@@ -1,14 +1,25 @@
 ﻿let conversationInterval;
+let userOnlineInterval;
+let usersOnlineInterval;
 var lastChatId = 1;
 var isBussy = false;
 
 $('document').ready(function () {
     getListUsers();
+    repeatSetUserOnLineEveryXTime();
 });
 
 function repeatEveryXSeconds() {
     console.log("inicio")
     conversationInterval = setInterval(isLastChatId, 2000);
+}
+
+function repeatGetUserOnLineEveryXTime() {
+    usersOnlineInterval = setInterval(getUsersOnline, 5000)
+}
+
+function repeatSetUserOnLineEveryXTime() {
+    userOnlineInterval = setInterval(setUserOnline, 2000)
 }
 
 function getListUsers() {
@@ -26,11 +37,12 @@ function getListUsers() {
     ).then(response => {
         //console.log(response);
         fillListUsers(response);
+        repeatGetUserOnLineEveryXTime();
     });
 }
 
 function fillListUsers(response) {
-    let divList;    
+    let divList;
 
     divList = document.getElementById("divListUusers");
     response.forEach(element => {
@@ -41,16 +53,28 @@ function fillListUsers(response) {
         divRow = document.createElement("div");
         div = document.createElement("div");
         divStatus = document.createElement("div");
+
         divRow.className = "row"
         div.innerHTML = element.name;
-        div.className = "col-md-7"
-        divStatus.className = "col-md-5"
-        divStatus.innerHTML = "<p class='text-success' id='user_" + element.id + "'> <button class='btn btn-success btn-sm' onclick='onclick_chatear(" + userIdSource + "," + element.id + "," + '"' + element.name + '"' + ");'>Chatear</button> </p>"
+        div.className = "col-md-5"
+        divStatus.className = "col-md-7"
+        divStatus.innerHTML = "<p class='text-success' id='user_" + element.id + "'><span id='spanOnLine_" + element.id + "'></span> <button class='btn btn-success btn-sm' onclick='onclick_chatear(" + userIdSource + "," + element.id + "," + '"' + element.name + '"' + ");'>Chatear</button> </p>"
         divRow.appendChild(div)
         divRow.appendChild(divStatus)
+        setInputHidden(divRow, element.id);
         divList.append(divRow);
         //console.log(element)
     });
+}
+
+function setInputHidden(divRow, userId) {
+    var inputHidden;
+
+    inputHidden = document.createElement("input");
+    inputHidden.type = "hidden";
+    inputHidden.value = userId;
+    inputHidden.name = "lastChatId_" + userId
+    divRow.appendChild(inputHidden);
 }
 
 function onclick_chatear(userIdSource, userIdDestiny, userNameDestiny) {
@@ -104,42 +128,40 @@ function getConversation() {
     userIdSource = document.getElementById("userIdSource").value
     userIdDestiny = document.getElementById("userIdDestiny").value
     url = "/Api/Chat/" + userIdSource + "/" + userIdDestiny
-    if (isBussy == false) {
-        isBussy = true
-        fetch(url)
-            .then(response => {
-                if (response.ok)
-                    return response.json();
+
+    fetch(url)
+        .then(response => {
+            if (response.ok)
+                return response.json();
+            else
+                throw response;
+        })
+        .then(result => {
+            isBussy = true
+            //console.log(result);
+            var conversation
+
+            conversation = document.getElementById("divConversation");
+            conversation.innerHTML = '';
+            result.forEach(item => {
+                var p
+                var blockquote;
+
+                p = document.createElement("p");
+                if (item.userIdSource == userIdSource)
+                    p.className = "text-left"
                 else
-                    throw response;
-            })
-            .then(result => {
-                isBussy = true
-                //console.log(result);
-                var conversation
-
-                conversation = document.getElementById("divConversation");
-                conversation.innerHTML = '';
-                result.forEach(item => {
-                    var p
-                    var blockquote;
-
-                    p = document.createElement("p");
-                    if (item.userIdSource == userIdSource)
-                        p.className = "text-left"
-                    else
-                        p.className = "text-right"
-                    p.innerHTML = item.message + "<footer class='blockquote-footer'>" + item.userNameSource + "</footer>";
-                    blockquote = document.createElement("blockquote")
-                    //blockquote.className = "blockquote"
-                    blockquote.append(p)
-                    conversation.append(blockquote)
-                    setLastChatId(item.id)
-                });
-                isBussy = false
-            })
-            .catch(error => { console.log(error); isBussy = false; });
-    }
+                    p.className = "text-right"
+                p.innerHTML = item.message + "<footer class='blockquote-footer'>" + item.userNameSource + "</footer>";
+                blockquote = document.createElement("blockquote")
+                //blockquote.className = "blockquote"
+                blockquote.append(p)
+                conversation.append(blockquote)
+                setLastChatId(item.id)
+            });
+            isBussy = false
+        })
+        .catch(error => { console.log(error); isBussy = false; });
 }
 
 function setLastChatId(lastId) {
@@ -185,4 +207,70 @@ function onkeyup_detectEnter(event) {
     if (keycode == '13') {
         onclick_sendMessage();
     }
+}
+
+function getUsersOnline() {
+    var url;
+
+    url = "/api/users/online";
+    fetch(url)
+        .then(
+            response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            }
+        )
+        .then(response => {
+            //console.log(response);
+            response.forEach(item => {
+                var span;
+
+                span = document.getElementById("spanOnLine_" + item.userId)
+                if (item.online == true) {
+                    span.className = "text-success";
+                    span.innerHTML = "online"
+                } else {
+                    span.className = "text-danger";
+                    span.innerHTML = "offline"
+                }
+            });
+        })
+        .catch((error) => { console.log(error); });
+}
+
+function setUserOnline() {
+    var url;
+    var myHeaders = new Headers();
+    myHeaders.append("accept", "*/*");
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+        "userId": userIdSource,
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    url = "/api/users/online";
+    fetch(url, requestOptions)
+        .then(
+            response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            }
+        )
+        .then(response => {
+            //console.log(response);            
+        })
+        .catch((error) => { console.log(error); });
 }
