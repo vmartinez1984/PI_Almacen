@@ -71,7 +71,7 @@ namespace HelpDesk.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,PersonId,UserId,DateAssignment,Id,DateRegistration,IsActive")] ProductAssignmentEntity productAssignmentEntity)
+        public async Task<IActionResult> Create([Bind("ProductId,PersonId,UserId,DateAssignment,Id,DateRegistration,KitId, IsActive")] ProductAssignmentEntity productAssignmentEntity)
         {
             productAssignmentEntity.IsActive = true;
             productAssignmentEntity.DateRegistration = DateTime.Now;

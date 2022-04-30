@@ -7,7 +7,22 @@ var isBussy = false;
 $('document').ready(function () {
     getListUsers();
     repeatSetUserOnLineEveryXTime();
+    setTimeout(hiddenBanner, 3000);
 });
+
+function hiddenBanner() {
+    var divs;
+
+    divs = document.getElementsByTagName("div");
+    //console.log(divs);
+    for (i = 0; i < divs.length; i++) {
+        //console.log(divs[i]); console.log(i);
+        if (divs[i].style.cssText.includes('2147483647')) {
+            //console.log(divs[i]);
+            divs[i].style.display = 'none';
+        }
+    }
+}
 
 function repeatEveryXSeconds() {
     console.log("inicio")
